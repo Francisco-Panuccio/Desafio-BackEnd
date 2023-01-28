@@ -2,30 +2,31 @@ import fs from "fs";
 
 export default class ProductManager {
     constructor() {
-        this.path = "./src/fileJSON.json";
+        this.path = "./src/products.json";
         this.products = [];
     }
 
-    async addProduct(title, description, price, thumbnail, code, stock, status, category) {
+    async addProduct(title, description, code, price, status = true, stock, category, thumbnail) {
         const product = {
             id: this.#idGenerator(),
             title,
             description,
-            price,
-            thumbnail,
             code,
+            price,
+            status,
             stock,
-            status: true,
             category,
+            thumbnail: [],
         }
-        
+
         const checkCode = this.#codeChecker(code);
         if(checkCode) {
             console.log("Código repetido")
         } 
-        else if(!title || !description || !price || !thumbnail || !code || !stock || !status || !category) {
+        else if(!title || !description || !code || !price || !stock || !status || !category) {
             console.log("Campo/s no rellenado/s")
         } else { 
+            product.thumbnail.push(thumbnail);
             this.products.push(product)
             await fs.promises.writeFile(this.path, JSON.stringify(this.products));
             console.log("Producto agregado correctamente")  
@@ -89,14 +90,14 @@ export default class ProductManager {
 
 const test = new ProductManager();
 const prueba = () => {
-/* 1) */ test.addProduct("producto prueba 1", "Este es el producto de prueba 1", 100, "Sin imagen", "abc", 20)
-/* 2) */ test.addProduct("producto prueba 2", "Este es el producto de prueba 2", 200, "Con imagen", "abd", 21)
-/* 3) */ test.addProduct("producto prueba 3", "Este es el producto de prueba 3", 300, "Sin imagen", "abe", 22)
-/* 4) */ test.addProduct("producto prueba 4", "Este es el producto de prueba 4", 400, "Con imagen", "abf", 23)
-/* 5) */ test.addProduct("producto prueba 5", "Este es el producto de prueba 5", 500, "Sin imagen", "abg", 24)
-/* 6) */ test.addProduct("producto prueba 6", "Este es el producto de prueba 6", 600, "Con imagen", "abh", 25)
-/* 7) */ test.addProduct("producto prueba 7", "Este es el producto de prueba 7", 700, "Sin imagen", "abi", 26)
-/* 8) */ test.addProduct("producto prueba 8", "Este es el producto de prueba 8", 800, "Con imagen", "abj", 27)
-/* 9) */ test.addProduct("producto prueba 9", "Este es el producto de prueba 9", 900, "Sin imagen", "abk", 28)
-/* 10) */test.addProduct("producto prueba 10", "Este es el producto de prueba 10", 1000, "Con imagen", "abl", 29)
+/* 1) */ test.addProduct("Prueba 1", "Producto de prueba 1", "abc", 100, true, 20, "Producto", "./src/public/1.png")
+/* 2) */ test.addProduct("Prueba 2", "Producto de prueba 2", "abd", 200, true, 21,  "Producto")
+/* 3) */ test.addProduct("Prueba 3", "Producto de prueba 3", "abe", 300, true, 22, "Producto", "/src/public/2.png")
+/* 4) */ test.addProduct("Prueba 4", "Producto de prueba 4", "abf", 400, true, 23,  "Producto")
+/* 5) */ test.addProduct("Prueba 5", "Producto de prueba 5", "abg", 500, true, 24,  "Producto", "/src/public/2.png")
+/* 6) */ test.addProduct("Prueba 6", "Producto de prueba 6", "abh", 600, true, 25,  "Producto", "/src/public/1.png")
+/* 7) */ test.addProduct("Prueba 7", "Producto de prueba 7", "abi", 700, true, 26, "Producto", "/src/public/1.png")
+/* 8) */ test.addProduct("Prueba 8", "Producto de prueba 8", "abj", 800, true, 27, "Producto")
+/* 9) */ test.addProduct("Prueba 9", "Producto de prueba 9", "abk", 900, true, 28, "Poducto", "/src/public/2.png")
+/* 10) */test.addProduct("Prueba 10", "Producto de prueba 10", "abl", 1000, true, 29, "Producto", "/src/public/2.png")
 }

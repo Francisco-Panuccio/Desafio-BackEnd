@@ -1,8 +1,8 @@
 import { Router } from "express";
-import ProductManager from "./ProductManager.js";
+import ProductManager from "../ProductManager.js";
 
 const router = Router();
-const productManager = new ProductManager("./fileJSON.json");
+const productManager = new ProductManager("../products.json");
 
 router.get("/", async(req,res) => {
     const products = await productManager.getProducts();
@@ -26,12 +26,15 @@ router.get("/:pid", async(req,res) => {
 })
 
 router.post("/", async(req,res) => {
-
+    const prdc = req.body;
+    const generatePrdc = await addProduct(prdc);
+    res.json({message:"Producto agregado correctamente", generatePrdc});
 })
 
 router.put("/:pid", async(req,res) => {
     const {pid} = req.params;
-    const updatePrdc = await productManager.updateProduct(parseInt(pid));
+    const value = req.body;
+    const updatePrdc = await productManager.updateProduct(parseInt(pid), value);
     if(pid) {
         res.json(updatePrdc);
     } else {
