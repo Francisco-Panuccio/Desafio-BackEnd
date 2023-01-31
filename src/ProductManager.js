@@ -29,6 +29,7 @@ export default class ProductManager {
             product.thumbnail.push(thumbnail);
             this.products.push(product)
             await fs.promises.writeFile(this.path, JSON.stringify(this.products)); 
+            console.log("Producto agregado correctamente")
         }
     }
 
@@ -38,7 +39,7 @@ export default class ProductManager {
             const savedInfo = JSON.parse(readInfo);
             return savedInfo;
         } else {
-            console.log("Archivo no encontrado")
+            console.log("Producto no encontrado")
             return this.products;
         }   
     }
@@ -58,6 +59,7 @@ export default class ProductManager {
             const indexId = savedPrdct.findIndex((element) => element.id === id)
             savedPrdct[indexId][field] = value;
             await fs.promises.writeFile(this.path, JSON.stringify(savedPrdct));
+            console.log("Producto actualizado correctamente")
         } else {console.log("Inserte un ID válido")}
     }
 
@@ -68,8 +70,9 @@ export default class ProductManager {
             const indexId = savedPrdct.findIndex((element) => element.id === id)
             savedPrdct.splice(indexId,1)
             await fs.promises.writeFile(this.path, JSON.stringify(savedPrdct));
+            console.log("Producto eliminado correctamente")
         } else {
-            console.log("Archivo no encontrado")
+            console.log("Producto no encontrado")
         }
     }
 

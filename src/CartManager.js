@@ -12,7 +12,8 @@ export default class CartManager {
             products: []
         }
         this.carts.push(cart)
-        await fs.promises.writeFile(this.path, JSON.stringify(this.carts));
+        await fs.promises.writeFile(this.path, JSON.stringify(this.carts))
+        console.log("Carrito agregado correctamente")
     }
 
     async getCarts() {
@@ -42,16 +43,13 @@ export default class CartManager {
             if(indexPrdc !== -1) {
                 indexCart.products[indexPrdc].quantity += 1
             } else {
-                let id = 1;
-                if(indexCart.products.length > 0) {
-                    id = indexCart.products[indexCart.products.length-1].product + 1;
-                }
                 indexCart.products.push({
-                    product: id,
+                    product: pid,
                     quantity: 1,
                 })
             }
             await fs.promises.writeFile(this.path, JSON.stringify(carts))
+            console.log("Producto de carrito agregado correctamente");
         } else {
             console.log("Carrito no encontrado")
         }
@@ -63,9 +61,4 @@ export default class CartManager {
             id = this.carts[this.carts.length-1].id + 1;
         } return id;
     }
-}
-
-const test = new CartManager();
-const prueba = () => {
-    test.addToCart(2,1)
 }
