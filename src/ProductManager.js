@@ -6,7 +6,7 @@ export default class ProductManager {
         this.products = [];
     }
 
-    async addProduct(title, description, code, price, status = true, stock, category, thumbnail) {
+    async addProduct({title, description, code, price, status = true, stock, category, thumbnail}) {
         const product = {
             id: this.#idGenerator(),
             title,
@@ -28,8 +28,7 @@ export default class ProductManager {
         } else { 
             product.thumbnail.push(thumbnail);
             this.products.push(product)
-            await fs.promises.writeFile(this.path, JSON.stringify(this.products));
-            console.log("Producto agregado correctamente")  
+            await fs.promises.writeFile(this.path, JSON.stringify(this.products)); 
         }
     }
 
@@ -59,7 +58,6 @@ export default class ProductManager {
             const indexId = savedPrdct.findIndex((element) => element.id === id)
             savedPrdct[indexId][field] = value;
             await fs.promises.writeFile(this.path, JSON.stringify(savedPrdct));
-            console.log("Archivo actualizado correctamente")
         } else {console.log("Inserte un ID válido")}
     }
 
@@ -68,7 +66,6 @@ export default class ProductManager {
         if(prdcToDelete) {
             const savedPrdct = await this.getProducts();
             const indexId = savedPrdct.findIndex((element) => element.id === id)
-            console.log(`El archivo se ha eliminado correctamente`)
             savedPrdct.splice(indexId,1)
             await fs.promises.writeFile(this.path, JSON.stringify(savedPrdct));
         } else {

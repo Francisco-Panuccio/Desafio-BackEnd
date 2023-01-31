@@ -28,15 +28,18 @@ router.get("/:pid", async(req,res) => {
 router.post("/", async(req,res) => {
     const prdc = req.body;
     const generatePrdc = await productManager.addProduct(prdc);
-    res.json({message:"Producto agregado correctamente", generatePrdc});
+    if(generatePrdc) {
+        res.json({message:"Producto agregado correctamente", generatePrdc});
+    } else {res.json({message:"Error"})}
 })
 
 router.put("/:pid", async(req,res) => {
     const {pid} = req.params;
-    const value = req.body;
-    const updatePrdc = await productManager.updateProduct(parseInt(pid), value);
+    const {field, value} = req.body;
+    const updatePrdc = await productManager.updateProduct(parseInt(pid), field, value);
     if(pid) {
         res.json(updatePrdc);
+        res.json({message:"Archivo actualizado correctamente"});
     } else {
         res.json({message:"ID de producto no encontrado"});
     }
@@ -47,6 +50,7 @@ router.delete("/:pid", async(req,res) => {
     const deletePrdc = await productManager.deleteProduct(parseInt(pid));
     if(pid) {
         res.json(deletePrdc);
+        res.json(`El archivo se ha eliminado correctamente`);
     } else {
         res.json({message:"ID de producto no encontrado"});
     }

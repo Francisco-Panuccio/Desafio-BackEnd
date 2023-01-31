@@ -13,7 +13,6 @@ export default class CartManager {
         }
         this.carts.push(cart)
         await fs.promises.writeFile(this.path, JSON.stringify(this.carts));
-        console.log("Carrito agregado correctamente")  
     }
 
     async getCarts() {
@@ -53,7 +52,6 @@ export default class CartManager {
                 })
             }
             await fs.promises.writeFile(this.path, JSON.stringify(carts))
-            console.log("Producto agregado correctamente")
         } else {
             console.log("Carrito no encontrado")
         }
