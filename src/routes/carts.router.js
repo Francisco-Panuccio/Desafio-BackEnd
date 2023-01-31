@@ -1,4 +1,5 @@
 import { Router } from "express";
+import CartManager from "../CartManager.js";
 
 const router = Router();
 const cartManager = new CartManager("../carts.json");
@@ -20,9 +21,9 @@ router.get("/:cid", async(req,res) => {
 })
 
 router.post("/:cid/products/:pid", async(req,res) => {
-    const {cid} = req.params;
-    const cart = req.body;
-    
+    const {cid,pid} = req.params;
+    const response = await cartManager.addToCart(cid,pid);
+    res.json({message:"Producto de carrito no encontrado", response});
 })
 
 export default router;

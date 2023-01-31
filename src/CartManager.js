@@ -1,7 +1,4 @@
 import fs from "fs";
-import ProductManager from "../ProductManager.js";
-
-const productManager = new ProductManager("../products.json");
 
 export default class CartManager {
     constructor() {
@@ -9,19 +6,14 @@ export default class CartManager {
         this.carts = [];
     }
 
-    async addCart(products) {
+    async addCart() {
         const cart = {
             id: this.#idGenerator(),
-            products: [],
+            products: []
         }
-
-        if(!products) {
-            console.log("Campo no rellenado")
-        } else { 
-            this.carts.push(cart)
-            await fs.promises.writeFile(this.path, JSON.stringify(this.carts));
-            console.log("Carrito agregado correctamente")  
-        }
+        this.carts.push(cart)
+        await fs.promises.writeFile(this.path, JSON.stringify(this.carts));
+        console.log("Carrito agregado correctamente")  
     }
 
     async getCarts() {
@@ -43,24 +35,29 @@ export default class CartManager {
         } else (console.log("Id no encontrado"))
     }
 
-    async getProductsToCart(id, idp) {
-        const cartToUpdate = await this.getCartById(id);
-        if(cartToUpdate) {
-            const savedCart = await this.getCarts()
-            const indexId = savedCart.findIndex((element) => element.id === id)
-            const idPrdc = await productManager.getProductById(idp);
-            savedCart[indexId].products.push({
-                product: idPrdc,
-                quantity: 1,
-            });
-
-            /* NO SE EXACTAMENTE COMO AGREGAR +1 EN CANTIDAD AL REPETIR ID,
-            PQ ENTIENDO QUE ESO DEBERÍA HACERSE DESDE PRODUCTMANAGER */
-
-            await fs.promises.writeFile(this.path, JSON.stringify(savedCart))
+    async addToCart(cid, pid) {
+        const carts = await this.getCarts();
+        const indexCart = carts.find(elm => elm.id === cid);
+        if(indexCart) {
+            const indexPrdc = indexCart.products.findIndex((element) => element.product === pid)
+            if(indexPrdc !== -1) {
+                indexCart.products[indexPrdc].quantity += 1
+            } else {
+                let id = 1;
+                if(indexCart.products.length > 0) {
+                    id = indexCart.products[indexCart.products.length-1].product + 1;
+                }
+                indexCart.products.push({
+                    product: id,
+                    quantity: 1,
+                })
+            }
+            await fs.promises.writeFile(this.path, JSON.stringify(carts))
             console.log("Producto agregado correctamente")
-        } else {console.log("Inserte un ID válido")}
-    }
+        } else {
+            console.log("Carrito no encontrado")
+        }
+    }   
 
     #idGenerator() {
         let id = 1;
@@ -68,4 +65,9 @@ export default class CartManager {
             id = this.carts[this.carts.length-1].id + 1;
         } return id;
     }
+}
+
+const test = new CartManager();
+const prueba = () => {
+    test.addToCart(2,1)
 }

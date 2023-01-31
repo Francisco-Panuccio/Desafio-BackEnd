@@ -23,7 +23,7 @@ export default class ProductManager {
         if(checkCode) {
             console.log("Código repetido")
         } 
-        else if(!title || !description || !code || !price || !stock || !status || !category) {
+        else if(!title && !description && !code && !price && !status && !stock && !category) {
             console.log("Campo/s no rellenado/s")
         } else { 
             product.thumbnail.push(thumbnail);

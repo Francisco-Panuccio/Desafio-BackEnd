@@ -1,119 +1,19 @@
 [
     {
         "id": 1,
-        "title": "Prueba 1",
-        "description": "Producto de prueba 1",
-        "code": "abc",
-        "price": 100,
+        "title": {
+            "title": "\"Prueba 1\"",
+            "description": "\"Producto de prueba 1\"",
+            "code": "\"absc\"",
+            "price": "100",
+            "status": "true",
+            "stock": "20",
+            "category": "\"Producto\"",
+            "thumbnail": "\"./src/public/1.png\""
+        },
         "status": true,
-        "stock": 20,
-        "category": "Producto",
-        "thumbnail": [
-            "./src/public/1.png"
-        ]
-    },
-    {
-        "id": 2,
-        "title": "Prueba 2",
-        "description": "Producto de prueba 2",
-        "code": "abd",
-        "price": 200,
-        "status": true,
-        "stock": 21,
-        "category": "Producto",
         "thumbnail": [
             null
-        ]
-    },
-    {
-        "id": 4,
-        "title": "Prueba 4",
-        "description": "Producto de prueba 4",
-        "code": "abf",
-        "price": 400,
-        "status": true,
-        "stock": 23,
-        "category": "Producto",
-        "thumbnail": [
-            null
-        ]
-    },
-    {
-        "id": 5,
-        "title": "Prueba 5",
-        "description": "Producto de prueba 5",
-        "code": "abg",
-        "price": 500,
-        "status": true,
-        "stock": 24,
-        "category": "Producto",
-        "thumbnail": [
-            "/src/public/2.png"
-        ]
-    },
-    {
-        "id": 6,
-        "title": "Prueba 6",
-        "description": "Producto de prueba 6",
-        "code": "abh",
-        "price": 600,
-        "status": true,
-        "stock": 25,
-        "category": "Producto",
-        "thumbnail": [
-            "/src/public/1.png"
-        ]
-    },
-    {
-        "id": 7,
-        "title": "Prueba 7",
-        "description": "Producto de prueba 7",
-        "code": "abi",
-        "price": 700,
-        "status": true,
-        "stock": 26,
-        "category": "Producto",
-        "thumbnail": [
-            "/src/public/1.png"
-        ]
-    },
-    {
-        "id": 8,
-        "title": "Prueba 8",
-        "description": "Producto de prueba 8",
-        "code": "abj",
-        "price": 800,
-        "status": true,
-        "stock": 27,
-        "category": "Producto",
-        "thumbnail": [
-            null
-        ]
-    },
-    {
-        "id": 9,
-        "title": "Prueba 9",
-        "description": "Producto de prueba 9",
-        "code": "abk",
-        "price": 900,
-        "status": true,
-        "stock": 28,
-        "category": "Poducto",
-        "thumbnail": [
-            "/src/public/2.png"
-        ]
-    },
-    {
-        "id": 10,
-        "title": "Prueba 10",
-        "description": "Producto de prueba 10",
-        "code": "abl",
-        "price": 1000,
-        "status": true,
-        "stock": 29,
-        "category": "Producto",
-        "thumbnail": [
-            "/src/public/2.png"
         ]
     }
 ]
