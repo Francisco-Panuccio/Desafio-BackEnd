@@ -1,1 +1,54 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "Prueba",
+        "description": "Prueba1",
+        "code": "asd",
+        "price": 200,
+        "status": true,
+        "stock": 20,
+        "category": "Producto",
+        "thumbnail": [
+            "./png"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Prueba",
+        "description": "Prueba1",
+        "code": "asds",
+        "price": 200,
+        "status": true,
+        "stock": 20,
+        "category": "Producto",
+        "thumbnail": [
+            "./png"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Prueba",
+        "description": "Prueba1",
+        "code": "asdas",
+        "price": 200,
+        "status": true,
+        "stock": 20,
+        "category": "Producto",
+        "thumbnail": [
+            "./png"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Prueba",
+        "description": "Prueba1",
+        "code": "asdass",
+        "price": 200,
+        "status": true,
+        "stock": 20,
+        "category": "Producto",
+        "thumbnail": [
+            "./png"
+        ]
+    }
+]

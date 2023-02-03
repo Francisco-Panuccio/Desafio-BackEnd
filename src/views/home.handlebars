@@ -1,0 +1,11 @@
+<h3>Lista de todos los productos agregados hasta el momento:</h3>
+<div id="divList">
+    <ul>
+        {{#each prdList}}
+           {{!--  <li>{{this.name, this.description, this.code, this.price, this.status, this.stock, this.category, this.thumbnail}}</li> --}}
+        {{/each}}
+    </ul>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="../public/index.js"></script>
