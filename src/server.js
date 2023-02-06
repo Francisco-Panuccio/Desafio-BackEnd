@@ -7,31 +7,32 @@ import { Server } from "socket.io";
 import { __dirname } from "./utils.js";
 
 const app = express();
-const httpServer = app.listen(8080, () => console.log("Escuchando al puerto 8080"))
+const httpServer = app.listen(8080, () => console.log("Escuchando al puerto 8080"));
 const socketServer = new Server(httpServer);
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(express.static(__dirname+"/public"));
+app.use(express.static(__dirname + "/public"));
 app.use("/api/products", productsRouter);
 app.use("/api/carts", cartsRouter);
 app.use("/", viewsRouter);
 
 app.engine("handlebars", handlebars.engine());
 app.set("view engine", "handlebars");
-app.set("views", __dirname+"/views");
+app.set("views", __dirname + "/views");
 
 const arrayPrdct = [];
 
-socketServer.on("connection", socket => {
-    console.log(`Usuario Conectado: ${socket.id}`)
+socketServer.on("connection", (socket) => {
+    console.log(`Cliente Conectado: ${socket.id}`)
+    socketServer.emit("list", arrayPrdct)
 
     socket.on("disconnect", () => {
-        console.log("Usuario Desconectado")
+        console.log("Cliente Desconectado")
     })
 
     socket.on("object", newPrdc => {
         arrayPrdct.push(newPrdc)
-        socketServer("list2", arrayPrdct)
+        socketServer.emit("list2", arrayPrdct)
     })
-})
+});
