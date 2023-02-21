@@ -1,0 +1,16 @@
+<a href="http://localhost:8080"><button class="btn btn2">Home</button></a>
+
+<h4 id="username"></h4>
+
+<form id="formChat">
+    <input type="email" name="correo" id="mail" placeholder="Email" required><br>
+    <textarea type="text" name="mensaje" id="message" placeholder="Escriba su mensaje..." required></textarea><br>
+    <input type="submit" id="submitChat" value="Enviar">
+</form>
+
+<p id="chat"></p>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="chat.js"></script>

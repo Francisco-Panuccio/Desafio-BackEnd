@@ -1,8 +1,9 @@
 import { Router } from "express";
-import ProductManager from "../ProductManager.js";
+import ProductManager from "../dao/mongoManagers/ProductManager.js";
+/* import ProductManager from "../dao/fileManagers/ProductManager.js"; */
 
 const router = Router();
-const productManager = new ProductManager("../products.json");
+const productManager = new ProductManager("../");
 
 router.get("/", async(req,res) => {
     const products = await productManager.getProducts();
@@ -17,7 +18,7 @@ router.get("/", async(req,res) => {
 
 router.get("/:pid", async(req,res) => {
     const {pid} = req.params;
-    const idPrdct = await productManager.getProductById(parseInt(pid));
+    const idPrdct = await productManager.getProductById(pid);
     res.json(idPrdct);
 })
 
@@ -32,13 +33,13 @@ router.put("/:pid", async(req,res) => {
     const objValue = req.body;
     const field = Object.keys(objValue)
     const value = Object.values(objValue)
-    const updatePrdc = await productManager.updateProduct(parseInt(pid), ...field, ...value);
+    const updatePrdc = await productManager.updateProduct(pid, ...field, ...value);
     res.json(updatePrdc);
 })
 
 router.delete("/:pid", async(req,res) => {
     const {pid} = req.params;
-    const deletePrdc = await productManager.deleteProduct(parseInt(pid));
+    const deletePrdc = await productManager.deleteProduct(pid);
     res.json(deletePrdc);
 })
 

@@ -1,6 +1,8 @@
 import { Router } from "express";
-import CartManager from "../CartManager.js";
-import ProductManager from "../ProductManager.js"
+import CartManager from "../dao/mongoManagers/CartManager.js";
+import ProductManager from "../dao/mongoManagers/ProductManager.js"
+/* import CartManager from "../dao/fileManagers/CartManager.js";
+import ProductManager from "../dao/fileManagers/ProductManager.js" */
 
 const router = Router();
 const cartManager = new CartManager("../carts.json");
@@ -12,9 +14,14 @@ router.post("/", async(req,res) => {
     res.json(generateCart);
 })
 
+router.get("/", async(req,res) => {
+    const carts = await cartManager.getCarts();
+    res.json(carts)
+})
+
 router.get("/:cid", async(req,res) => {
     const {cid} = req.params;
-    const idCart = await cartManager.getCartById(parseInt(cid));
+    const idCart = await cartManager.getCartById(cid);
     if(!idCart) {
         res.json({message:"ID no encontrada"})
     } else {res.json(idCart)}
@@ -23,9 +30,9 @@ router.get("/:cid", async(req,res) => {
 router.post("/:cid/products/:pid", async(req,res) => {
     const {cid, pid} = req.params;
     const allIds = await productManager.getProducts()
-    const prdtId = allIds.find(elm => elm.id === parseInt(pid))
+    const prdtId = allIds.find(elm => elm.id === pid)
     if(prdtId) {
-        const response = await cartManager.addToCart(parseInt(cid), parseInt(pid));
+        const response = await cartManager.addToCart(cid, pid);
         res.json(response);
     } else {res.json({message:"Id no encontrada"})}
 })
