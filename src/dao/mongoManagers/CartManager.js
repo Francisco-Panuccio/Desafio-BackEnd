@@ -35,13 +35,13 @@ export default class CartManager {
             if(idCart) {
                 const idPrdc =  idCart.products.findIndex((element) => element.product === pid);
                 if(idPrdc !== -1) {
-/*                     const updQty = cartsModel.updateOne(
+                    const updQty = cartsModel.updateOne(
                         { _id: cid },
-                        { $inc: {"products": {quantity: 1}}}
+                        { $inc: {"products.0.quantity": 1}}
                     )
-                    return updQty; */
-                    /* CORREGIR PARA PODER ACTUALIZAR LA CANTIDAD */
+                    return updQty;
                 } else {
+
                     const pushPrdc = cartsModel.updateOne(
                         { _id: cid },
                         { $push: {"products":
