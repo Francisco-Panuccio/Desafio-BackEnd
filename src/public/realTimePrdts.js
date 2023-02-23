@@ -25,6 +25,25 @@ formSub.onsubmit = (e) => {
         thumbnail: thumbnailSub.value
     }
 
+    const config = {
+        method: "POST",
+        body: JSON.stringify(newPrdc),
+        headers: {
+            "Content-Type": "application/json;charset=UTF-8"
+        }
+    }
+
+    fetch("api/products", config)
+        .then(response => {
+            if(response.ok)
+                console.log(response.json())
+            else
+                throw new Error(response.status)
+        })
+        .catch(err => {
+            console.log("Error", err)
+        })
+
     socketClient.emit("object", newPrdc)
     formSub.reset();
 }

@@ -28,13 +28,32 @@ if(!user) {
 formChat.onsubmit = (e) => {
     e.preventDefault()
 
-    const info = {
+    let info = {
         name: mailChat.value,
         message: messageChat.value,
     }
 
+    const config = {
+      method: "POST",
+      body: JSON.stringify(info),
+      headers: {
+          "Content-Type": "application/json;charset=UTF-8"
+      }
+  }
+
+  fetch("/api/messages", config)
+      .then(response => {
+          if(response.ok)
+              console.log(response.json())
+          else
+              throw new Error(response.status)
+      })
+      .catch(err => {
+          console.log("Error", err)
+      })
+
     socketClient.emit("message", info)
-    messageChat.value = ""
+    formChat.reset();
 }
 
 socketClient.on("chat", infoMessage => {
@@ -44,7 +63,7 @@ socketClient.on("chat", infoMessage => {
     chatParagraph.innerHTML = chatRender;
 })
 
-socketClient.on("broadcast", user => {
+socketClient.on("active", user => {
     Toastify({
         text: `${user} ingresó al chat`,
         duration: 5000,

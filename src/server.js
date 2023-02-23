@@ -42,7 +42,7 @@ socketServer.on("connection", (socket) => {
     })
 
     socket.on("newUser", user => {
-        socket.broadcast.emit("broadcast", user)
+        socket.emit("active", user)
     })
 
     socket.on("message", info => {
