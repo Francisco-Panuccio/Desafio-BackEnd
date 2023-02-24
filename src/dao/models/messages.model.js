@@ -2,13 +2,10 @@ import mongoose from "mongoose";
 
 const messagesSchema = new mongoose.Schema({
     name: {
-        type: String,
-        required: true,
-        unique: true
+        type: String
     },
     message: {
-        type: String,
-        required: true
+        type: String
     }
 })
 
