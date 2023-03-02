@@ -1,19 +1,29 @@
 import { Router } from "express";
+import { productsModel } from "../dao/models/products.model.js";
 import ProductManager from "../dao/mongoManagers/ProductManager.js";
-/* import ProductManager from "../dao/fileManagers/ProductManager.js"; */
 
 const router = Router();
 const productManager = new ProductManager("../");
 
 router.get("/", async(req,res) => {
-    const products = await productManager.getProducts();
-    const {limit} = req.query;
-    const limitedPrdcs = products.slice(0,limit);
-    if(limit) {
-        res.json({products:limitedPrdcs})
-    } else {
-        res.json(products);
-    }
+    const {limit=10, page=1, sort, query} = req.query
+    const products = await productsModel.paginate({query}, {limit, page, sort})
+    /* SORT CORREGIR */
+    const status = products.docs ? "success" : "error";
+    const prevLink = products.hasPrevPage ? `http://localhost:8080/api/products?page=${products.prevPage}` : null;
+    const nextLink = products.hasNextPage ? `http://localhost:8080/api/products?page=${products.nextPage}` : null;
+    res.json({results:{
+        status,
+        payload: products.docs,
+        totalPages: products.totalPages,
+        prevPage: products.prevPage,
+        nextPage: products.nextPage,
+        page: products.page,
+        hasPrevPage: products.hasPrevPage,
+        hasNextPage: products.hasNextPage,
+        prevLink,
+        nextLink
+    }});
 })
 
 router.get("/:pid", async(req,res) => {

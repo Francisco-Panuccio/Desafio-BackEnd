@@ -8,6 +8,12 @@ router.get("/", (req, res) => {
     })
 })
 
+router.get("/products", (req, res) => {
+    res.render("products", {
+        style: "index.css"
+    })
+})
+
 router.get("/realTimeProducts", (req, res) => {
     res.render("realTimeProducts", {
         style: "index.css"

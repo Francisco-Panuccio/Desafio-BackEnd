@@ -1,8 +1,6 @@
 import { Router } from "express";
 import CartManager from "../dao/mongoManagers/CartManager.js";
 import ProductManager from "../dao/mongoManagers/ProductManager.js"
-/* import CartManager from "../dao/fileManagers/CartManager.js";
-import ProductManager from "../dao/fileManagers/ProductManager.js" */
 
 const router = Router();
 const cartManager = new CartManager("../carts.json");
@@ -35,6 +33,12 @@ router.post("/:cid/products/:pid", async(req,res) => {
         const response = await cartManager.addToCart(cid, pid);
         res.json(response);
     } else {res.json({message:"Id no encontrada"})}
+})
+
+router.delete("/:cid/products/:pid", async(req,res) => {
+    const {cid, pid} = req.params;
+    const cartDel = await cartManager.deletePrdcCart(cid, pid);
+    res.json(cartDel)
 })
 
 export default router;

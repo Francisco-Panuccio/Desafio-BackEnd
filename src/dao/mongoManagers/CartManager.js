@@ -1,5 +1,4 @@
 import { cartsModel } from "../models/carts.model.js";
-import { productsModel } from "../models/products.model.js";
 
 export default class CartManager {
     async addCart(obj) {
@@ -22,7 +21,7 @@ export default class CartManager {
 
     async getCartById(id) {
         try {
-            const cartId = await cartsModel.findById(id);
+            const cartId = await cartsModel.findById(id).populate("products");
             return cartId;
         } catch (error) {
             console.log("Id no encontrado", error)
@@ -33,15 +32,14 @@ export default class CartManager {
         try {
             const idCart = await cartsModel.findById(cid);
             if(idCart) {
-                const idPrdc =  idCart.products.findIndex((element) => element.product === pid);
+                const idPrdc = idCart.products.findIndex((element) => element.product == pid);
                 if(idPrdc !== -1) {
                     const updQty = cartsModel.updateOne(
-                        { _id: cid },
-                        { $inc: {"products.0.quantity": 1}}
+                        {"products.product": pid},
+                        {$inc: {"products.$.quantity": 1}}
                     )
                     return updQty;
                 } else {
-
                     const pushPrdc = cartsModel.updateOne(
                         { _id: cid },
                         { $push: {"products":
@@ -54,6 +52,21 @@ export default class CartManager {
             }
         } catch (error) {
             console.log("Carrito no encontrado", error)
+        }
+    }
+
+    async deletePrdcCart(cid, pid) {
+        try {
+            const idCart = await cartsModel.findById(cid);
+            if(idCart) {
+                const idPrdc =  idCart.products.findIndex((element) => element.product === pid);
+                if(idPrdc !== -1) {
+                    const CartToDelete = await cartsModel.deleteOne({product:pid});
+                    return CartToDelete;
+                }
+            }
+        } catch (error) {
+            console.log("Producto de Carrito no encontrado", error)
         }
     }
 }
