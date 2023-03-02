@@ -17,7 +17,7 @@ export default class ProductManager {
         } catch (error) {
             console.log("No hay productos en la Base de Datos", error)
         }
-    } 
+    }
 
     async getProductById(id) {
         try {
@@ -26,7 +26,7 @@ export default class ProductManager {
         } catch (error) {
             console.log("Id no encontrado", error)
         }
-    } 
+    }
 
     async updateProduct(id, field, value) {
         try {
@@ -43,6 +43,39 @@ export default class ProductManager {
             return prdcToDelete;
         } catch (error) {
             console.log("Producto no encontrado", error)
+        }
+    }
+
+    async aggregationFunc(sortId) {
+        try {
+            const ctgy = await productsModel.aggregate([
+                {   
+                    $match: {category: {$exists: true}}
+                }/* ,
+                {
+                    $sort: {price: sortId}
+                } */
+            ]) 
+            return ctgy;
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async aggregationFunc2(sortId) {
+        try {
+            const stock = await productsModel.aggregate([
+                {
+                    $match: {stock: {$gt: 0}}
+                }/* ,
+                {
+                    $sort: {price: {sortId}}
+                } */
+            ]) 
+            console.log("ESTO FUNCIONA", sortAD)
+            return stock;
+        } catch (error) {
+            console.log(error)
         }
     }
 }

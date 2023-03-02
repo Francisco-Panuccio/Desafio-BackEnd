@@ -26,6 +26,18 @@ router.get("/", async(req,res) => {
     }});
 })
 
+router.get("/aggregation/category", async(req,res) => {
+    /* const sortId = req.params; */
+    const categories = await productManager.aggregationFunc();
+    res.json({categories});
+})
+
+router.get("/aggregation/stock/:sortId", async(req,res) => {
+    const sortId = req.params;
+    const stockAvble = await productManager.aggregationFunc2(parseInt(sortId));
+    res.json({stockAvble});
+})
+
 router.get("/:pid", async(req,res) => {
     const {pid} = req.params;
     const idPrdct = await productManager.getProductById(pid);
