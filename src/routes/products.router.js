@@ -3,7 +3,7 @@ import { productsModel } from "../dao/models/products.model.js";
 import ProductManager from "../dao/mongoManagers/ProductManager.js";
 
 const router = Router();
-const productManager = new ProductManager("../");
+export const productManager = new ProductManager("../");
 
 router.get("/", async(req,res) => {
     const {limit=10, page=1, sort, query} = req.query
@@ -25,17 +25,17 @@ router.get("/", async(req,res) => {
     }});
 })
 
-router.get("/aggregation/category", async(req,res) => {
-    /* const sortId = req.params; */
-    const categories = await productManager.aggregationFunc();
+router.get("/aggregation/:category", async(req,res) => {
+    const {category} = req.params;
+    const {sort} = req.query;
+    const categories = await productManager.aggregationFunc(category, parseInt(sort));
     res.json({categories});
 })
 
-router.get("/aggregation/stock/:sortId", async(req,res) => {
-    const sortId = req.params;
+/* router.get("/aggregation/:stock", async(req,res) => {
     const stockAvble = await productManager.aggregationFunc2(parseInt(sortId));
     res.json({stockAvble});
-})
+}) */
 
 router.get("/:pid", async(req,res) => {
     const {pid} = req.params;

@@ -7,6 +7,7 @@ import handlebars from "express-handlebars";
 import { Server } from "socket.io";
 import { __dirname } from "./utils.js";
 import "./dao/dbConfig.js";
+import { productManager } from "./routes/products.router.js";
 
 const app = express();
 const PORT = process.env.PORT || 8080
@@ -28,10 +29,11 @@ app.set("views", __dirname + "/views");
 const arrayPrdct = [];
 const infoMessage = [];
 
-socketServer.on("connection", (socket) => {
+socketServer.on("connection", async (socket) => {
     console.log(`Cliente Conectado: ${socket.id}`)
-    socketServer.emit("list", arrayPrdct)
-
+    const prdcs = await productManager.getProducts()
+    socketServer.emit("list", prdcs)
+    
     socket.on("disconnect", () => {
         console.log("Cliente Desconectado")
     })

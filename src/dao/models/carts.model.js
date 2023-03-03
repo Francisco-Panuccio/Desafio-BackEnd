@@ -6,13 +6,18 @@ const cartsSchema = new mongoose.Schema({
             _id: false,
             product: {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: "products"
+                ref: "Products"
             },
             quantity: {
                 type: Number
             }
         }   
     ]
+})
+
+cartsSchema.pre("find", function(next) {
+    this.populate("products.product")
+    next()
 })
 
 export const cartsModel = mongoose.model("Carts", cartsSchema)

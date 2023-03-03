@@ -46,17 +46,21 @@ export default class ProductManager {
         }
     }
 
-    async aggregationFunc(sortId) {
+    async aggregationFunc(ctg, srt) {
         try {
-            const ctgy = await productsModel.aggregate([
-                {   
-                    $match: {category: {$exists: true}}
-                }/* ,
-                {
-                    $sort: {price: sortId}
-                } */
-            ]) 
-            return ctgy;
+            if(!ctg) {
+                return {message:"Producto no encontrado"}
+            } else {
+                const ctgy = await productsModel.aggregate([
+                    {   
+                        $match: {category: {$eq: `${ctg}`}, price: {$exists:true}}
+                    },
+                    {
+                        $sort: {price: srt}
+                    }
+                ])
+                return ctgy;
+            }
         } catch (error) {
             console.log(error)
         }

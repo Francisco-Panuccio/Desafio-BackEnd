@@ -21,7 +21,7 @@ export default class CartManager {
 
     async getCartById(id) {
         try {
-            const cartId = await cartsModel.findById(id).populate("products");
+            const cartId = await cartsModel.find({_id:id});
             return cartId;
         } catch (error) {
             console.log("Id no encontrado", error)
