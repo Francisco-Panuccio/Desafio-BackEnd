@@ -25,17 +25,19 @@ router.get("/", async(req,res) => {
     }});
 })
 
-router.get("/aggregation/:category", async(req,res) => {
+router.get("/aggregation/category/:category", async(req,res) => {
     const {category} = req.params;
     const {sort} = req.query;
     const categories = await productManager.aggregationFunc(category, parseInt(sort));
     res.json({categories});
 })
 
-/* router.get("/aggregation/:stock", async(req,res) => {
-    const stockAvble = await productManager.aggregationFunc2(parseInt(sortId));
-    res.json({stockAvble});
-}) */
+router.get("/aggregation/stock/:stock", async(req,res) => {
+    const {stock} = req.params;
+    const {sort} = req.query;
+    const stocks = await productManager.aggregationFunc2(parseInt(stock), parseInt(sort));
+    res.json({stocks});
+})
 
 router.get("/:pid", async(req,res) => {
     const {pid} = req.params;

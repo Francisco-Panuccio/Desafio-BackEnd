@@ -55,18 +55,52 @@ export default class CartManager {
         }
     }
 
-    async deletePrdcCart(cid, pid) {
+        async deletePrdcCart(cid, pid) {
         try {
-            const idCart = await cartsModel.findById(cid);
-            if(idCart) {
-                const idPrdc =  idCart.products.findIndex((element) => element.product === pid);
-                if(idPrdc !== -1) {
-                    const CartToDelete = await cartsModel.deleteOne({product:pid});
-                    return CartToDelete;
-                }
+            const cartPrdc = await cartsModel.findById(cid)
+            const prdcIndex = cartPrdc.products.findIndex((element) => element.product == pid);
+            cartPrdc.products.splice(prdcIndex,1);
+            const newCart = await cartPrdc.save();
+            return newCart;
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async deleteAllPrdcts(cid) {
+        try {
+            const cartPrdc = await cartsModel.findById(cid)
+            cartPrdc.products.splice(0);
+            const newCart = await cartPrdc.save();
+            return newCart;
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async updatePrdctCart(cid, pid, qnt) {
+        try {
+            const cartPrdc = await cartsModel.findById(cid)
+            if(cartPrdc) {
+                const updQty = cartsModel.updateOne(
+                    {"products.product": pid},
+                    {$set: {"products.$.quantity": parseInt(qnt)}}
+                )
+                return updQty;
             }
         } catch (error) {
-            console.log("Producto de Carrito no encontrado", error)
+            console.log(error)
+        }
+    }
+
+    async updateCart(cid, arrayCart) {
+        try {
+            const cart = await cartsModel.findById(cid);
+            cart.products.push(arrayCart);
+            const newCart = await cart.save();
+            return newCart;
+        } catch (error) {
+            console.log(error)
         }
     }
 }

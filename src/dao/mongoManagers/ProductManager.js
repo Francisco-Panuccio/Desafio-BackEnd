@@ -53,7 +53,7 @@ export default class ProductManager {
             } else {
                 const ctgy = await productsModel.aggregate([
                     {   
-                        $match: {category: {$eq: `${ctg}`}, price: {$exists:true}}
+                        $match: {category: {$eq: `${ctg}`}}
                     },
                     {
                         $sort: {price: srt}
@@ -66,18 +66,22 @@ export default class ProductManager {
         }
     }
 
-    async aggregationFunc2(sortId) {
+        async aggregationFunc2(stc, srt) {
         try {
-            const stock = await productsModel.aggregate([
-                {
-                    $match: {stock: {$gt: 0}}
-                }/* ,
-                {
-                    $sort: {price: {sortId}}
-                } */
-            ]) 
-            console.log("ESTO FUNCIONA", sortAD)
-            return stock;
+            if(!stc) {
+                return {message:"Producto no encontrado"}
+            } else {
+                const stck = await productsModel.aggregate([
+                    {   
+                        $match: {stock: {$eq: stc}}
+                    },
+                    {
+
+                        $sort: {price: srt}
+                    }
+                ])
+                return stck;
+            }
         } catch (error) {
             console.log(error)
         }

@@ -8,6 +8,7 @@ import { Server } from "socket.io";
 import { __dirname } from "./utils.js";
 import "./dao/dbConfig.js";
 import { productManager } from "./routes/products.router.js";
+import { cartManager } from "./routes/carts.router.js";
 
 const app = express();
 const PORT = process.env.PORT || 8080
@@ -31,8 +32,6 @@ const infoMessage = [];
 
 socketServer.on("connection", async (socket) => {
     console.log(`Cliente Conectado: ${socket.id}`)
-    const prdcs = await productManager.getProducts()
-    socketServer.emit("list", prdcs)
     
     socket.on("disconnect", () => {
         console.log("Cliente Desconectado")
@@ -50,5 +49,18 @@ socketServer.on("connection", async (socket) => {
     socket.on("message", info => {
         infoMessage.push(info);
         socketServer.emit("chat", infoMessage)
+    })
+
+    socket.on("addCart", async () => {
+        const addC = await cartManager.addCart();
+        socketServer.emit("cart", addC.id)
+        const prdcs = await productManager.getProducts()
+        socketServer.emit("list", prdcs)
+    })
+
+    socket.on("addPrdc", async (cart, button) => {
+        console.log(cart, button)
+        const addPrdc = await cartManager.addToCart(cart, button)
+        socketServer.emit("addNow", addPrdc)
     })
 });
