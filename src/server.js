@@ -2,8 +2,12 @@ import express from "express";
 import productsRouter from "./routes/products.router.js";
 import cartsRouter from "./routes/carts.router.js";
 import messagesRouter from "./routes/messages.router.js";
+import usersRouter from "./routes/users.router.js";
 import viewsRouter from "./routes/views.router.js";
 import handlebars from "express-handlebars";
+import session from "express-session";
+import cookieParser from "cookie-parser";
+import MongoStore from "connect-mongo";
 import { Server } from "socket.io";
 import { __dirname } from "./utils.js";
 import "./dao/dbConfig.js";
@@ -17,21 +21,36 @@ const socketServer = new Server(httpServer);
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public"));  //PONER LA SESSION ARRIBA DEL ROUTER
+app.use(session({
+    store: MongoStore.create({
+        mongoUrl:"mongodb+srv://FranciscoP:Computadora@coderclouster.jnpoa1s.mongodb.net/?retryWrites=true&w=majority",
+        mongoOptions:{useNewUrlParser:true,useUnifiedTopology:true}
+    }),
+    secret: "sessionKey",
+    resave: false,
+    saveUninitialized: true
+}));
 app.use("/api/products", productsRouter);
 app.use("/api/carts", cartsRouter);
 app.use("/api/messages", messagesRouter);
+app.use("/api/users", usersRouter);
 app.use("/", viewsRouter);
+
+app.use(cookieParser());
 
 app.engine("handlebars", handlebars.engine());
 app.set("view engine", "handlebars");
 app.set("views", __dirname + "/views");
 
 const arrayPrdct = [];
+const arrayPrdctCart = [];
 const infoMessage = [];
 
 socketServer.on("connection", async (socket) => {
     console.log(`Cliente Conectado: ${socket.id}`)
+    const prdcs = await productManager.getProducts()
+    socketServer.emit("list", prdcs)
     
     socket.on("disconnect", () => {
         console.log("Cliente Desconectado")
@@ -47,7 +66,7 @@ socketServer.on("connection", async (socket) => {
     })
 
     socket.on("message", info => {
-        infoMessage.push(info);
+        infoMessage.push(info)
         socketServer.emit("chat", infoMessage)
     })
 
@@ -59,8 +78,8 @@ socketServer.on("connection", async (socket) => {
     })
 
     socket.on("addPrdc", async (cart, button) => {
-        console.log(cart, button)
         const addPrdc = await cartManager.addToCart(cart, button)
-        socketServer.emit("addNow", addPrdc)
+        arrayPrdctCart.push(addPrdc)
+        socketServer.emit("addNow", arrayPrdctCart)
     })
 });

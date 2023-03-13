@@ -1,0 +1,17 @@
+<h1>Login</h1>
+
+<div class="divLoginReg">
+    <form class="formLR" id="formLogin" action="/api/users/login" method="POST">
+        Email: <input type="email" name="email" id="email">
+        Contraseña: <input type="password" name="password" id="password">
+        <input class="loginBtn" type="submit" value="Logearse">
+    </form>
+</div>
+
+<div class="divLogin2">
+    <h6>¿Eres nuevo?</h6>
+    <button onclick="location.href='/register'" class="registerBtn">Registrarse</button>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="login.js"></script>

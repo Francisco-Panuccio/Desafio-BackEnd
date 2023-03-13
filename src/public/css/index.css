@@ -10,6 +10,36 @@ body {
     gap: 10rem;
 }
 
+.indexHeader {
+    display: flex;
+    justify-content: center;
+}
+
+.divTitle {
+    width: 110rem;
+}
+
+.divLog {
+    align-items: end;
+}
+
+.btnLog {
+    margin: 1rem .5rem 0 0;
+    width: 8rem;
+    height: 3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: rgba(255, 0, 0, 0.655);
+    border: none;
+    border-radius: 4rem;
+    color: black;
+}
+
+.btnLog:hover {
+    background-color: rgba(255, 0, 0, 0.738);
+    border: .1rem solid white;
+}
+
 h1 {
     text-align: center;
     font-size: 5rem;
@@ -18,6 +48,7 @@ h1 {
     text-shadow: -6px 3px 2px rgba(0,0,0,0.24);
     color: white;
     margin: 0 0 3rem 0;
+    padding-left: 10rem;
 }
 
 h2, h3 {
@@ -30,6 +61,15 @@ h4 {
     text-decoration: underline;
     margin-bottom: .5rem;
     margin-top: 1rem;
+}
+
+h6 {
+    font-size: 1.3rem;
+    color: black;
+    margin: 1rem;
+    background-color: white;
+    padding: .2rem .5rem .2rem .5rem;
+    border-radius: 2rem;
 }
 
 #message {
@@ -172,4 +212,93 @@ ul {
 
 .buttonContainer:active {
     border: .1rem solid gray;
+}
+
+.divLoginReg {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.divLogin2 {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.formLR {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    border: .1rem solid black;
+    width: fit-content;
+    border-radius: 2rem;
+    padding: 1rem 2rem 1rem 2rem;
+    color: whitesmoke;
+    background-color: black;
+    font-size: 1.2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#email, #password, #age, #first_name, #last_name {
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    width: 20rem;
+    font-size: 1rem;
+    padding: .3rem .5rem .3rem .5rem;
+    outline: none;
+}
+
+.registerBtn {
+    border-radius: 2rem;
+    width: fit-content;
+    font-size: 1rem;
+    padding: .3rem;
+    color: white;
+    background-color: black;
+}
+
+#registerForm {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.registerBtn2, .loginBtn {
+    align-self: center;
+    width: fit-content;
+    font-size: 1rem;
+    padding: .3rem;
+    color: black;
+    border-radius: 2rem;
+    margin-top: 0;
+    background-color: white;
+    letter-spacing: .2rem;
+}
+
+#cart {
+    display: flex;
+    justify-content: end;
+    margin: 1rem 1rem 0 0;
+}
+
+.btnCart {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 2rem;
+    background-color: greenyellow;
+    border: solid .2rem black;
+}
+
+.btnCart img {
+    display: flex;
+    width: 2.8rem;
+    height: 2.8rem;
+    margin-top: .5rem;
+    padding-left: .1rem;
+}
+
+.prueba {
+    color: aqua ;
 }
