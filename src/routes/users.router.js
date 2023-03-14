@@ -18,15 +18,14 @@ router.post("/login", async (req,res) => {
     const { email, password } = req.body;
     const user = await userManager.loginUser(req.body);
     if(user) {
-        if(user.userRol === "Admin") {
-            req.session.email = email
-            req.session.password = password
-            res.redirect("/indexAdmin")
-        } else {
-            req.session.email = email
-            req.session.password = password
-            res.redirect("/index")
-        }
+        req.session.email = email
+        req.session.password = password
+        res.redirect("/index")
+/*         res.json({newUser:{
+            userName: user.userName,
+            userEmail: user.userEmail,
+            userRol: user.userRol
+        }}) */
     } else {
         res.redirect("/loginFail")
     }

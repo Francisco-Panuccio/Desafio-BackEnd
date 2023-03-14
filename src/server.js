@@ -55,6 +55,11 @@ socketServer.on("connection", async (socket) => {
         console.log("Cliente Desconectado")
     })
 
+    socket.on("userData", data => {
+        console.log(data)
+        socketServer.emit("data", data)
+    })
+
     socket.on("object", newPrdc => {
         arrayPrdct.push(newPrdc)
         socketServer.emit("list2", arrayPrdct)
