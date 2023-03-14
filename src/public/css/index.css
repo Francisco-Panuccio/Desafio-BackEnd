@@ -1,18 +1,33 @@
+html {
+    height: 100%;
+}
+
 body {
     background-image: url("https://wallpaperset.com/w/full/4/9/c/186657.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.aContainer {
-    display: flex;
-    justify-content: center;
-    gap: 10rem;
+h1 {
+    text-align: center;
+    font-size: 5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 2rem;
+    text-shadow: -6px 3px 2px rgba(0,0,0,0.24);
+    color: white;
+    margin: 0 0 3rem 0;
+    padding-left: 10rem;
 }
 
 .indexHeader {
     display: flex;
     justify-content: center;
+}
+
+.aContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
 }
 
 .divTitle {
@@ -35,67 +50,6 @@ body {
     color: black;
 }
 
-.btnLog:hover {
-    background-color: rgba(255, 0, 0, 0.738);
-    border: .1rem solid white;
-}
-
-h1 {
-    text-align: center;
-    font-size: 5rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    letter-spacing: 2rem;
-    text-shadow: -6px 3px 2px rgba(0,0,0,0.24);
-    color: white;
-    margin: 0 0 3rem 0;
-    padding-left: 10rem;
-}
-
-h2, h3 {
-    text-decoration: underline;
-}
-
-h4 {
-    font-size: 1.3rem;
-    color: green;
-    text-decoration: underline;
-    margin-bottom: .5rem;
-    margin-top: 1rem;
-}
-
-h6 {
-    font-size: 1.3rem;
-    color: black;
-    margin: 1rem;
-    background-color: white;
-    padding: .2rem .5rem .2rem .5rem;
-    border-radius: 2rem;
-}
-
-#message {
-    width: 30rem;
-    height: 20rem;
-    text-align: start;
-    margin-bottom: 1rem;
-    resize: none;
-    font-size: 1rem;
-}
-
-#mail {
-    width: 18rem;
-    font-size: .9rem;
-    margin-bottom: 1rem;
-}
-
-#submitChat {
-    border-radius: 1rem;
-    height: 2rem;
-    width: 6rem;
-    font-size: 1rem;
-    text-align: center;
-    margin-top: 0;
-}
-
 .btn {
     width: 20rem;
     height: 3rem;
@@ -107,198 +61,7 @@ h6 {
     font-family: 'Courier New', Courier, monospace;
 }
 
-.btn2 {
-    font-size: 1.5rem;
-}
-
-input {
-    margin: .5rem 0;
-}
-
-li {
-    list-style: square inside;
-}
-
-ul {
-    margin: 0 0 2rem 0;
-}
-
-#list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
-    align-content: center;
-}
-
-.ulContainer {
-    width: fit-content;
-    justify-self: center;
-    margin: 1.5rem 0 1.5rem 0;
-    padding: 0;
-}
-
-.liContainer {
-    list-style: none;
-    border: .1rem solid whitesmoke;
-    padding: .2rem .5rem;
-    width: 20rem;
-    background-color: #EDEDED;
-}
-
-.title {
-    color: whitesmoke;
-    background-color: rgba(0, 0, 0, 0.825);
-    border-radius: 1rem 1rem 0 0;
-    font-size: 1.5rem;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    text-align: center;
-}
-
-.imgContainer {
-    height: 16rem;
-    width: 21rem;
-    padding: 0;
-}
-
-.img {
-    width: 21rem;
-    height: 16rem;
-}
-
-.description {
-    background-color: black;
-    color: whitesmoke;
-    text-align: center;
-    padding: .5rem;
-    font-size: 1.2rem;
-}
-
-.price {
-    background-color: black;
-    color: whitesmoke;
-    text-align: center;
-    padding: .5rem;
-    font-size: 1.2rem;
-}
-
-.category {
-    text-align: center;
-    padding: .5rem;
-    color: whitesmoke;
-    background-color: black;
-}
-
-.stock {
-    background-color: black;
-    color: whitesmoke;
-    padding: .5rem;
-    text-align: center;
-}
-
-.buttonContainer {
-    background-color: #e1b833;
-    border-radius: 0 0 1rem 1rem;
-    padding: .3rem .5rem;
-    width: 21.1rem;
-    border: .1rem solid whitesmoke;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2rem;
-}
-
-.buttonContainer:hover {
-    color: rgba(0, 0, 0, 0.821);
-    background-color: #c0a13d;
-}
-
-.buttonContainer:active {
-    border: .1rem solid gray;
-}
-
-.divLoginReg {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
-.divLogin2 {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.formLR {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-content: center;
-    border: .1rem solid black;
-    width: fit-content;
-    border-radius: 2rem;
-    padding: 1rem 2rem 1rem 2rem;
-    color: whitesmoke;
-    background-color: black;
-    font-size: 1.2rem;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-#email, #password, #age, #first_name, #last_name {
-    margin-bottom: 2rem;
-    border-radius: 1rem;
-    width: 20rem;
-    font-size: 1rem;
-    padding: .3rem .5rem .3rem .5rem;
-    outline: none;
-}
-
-.registerBtn {
-    border-radius: 2rem;
-    width: fit-content;
-    font-size: 1rem;
-    padding: .3rem;
-    color: white;
-    background-color: black;
-}
-
-#registerForm {
-    display: flex;
-    flex-flow: column wrap;
-}
-
-.registerBtn2, .loginBtn {
-    align-self: center;
-    width: fit-content;
-    font-size: 1rem;
-    padding: .3rem;
-    color: black;
-    border-radius: 2rem;
-    margin-top: 0;
-    background-color: white;
-    letter-spacing: .2rem;
-}
-
-#cart {
-    display: flex;
-    justify-content: end;
-    margin: 1rem 1rem 0 0;
-}
-
-.btnCart {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 2rem;
-    background-color: greenyellow;
-    border: solid .2rem black;
-}
-
-.btnCart img {
-    display: flex;
-    width: 2.8rem;
-    height: 2.8rem;
-    margin-top: .5rem;
-    padding-left: .1rem;
-}
-
-.prueba {
-    color: aqua ;
+.btnLog:hover {
+    background-color: rgba(255, 0, 0, 0.738);
+    border: .1rem solid white;
 }

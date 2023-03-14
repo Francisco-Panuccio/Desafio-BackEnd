@@ -29,7 +29,7 @@ app.use(session({
     }),
     secret: "sessionKey",
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: false
 }));
 app.use("/api/products", productsRouter);
 app.use("/api/carts", cartsRouter);
@@ -44,7 +44,6 @@ app.set("view engine", "handlebars");
 app.set("views", __dirname + "/views");
 
 const arrayPrdct = [];
-const arrayPrdctCart = [];
 const infoMessage = [];
 
 socketServer.on("connection", async (socket) => {
@@ -71,15 +70,13 @@ socketServer.on("connection", async (socket) => {
     })
 
     socket.on("addCart", async () => {
-        const addC = await cartManager.addCart();
+        const addC = await cartManager.addCart()
         socketServer.emit("cart", addC.id)
         const prdcs = await productManager.getProducts()
         socketServer.emit("list", prdcs)
     })
 
     socket.on("addPrdc", async (cart, button) => {
-        const addPrdc = await cartManager.addToCart(cart, button)
-        arrayPrdctCart.push(addPrdc)
-        socketServer.emit("addNow", arrayPrdctCart)
+        const prdcts = await cartManager.addToCart(cart, button)
     })
 });

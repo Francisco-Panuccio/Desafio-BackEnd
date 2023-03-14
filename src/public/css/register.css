@@ -1,0 +1,75 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url("https://wallpaperset.com/w/full/4/9/c/186657.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h2, h3 {
+    text-decoration: underline;
+}
+
+input {
+    margin: .5rem 0;
+}
+
+.registerTitle {
+    text-align: center;
+    font-size: 5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 2rem;
+    text-shadow: -6px 3px 2px rgba(0,0,0,0.24);
+    color: white;
+    margin: 0 0 3rem 0;
+    padding-left: 3rem;
+}
+
+#registerForm {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.formLR {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    border: .1rem solid black;
+    width: fit-content;
+    border-radius: 2rem;
+    padding: 1rem 2rem 1rem 2rem;
+    color: whitesmoke;
+    background-color: black;
+    font-size: 1.2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.divLoginReg {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.registerBtn2 {
+    align-self: center;
+    width: fit-content;
+    font-size: 1rem;
+    padding: .3rem;
+    color: black;
+    border-radius: 2rem;
+    margin-top: 0;
+    background-color: white;
+    letter-spacing: .2rem;
+}
+
+#email, #password, #age, #first_name, #last_name {
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    width: 20rem;
+    font-size: 1rem;
+    padding: .3rem .5rem .3rem .5rem;
+    outline: none;
+}

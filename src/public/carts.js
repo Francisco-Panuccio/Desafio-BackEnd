@@ -1,7 +1,6 @@
 const socketClient = io();
 
 const listCart = document.getElementById("listCart");
-alert("HOLOA")
 socketClient.on("addNow", arrayPrdctCart => {
     const listRenderCart = arrayPrdctCart.map(elm => {
         return `<ul class="ulContainer"><li class="title liContainer">${elm.title}</li>

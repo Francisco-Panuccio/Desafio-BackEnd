@@ -18,11 +18,27 @@ export default class UserManager {
 
     async loginUser(user) {
         const { email, password } = user;
-        const userOne = await usersModel.findOne({ email, password });
-        if(userOne) {
-            return userOne;
+        if(email === "adminCoder@coder.com" && password ==="adminCod3r123") {
+            const newUserAd = {
+                userName: "Admin",
+                userEmail: email,
+                userPassword: password,
+                userRol: "Admin"
+            }
+            return newUserAd;
         } else {
-            return null;
-        }
+            const userOne = await usersModel.findOne({ email, password });
+            if(userOne) {
+                const newUserUs = {
+                    userName: userOne.first_name,
+                    userEmail: userOne.email,
+                    userPassword: userOne.password,
+                    userRol: "Usuario"
+                }
+                return newUserUs;
+            } else {
+                return null;
+            }
+        } 
     }
 }

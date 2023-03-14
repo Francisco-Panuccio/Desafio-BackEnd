@@ -7,7 +7,7 @@ export const productManager = new ProductManager("../");
 
 router.get("/", async(req,res) => {
     const {limit=10, page=1, sort, query} = req.query
-    const products = await productsModel.paginate({query}, {limit, page, sort: {price: sort}})
+    const products = await productsModel.paginate({category: query}, {limit, page, sort: {price: sort}})
     const status = products.docs ? "success" : "error";
     const prevLink = products.hasPrevPage ? `http://localhost:8080/api/products?page=${products.prevPage}` : null;
     const nextLink = products.hasNextPage ? `http://localhost:8080/api/products?page=${products.nextPage}` : null;

@@ -4,9 +4,13 @@ const listSub = document.getElementById("list");
 const cart = document.getElementById("cart");
 let allIdsCarts;
 
-socketClient.on("cart", idCart => {
-    allIdsCarts = idCart;
-    cart.innerHTML = `<button class="btnCart" onclick="location.href='/carts/${idCart}'"><img src="https://cdn-icons-png.flaticon.com/512/107/107831.png"></button>`
+document.addEventListener("DOMContentLoaded", () => {
+    socketClient.emit("addCart")
+    socketClient.on("cart", id => {
+        allIdsCarts = id;
+    })
+    console.log(allIdsCarts)
+    cart.innerHTML = `<button id="cartBtn" class="btnCart" onclick="location.href='/carts'"><img src="https://cdn-icons-png.flaticon.com/512/107/107831.png"></button>`
 })
 
 socketClient.on("list", arrayPrdct => {    

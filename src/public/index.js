@@ -1,7 +1,8 @@
 const socketClient = io();
 
-const prdts = document.getElementById("prdts");
+const logoutBtn = document.getElementById("logoutBtn")
 
-prdts.onclick = () => {
-    socketClient.emit("addCart")
-}
+logoutBtn.addEventListener("click", async (res) => {
+    location.href='/';
+    const logOut = await fetch("api/users/logout");
+})

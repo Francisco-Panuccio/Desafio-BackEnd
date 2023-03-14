@@ -1,0 +1,32 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url("https://wallpaperset.com/w/full/4/9/c/186657.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h2, h3 {
+    text-decoration: underline;
+}
+
+input {
+    margin: .5rem 0;
+}
+
+.btn {
+    width: 20rem;
+    height: 3rem;
+    text-decoration: none;
+    background-color: black;
+    border-radius: 4rem;
+    color: whitesmoke;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.btn2 {
+    font-size: 1.5rem;
+}

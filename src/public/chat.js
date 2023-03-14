@@ -51,7 +51,7 @@ formChat.onsubmit = (e) => {
       .catch(err => {
           console.log("Error", err)
       })
-
+      
     socketClient.emit("message", info)
     messageChat.value = ""
 }
