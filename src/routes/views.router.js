@@ -1,19 +1,20 @@
 import { Router } from "express";
-import { userValidation } from "../public/userValidation.js"
+import { userValidation } from "../public/userValidation.js";
+import { loginControl } from "../public/loginControl.js";
 /* import { userValidationAdmin } from "../public/userValidationAdmin.js" */
 
 const router = Router();
 
 router.get("/index", userValidation, (req, res) => {
-    res.render("index", {
+    res.render("index", req.session)/*  {
         style: "index.css"
-    })
+    }) */
 })
 
 router.get("/indexAdmin", (req, res) => {
-    res.render("indexAdmin", {
+    res.render("indexAdmin", req.session)/* , {
         style: "index.css"
-    })
+    }) */
 })
 
 router.get("/products", userValidation, (req, res) => {
@@ -40,25 +41,25 @@ router.get("/chat", userValidation, (req, res) => {
     })
 })
 
-router.get("/register", (req, res) => {
+router.get("/register", loginControl, (req, res) => {
     res.render("register", {
         style: "register.css"
     })
 })
 
-router.get("/registerFail", (req, res) => {
+router.get("/registerFail", loginControl, (req, res) => {
     res.render("registerFail", {
         style: "register.css"
     })
 })
 
-router.get("/", (req, res) => {
+router.get("/", loginControl, (req, res) => {
     res.render("login", {
         style: "login.css"
     })
 })
 
-router.get("/loginFail", (req, res) => {
+router.get("/loginFail", loginControl, (req, res) => {
     res.render("loginFail", {
         style: "login.css"
     })

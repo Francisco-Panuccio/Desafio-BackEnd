@@ -4,8 +4,8 @@ const logoutBtn = document.getElementById("logoutBtn")
 const users = document.getElementById("divUsers")
 
 logoutBtn.addEventListener("click", async (res) => {
-    location.href='/';
+    setTimeout(() => {
+        location.href = "/"
+    }, 500)
     const logOut = await fetch("api/users/logout");
 })
-
-users.innerHTML
