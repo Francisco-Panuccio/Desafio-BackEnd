@@ -1,12 +1,15 @@
 import { usersModel } from "../models/users.model.js";
+import { hashPassword, comparePasswords } from "../../utils.js"
 
 export default class UserManager {
     async createUser(user) {
-        const {email} = user;
+        const {email, password} = user;
         try {
             const userExists = await usersModel.find({email}); 
             if(userExists.length === 0) {
-                const newUser = await usersModel.create(user);
+                const hashNewPassword = await hashPassword(password);
+                const newUser = {...user, password: hashNewPassword}
+                await usersModel.create(newUser);
                 return newUser;
             } else {
                 return null;
@@ -27,15 +30,20 @@ export default class UserManager {
             }
             return newUserAd;
         } else {
-            const userOne = await usersModel.findOne({ email, password });
+            const userOne = await usersModel.findOne({ email });
             if(userOne) {
-                const newUserUs = {
-                    userName: userOne.first_name,
-                    userEmail: userOne.email,
-                    userPassword: userOne.password,
-                    userRol: "Usuario"
+                const isPassword = comparePasswords(password, userOne.password);
+                if(isPassword) {
+                    const newUserUs = {
+                        userName: userOne.first_name,
+                        userEmail: userOne.email,
+                        userPassword: userOne.password,
+                        userRol: "Usuario"
+                    }
+                    return newUserUs;
+                } else {
+                    return null
                 }
-                return newUserUs;
             } else {
                 return null;
             }

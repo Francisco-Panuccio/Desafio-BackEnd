@@ -8,9 +8,11 @@ import handlebars from "express-handlebars";
 import session from "express-session";
 import cookieParser from "cookie-parser";
 import MongoStore from "connect-mongo";
+import passport from "passport";
 import { Server } from "socket.io";
 import { __dirname } from "./utils.js";
 import "./dao/dbConfig.js";
+import "./passport/passportStrategies.js";
 import { productManager } from "./routes/products.router.js";
 import { cartManager } from "./routes/carts.router.js";
 
@@ -31,6 +33,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+app.use(passport.initialize())
+app.use(passport.session())
 app.use("/api/products", productsRouter);
 app.use("/api/carts", cartsRouter);
 app.use("/api/messages", messagesRouter);
@@ -74,11 +78,18 @@ socketServer.on("connection", async (socket) => {
         socketServer.emit("chat", infoMessage)
     })
 
-    socket.on("addCart", async () => {
-        const addC = await cartManager.addCart()
-        socketServer.emit("cart", addC.id)
-        const prdcs = await productManager.getProducts()
-        socketServer.emit("list", prdcs)
+    socket.on("addCart", async (allIds) => {
+        console.log("TE QUEDASTE EN UNDEFINED")
+        if(allIds !== undefined) {
+            const cartOne = await cartManager.getCartById(allIds)
+            socketServer.emit("cartCreated", cartOne)
+        } else {
+            console.log("PASASTE EL UNDEFINED")
+            const addC = await cartManager.addCart()
+            socketServer.emit("cart", addC.id)
+            const prdcs = await productManager.getProducts()
+            socketServer.emit("list", prdcs)
+        }
     })
 
     socket.on("addPrdc", async (cart, button) => {

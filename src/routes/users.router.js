@@ -1,4 +1,5 @@
 import { Router } from "express";
+import passport from "passport";
 import UserManager from "../dao/mongoManagers/UserManager.js";
 
 const router = Router();
@@ -41,6 +42,13 @@ router.get("/logout", async (req,res) => {
             console.log("Sesión Eliminada con Éxito")
         }
     })
+})
+
+router.get("/registerGithub", passport.authenticate("github", { scope: ["user:email"] }))
+
+router.get("/github", passport.authenticate("github"), (req, res) => {
+    req.session.email = req.user.email
+    res.redirect("/index")
 })
 
 export default router;

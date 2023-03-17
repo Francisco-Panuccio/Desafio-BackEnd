@@ -14,8 +14,8 @@
 </nav>
 
 <div id="divUsers">
-    <p>Bienvenido: {{userName}}</p>
-    <p>Rol: {{userRol}}</p>
+    <p>Bienvenido: <span>{{session.userName}}</span></p>
+    <p>Rol: <span>{{session.userRol}}</span></p>
 </div>
 
 <script src="/socket.io/socket.io.js"></script>

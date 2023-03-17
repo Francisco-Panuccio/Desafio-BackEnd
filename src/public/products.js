@@ -4,14 +4,25 @@ const listSub = document.getElementById("list");
 const cart = document.getElementById("cart");
 let allIdsCarts;
 
+/* const generateCart = () => {
+    socketClient.emit("addCart", allIdsCarts)
+} */
+
+console.log(allIdsCarts)
+socketClient.emit("addCart", allIdsCarts)
+console.log(allIdsCarts)
+
 document.addEventListener("DOMContentLoaded", () => {
-    socketClient.emit("addCart")
-    socketClient.on("cart", id => {
-        allIdsCarts = id;
-    })
-    console.log(allIdsCarts)
     cart.innerHTML = `<button id="cartBtn" class="btnCart" onclick="location.href='/carts'"><img src="https://cdn-icons-png.flaticon.com/512/107/107831.png"></button>`
+    const buttonCart = document.getElementById("cartBtn")
+    buttonCart.addEventListener("click", () => {
+    })
 })
+
+/* socketClient.on("cart", id => {
+    allIdsCarts = id;
+    console.log(allIdsCarts)
+}) */
 
 socketClient.on("list", arrayPrdct => {    
     const listRender = arrayPrdct.map(elm => {

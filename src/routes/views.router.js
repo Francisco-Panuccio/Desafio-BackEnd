@@ -1,20 +1,22 @@
 import { Router } from "express";
-import { userValidation } from "../public/userValidation.js";
-import { loginControl } from "../public/loginControl.js";
-/* import { userValidationAdmin } from "../public/userValidationAdmin.js" */
+import { userValidation } from "../middlewares/userValidation.js";
+import { loginControl } from "../middlewares/loginControl.js";
+import { userValidationAdmin } from "../middlewares/userValidationAdmin.js"
 
 const router = Router();
 
 router.get("/index", userValidation, (req, res) => {
-    res.render("index", req.session)/*  {
-        style: "index.css"
-    }) */
+    res.render("index", {
+        style: "index.css",
+        session: req.session
+    })
 })
 
-router.get("/indexAdmin", (req, res) => {
-    res.render("indexAdmin", req.session)/* , {
-        style: "index.css"
-    }) */
+router.get("/indexAdmin", userValidationAdmin, (req, res) => {
+    res.render("indexAdmin", {
+        style: "index.css",
+        session: req.session
+    })
 })
 
 router.get("/products", userValidation, (req, res) => {

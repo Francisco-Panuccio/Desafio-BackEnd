@@ -65,3 +65,21 @@ h1 {
     background-color: rgba(255, 0, 0, 0.738);
     border: .1rem solid white;
 }
+
+#divUsers {
+    background-color: black;
+    width: fit-content;
+    border-radius: 1rem;
+    padding: .1rem .6rem;
+    margin: 2rem 0 0 2rem;
+    border: white .2rem solid;
+}
+
+#divUsers p {
+    font-size: 1.2rem;
+    color: whitesmoke;
+}
+
+#divUsers p span {
+    color: chartreuse;
+}
