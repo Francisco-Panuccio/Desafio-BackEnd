@@ -13,7 +13,8 @@ socketClient.emit("addCart", allIdsCarts)
 console.log(allIdsCarts)
 
 document.addEventListener("DOMContentLoaded", () => {
-    cart.innerHTML = `<button id="cartBtn" class="btnCart" onclick="location.href='/carts'"><img src="https://cdn-icons-png.flaticon.com/512/107/107831.png"></button>`
+    cart.innerHTML = `<button class="btn3" onclick="location.href='/'">Home</button>
+    <button id="cartBtn" class="btnCart" onclick="location.href='/carts'"><img src="https://cdn-icons-png.flaticon.com/512/107/107831.png"></button>`
     const buttonCart = document.getElementById("cartBtn")
     buttonCart.addEventListener("click", () => {
     })

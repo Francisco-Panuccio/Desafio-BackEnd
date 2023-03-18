@@ -6,7 +6,8 @@ body {
 
 #cart {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
     margin: 1rem 1rem 0 0;
 }
 
@@ -125,4 +126,17 @@ ul {
 
 .buttonContainer:active {
     border: .1rem solid gray;
+}
+
+.btn3 {
+    width: 20rem;
+    height: 3rem;
+    justify-self: start;
+    text-decoration: none;
+    background-color: black;
+    border-radius: 4rem;
+    color: whitesmoke;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace; 
+    margin-left: 1rem;
 }
