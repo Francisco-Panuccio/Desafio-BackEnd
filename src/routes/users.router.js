@@ -47,7 +47,8 @@ router.get("/logout", async (req,res) => {
 router.get("/registerGithub", passport.authenticate("github", { scope: ["user:email"] }))
 
 router.get("/github", passport.authenticate("github"), (req, res) => {
-    req.session.email = req.user.email
+    console.log(req.session.passport.user)
+    req.session.email = req.session.email
     res.redirect("/index")
 })
 

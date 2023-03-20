@@ -1,25 +1,27 @@
+import { cartManager } from "../routes/carts.router.js";
+
 const socketClient = io();
 
 const listSub = document.getElementById("list");
-const cart = document.getElementById("cart");
 let allIdsCarts;
 
-/* const generateCart = () => {
-    socketClient.emit("addCart", allIdsCarts)
-} */
+const emitId = () => {
+    setTimeout(async () => {
+        const cartOne = await cartManager.getElementById(allIdsCarts)
+        socketClient.emit("addCart", cartOne)
+    }, 500)
+/*     setTimeout(() => {
+        socketClient.on("cart", id => {
+            allIdsCarts = id;
+            console.log(allIdsCarts)
+        })
+    }, 1000)   */
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-    cart.innerHTML = `<button class="btn3" onclick="location.href='/'">Home</button>
-    <button id="cartBtn" class="btnCart" onclick="location.href='/carts'"><img src="https://cdn-icons-png.flaticon.com/512/107/107831.png"></button>`
-    console.log(allIdsCarts)
-    socketClient.emit("addCart", allIdsCarts)
-    console.log(allIdsCarts)
+document.addEventListener("DOMContentLoaded", (e) => {
+    e.preventDefault()
+    emitId()
 })
-
-/* socketClient.on("cart", id => {
-    allIdsCarts = id;
-    console.log(allIdsCarts)
-}) */
 
 socketClient.on("list", arrayPrdct => {    
     const listRender = arrayPrdct.map(elm => {

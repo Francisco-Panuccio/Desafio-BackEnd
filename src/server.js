@@ -79,16 +79,12 @@ socketServer.on("connection", async (socket) => {
     })
 
     socket.on("addCart", async (allIds) => {
-        console.log("TE QUEDASTE EN UNDEFINED")
-        if(allIds !== undefined) {
-            const cartOne = await cartManager.getCartById(allIds)
-            socketServer.emit("cartCreated", cartOne)
-        } else {
-            console.log("PASASTE EL UNDEFINED")
+        console.log(allIds)
+        if(allIds === null) {
             const addC = await cartManager.addCart()
             socketServer.emit("cart", addC.id)
-            const prdcs = await productManager.getProducts()
-            socketServer.emit("list", prdcs)
+        } else {
+            socketServer.emit("cartCreated", allIds)
         }
     })
 
