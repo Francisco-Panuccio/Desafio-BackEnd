@@ -23,6 +23,7 @@ router.post("/login", async (req,res) => {
         req.session.password = password
         req.session.userName = user.userName
         req.session.userRol = user.userRol
+        req.session.userCart = user.userCart
         if(user.userRol === "Admin") {
             res.redirect("/indexAdmin")
         } else {

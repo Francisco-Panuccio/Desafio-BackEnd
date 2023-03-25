@@ -27,7 +27,7 @@ router.get("/products", userValidation, (req, res) => {
 
 router.get("/carts", userValidation, (req, res) => {
     res.render("carts", {
-        style: "index.css"
+        style: "carts.css"
     })
 })
 

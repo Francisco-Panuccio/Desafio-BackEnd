@@ -1,27 +1,16 @@
-import { cartManager } from "../routes/carts.router.js";
-
 const socketClient = io();
 
 const listSub = document.getElementById("list");
-let allIdsCarts;
+let idCart;
 
-const emitId = () => {
-    setTimeout(async () => {
-        const cartOne = await cartManager.getElementById(allIdsCarts)
-        socketClient.emit("addCart", cartOne)
-    }, 500)
-/*     setTimeout(() => {
-        socketClient.on("cart", id => {
-            allIdsCarts = id;
-            console.log(allIdsCarts)
-        })
-    }, 1000)   */
-}
+/* FALTA UN SOCKET ON PARA CONOCER ID */
 
-document.addEventListener("DOMContentLoaded", (e) => {
-    e.preventDefault()
-    emitId()
-})
+fetch(`/api/carts`)
+    .then((resp) => resp.json())
+    .then((data) => {
+        console.log(data)
+        idCart = data[0]._id;
+    }) 
 
 socketClient.on("list", arrayPrdct => {    
     const listRender = arrayPrdct.map(elm => {
@@ -39,7 +28,7 @@ socketClient.on("list", arrayPrdct => {
 
     for(const button of buttons) {
         button.onclick = () => {
-            socketClient.emit("addPrdc", allIdsCarts, button.id)
+            socketClient.emit("addPrdc", idCart, button.id)
         }
     }
 })

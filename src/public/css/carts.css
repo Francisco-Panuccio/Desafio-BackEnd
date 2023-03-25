@@ -1,0 +1,100 @@
+body {
+    background-image: url("https://wallpaperset.com/w/full/4/9/c/186657.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    font-size: 5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 2rem;
+    text-shadow: -6px 3px 2px rgba(0,0,0,0.24);
+    color: white;
+    margin: 0 0 1rem 0;
+    padding-left: 10rem;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 2rem;
+}
+
+#listCart {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+#listCart div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+    gap: 2rem;
+    background-color: black;
+    border-radius: 1rem;
+    width: 80rem;
+}
+
+.buy {
+    display: flex;
+    flex-flow: column;
+    width: fit-content;
+    height: fit-content;
+    background-color: black;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    justify-self: center;
+    align-self: center;
+}
+
+.total {
+    color: greenyellow;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5rem;
+    margin: 0 0 2rem 0;
+}
+
+.buyBtn {
+    font-size: 1.2rem;
+}
+
+.imgCart {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 5rem;
+    margin: 1rem 0;
+}
+
+.titleCart {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.priceCart {
+    font-size: 1.3rem;
+    color: green;
+}
+
+.qntCart {
+    color: white;
+}
+
+.deletePrdcCart {
+    background: url("https://cdn2.iconfinder.com/data/icons/thin-line-color-1/21/33-512.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.deletePrdcCart:hover {
+    cursor: pointer;
+}

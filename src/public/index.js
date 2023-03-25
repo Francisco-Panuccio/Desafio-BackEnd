@@ -2,7 +2,7 @@ const socketClient = io();
 
 const logoutBtn = document.getElementById("logoutBtn")
 
-logoutBtn.addEventListener("click", async (res) => {
+logoutBtn.addEventListener("click", async () => {
     setTimeout(() => {
         location.href = "/"
     }, 500)

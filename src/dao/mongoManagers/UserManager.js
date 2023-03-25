@@ -1,5 +1,6 @@
 import { usersModel } from "../models/users.model.js";
 import { hashPassword, comparePasswords } from "../../utils.js"
+import { cartManager } from "../../routes/carts.router.js";
 
 export default class UserManager {
     async createUser(user) {
@@ -7,8 +8,9 @@ export default class UserManager {
         try {
             const userExists = await usersModel.find({email}); 
             if(userExists.length === 0) {
+                const newCart = await cartManager.addCart()
                 const hashNewPassword = await hashPassword(password);
-                const newUser = {...user, password: hashNewPassword}
+                const newUser = {...user, password: hashNewPassword, cart: newCart._id}
                 await usersModel.create(newUser);
                 return newUser;
             } else {
@@ -38,7 +40,8 @@ export default class UserManager {
                         userName: userOne.first_name,
                         userEmail: userOne.email,
                         userPassword: userOne.password,
-                        userRol: "Usuario"
+                        userRol: userOne.role,
+                        userCart: userOne.cart
                     }
                     return newUserUs;
                 } else {

@@ -35,9 +35,10 @@ export default class CartManager {
                 const idPrdc = idCart.products.findIndex((element) => element.product == pid);
                 if(idPrdc !== -1) {
                     const updQty = cartsModel.updateOne(
-                        {"products.product": pid},
+                        {_id: cid, "products.product": pid},
                         {$inc: {"products.$.quantity": 1}}
                     )
+                    console.log("Cantidad aumentada")
                     return updQty;
                 } else {
                     const pushPrdc = cartsModel.updateOne(

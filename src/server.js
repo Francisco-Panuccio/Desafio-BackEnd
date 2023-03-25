@@ -78,17 +78,7 @@ socketServer.on("connection", async (socket) => {
         socketServer.emit("chat", infoMessage)
     })
 
-    socket.on("addCart", async (allIds) => {
-        console.log(allIds)
-        if(allIds === null) {
-            const addC = await cartManager.addCart()
-            socketServer.emit("cart", addC.id)
-        } else {
-            socketServer.emit("cartCreated", allIds)
-        }
-    })
-
-    socket.on("addPrdc", async (cart, button) => {
-        const prdcts = await cartManager.addToCart(cart, button)
+    socket.on("addPrdc", async (cart, prdt) => {
+        const prdcts = await cartManager.addToCart(cart, prdt)
     })
 });
