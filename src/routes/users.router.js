@@ -34,6 +34,12 @@ router.post("/login", async (req,res) => {
     }
 })
 
+router.get("/", async (req,res) => {
+    const email = req.session.email;
+    const users = await userManager.getUserByEmail(email)
+    res.json(users)
+})
+
 router.get("/logout", async (req,res) => {
     req.session.destroy((error) => {
         if(error) {
@@ -49,6 +55,7 @@ router.get("/registerGithub", passport.authenticate("github", { scope: ["user:em
 
 router.get("/github", passport.authenticate("github"), (req, res) => {
     req.session.userName = req.user.first_name
+    req.session.email = req.user.email
     req.session.userRol = "Usuario"
     res.redirect("/index")
 })

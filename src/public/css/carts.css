@@ -20,6 +20,7 @@ h1 {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     gap: 2rem;
+    margin-left: 2rem;
 }
 
 #listCart {
@@ -87,7 +88,7 @@ h1 {
 }
 
 .deletePrdcCart {
-    background: url("https://cdn2.iconfinder.com/data/icons/thin-line-color-1/21/33-512.png");
+    background: url("../images/bin.webp");
     background-repeat: no-repeat;
     background-size: cover;
     border: none;

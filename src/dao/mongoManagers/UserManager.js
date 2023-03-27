@@ -9,7 +9,7 @@ export default class UserManager {
             const userExists = await usersModel.find({email}); 
             if(userExists.length === 0) {
                 const newCart = await cartManager.addCart()
-                const hashNewPassword = await hashPassword(password);
+                const hashNewPassword = await hashPassword(password)
                 const newUser = {...user, password: hashNewPassword, cart: newCart._id}
                 await usersModel.create(newUser);
                 return newUser;
@@ -51,5 +51,14 @@ export default class UserManager {
                 return null;
             }
         } 
+    }
+
+    async getUserByEmail(email) {
+        try {
+            const users = await usersModel.findOne({ email });
+            return users;
+        } catch (error) {
+            console.log("Id no encontrado", error)
+        }
     }
 }

@@ -1,6 +1,7 @@
 import passport from "passport";
 import { usersModel } from "../dao/models/users.model.js";
 import { Strategy as GithubStrategy } from "passport-github2";
+import { cartManager } from "../routes/carts.router.js";
 
 passport.use("github", new GithubStrategy({
     clientID: "Iv1.fec2eb6bc05e9fec",
@@ -9,11 +10,13 @@ passport.use("github", new GithubStrategy({
 }, async (accessToken, refreshToken, profile, done) => {
     const user = await usersModel.findOne({email: profile._json.email})
     if(!user) {
+        const newCart = await cartManager.addCart()
         const newUser = {
             first_name: profile._json.name.split(" ")[0],
             last_name: profile._json.name.split(" ")[1] || " ",
             email: profile._json.email,
             password: " ",
+            cart: newCart,
         }
         const userDB = await usersModel.create(newUser)
         done(null, userDB)

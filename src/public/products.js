@@ -3,14 +3,16 @@ const socketClient = io();
 const listSub = document.getElementById("list");
 let idCart;
 
-/* FALTA UN SOCKET ON PARA CONOCER ID */
-
-fetch(`/api/carts`)
+fetch(`/api/users`)
     .then((resp) => resp.json())
     .then((data) => {
-        console.log(data)
-        idCart = data[0]._id;
-    }) 
+        idCart = (data.cart)
+    });
+
+setTimeout(() => {
+    fetch(`/api/carts/${idCart}`)
+        .then((resp) => resp.json())
+}, 1000)
 
 socketClient.on("list", arrayPrdct => {    
     const listRender = arrayPrdct.map(elm => {

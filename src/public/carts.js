@@ -5,13 +5,16 @@ const listCart = document.getElementById("listCart");
 let idCart;
 let total = 0;
 
-/* FALTA UN SOCKET ON PARA CONOCER ID */
-
-fetch(`/api/carts`)
+fetch(`/api/users`)
     .then((resp) => resp.json())
     .then((data) => {
-        console.log(data[0].products)
-        idCart = data[0]._id;
+        idCart = (data.cart)
+    });
+
+setTimeout(() => {
+    fetch(`/api/carts/${idCart}`)
+    .then((resp) => resp.json())
+    .then((data) => {
         for(const prd of data[0].products) {
             const totalAmount = ((prd.product.price)*(prd.quantity));
             total = total + totalAmount
@@ -34,13 +37,19 @@ fetch(`/api/carts`)
                     method: "DELETE",
                 })
                     .then((resp) => resp.json())
+                    .then((data) => {
+                    location.href = "/carts"
+                    })
             }
         }
 
-        let div2 = document.createElement("div");
-        div2.innerHTML = `
-        <span class="total">Total: $${total.toLocaleString()}</span>
-        <input type="button" class="buyBtn" value="Realizar Compra">`
-        div2.className = "buy"
-        container.appendChild(div2);
-    }) 
+        if(data[0].products.length !== 0) {
+            let div2 = document.createElement("div");
+            div2.innerHTML = `
+            <span class="total">Total: $${total.toLocaleString()}</span>
+            <input type="button" class="buyBtn" value="Realizar Compra">`
+            div2.className = "buy"
+            container.appendChild(div2);
+        }
+    })
+}, 1000)
