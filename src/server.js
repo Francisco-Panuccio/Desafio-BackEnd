@@ -15,10 +15,11 @@ import "./dao/dbConfig.js";
 import "./passport/passportStrategies.js";
 import { productManager } from "./routes/products.router.js";
 import { cartManager } from "./routes/carts.router.js";
+import config from "../env/config.js";
 
 const app = express();
-const PORT = process.env.PORT || 8080
-const httpServer = app.listen(PORT, () => console.log(`Escuchando al puerto ${PORT}`));
+const PORT = config.port
+const httpServer = app.listen(PORT, () => console.log(`Escuchando al puerto ${PORT}`, config.mongoUrl));
 const socketServer = new Server(httpServer);
 
 app.use(express.json());
