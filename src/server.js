@@ -18,8 +18,9 @@ import { cartManager } from "./routes/carts.router.js";
 import config from "../env/config.js";
 
 const app = express();
-const PORT = config.port
-const httpServer = app.listen(PORT, () => console.log(`Escuchando al puerto ${PORT}`, config.mongoUrl));
+const PORT = config.port;
+const MONGO_URL = config.mongoUrl;
+const httpServer = app.listen(PORT, () => console.log(`Escuchando al puerto ${PORT}`));
 const socketServer = new Server(httpServer);
 
 app.use(express.json());
@@ -27,7 +28,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static(__dirname + "/public"));  //PONER LA SESSION ARRIBA DEL ROUTER
 app.use(session({
     store: MongoStore.create({
-        mongoUrl:"mongodb+srv://FranciscoP:Computadora@coderclouster.jnpoa1s.mongodb.net/?retryWrites=true&w=majority",
+        mongoUrl:MONGO_URL,
         mongoOptions:{useNewUrlParser:true,useUnifiedTopology:true}
     }),
     secret: "sessionKey",
