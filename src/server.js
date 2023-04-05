@@ -11,10 +11,10 @@ import MongoStore from "connect-mongo";
 import passport from "passport";
 import { Server } from "socket.io";
 import { __dirname } from "./utils.js";
-import "./dao/dbConfig.js";
+import "./persistence/mongoDB/dbConfig.js";
 import "./passport/passportStrategies.js";
-import { productManager } from "./routes/products.router.js";
-import { cartManager } from "./routes/carts.router.js";
+import { getProductsService } from "./service/products.services.js";
+import { addToCartService } from "./service/carts.services.js";
 import config from "../env/config.js";
 
 const app = express();
@@ -54,7 +54,7 @@ const infoMessage = [];
 
 socketServer.on("connection", async (socket) => {
     console.log(`Cliente Conectado: ${socket.id}`)
-    const prdcs = await productManager.getProducts()
+    const prdcs = await getProductsService()
     socketServer.emit("list", prdcs)
     
     socket.on("disconnect", () => {
@@ -81,6 +81,6 @@ socketServer.on("connection", async (socket) => {
     })
 
     socket.on("addPrdc", async (cart, prdt) => {
-        const prdcts = await cartManager.addToCart(cart, prdt)
+        const prdcts = await addToCartService(cart, prdt)
     })
 });

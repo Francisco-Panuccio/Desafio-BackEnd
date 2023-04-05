@@ -1,69 +1,20 @@
 import { Router } from "express";
-import { productsModel } from "../dao/models/products.model.js";
-import ProductManager from "../dao/mongoManagers/ProductManager.js";
+import { addProductController, getProductByController, updateProductController, deleteProductController, aggregationFuncController, aggregationFunc2Controller, paginateController } from "../controllers/products.controllers.js";
 
 const router = Router();
-export const productManager = new ProductManager("../");
 
-router.get("/", async(req,res) => {
-    const {limit=10, page=1, sort, query} = req.query
-    const products = await productsModel.paginate({category: query}, {limit, page, sort: {price: sort}})
-    const status = products.docs ? "success" : "error";
-    const prevLink = products.hasPrevPage ? `http://localhost:8080/api/products?page=${products.prevPage}` : null;
-    const nextLink = products.hasNextPage ? `http://localhost:8080/api/products?page=${products.nextPage}` : null;
-    res.json({results:{
-        status,
-        payload: products.docs,
-        totalPages: products.totalPages,
-        prevPage: products.prevPage,
-        nextPage: products.nextPage,
-        page: products.page,
-        hasPrevPage: products.hasPrevPage,
-        hasNextPage: products.hasNextPage,
-        prevLink,
-        nextLink
-    }});
-})
+router.get("/", paginateController)
 
-router.get("/aggregation/category/:category", async(req,res) => {
-    const {category} = req.params;
-    const {sort} = req.query;
-    const categories = await productManager.aggregationFunc(category, parseInt(sort));
-    res.json({categories});
-})
+router.get("/aggregation/category/:category", aggregationFuncController)
 
-router.get("/aggregation/stock/:stock", async(req,res) => {
-    const {stock} = req.params;
-    const {sort} = req.query;
-    const stocks = await productManager.aggregationFunc2(parseInt(stock), parseInt(sort));
-    res.json({stocks});
-})
+router.get("/aggregation/stock/:stock", aggregationFunc2Controller)
 
-router.get("/:pid", async(req,res) => {
-    const {pid} = req.params;
-    const idPrdct = await productManager.getProductById(pid);
-    res.json(idPrdct);
-})
+router.get("/:pid", getProductByController)
 
-router.post("/", async(req,res) => {
-    const prdc = req.body;
-    const generatePrdc = await productManager.addProduct(prdc);
-    res.json(generatePrdc)
-})
+router.post("/", addProductController)
 
-router.put("/:pid", async(req,res) => {
-    const {pid} = req.params;
-    const objValue = req.body;
-    const field = Object.keys(objValue)
-    const value = Object.values(objValue)
-    const updatePrdc = await productManager.updateProduct(pid, ...field, ...value);
-    res.json(updatePrdc);
-})
+router.put("/:pid", updateProductController)
 
-router.delete("/:pid", async(req,res) => {
-    const {pid} = req.params;
-    const deletePrdc = await productManager.deleteProduct(pid);
-    res.json(deletePrdc);
-})
+router.delete("/:pid", deleteProductController)
 
 export default router;

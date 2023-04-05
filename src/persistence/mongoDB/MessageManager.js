@@ -1,4 +1,4 @@
-import { messagesModel } from "../models/messages.model.js";
+import { messagesModel } from "./models/messages.model.js";
 
 const MessageManager = {
     async addMessage(obj) {
