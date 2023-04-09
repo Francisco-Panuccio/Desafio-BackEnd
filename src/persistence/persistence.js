@@ -3,10 +3,10 @@ import ProductsMongoDB from "./mongoDB/ProductManager.js";
 import UsersMongoDB from "./mongoDB/UserManager.js";
 import MessagesMongoDB from "./mongoDB/MessageManager.js";
 
-let persistenceCart = (CartsMongoDB);
-let persistenceProduct = (ProductsMongoDB);
-let persistenceUser = (UsersMongoDB);
-let persistenceMessage = (MessagesMongoDB);
+let persistenceCart = new CartsMongoDB();
+let persistenceProduct = new ProductsMongoDB();
+let persistenceUser = new UsersMongoDB();
+let persistenceMessage = new MessagesMongoDB();
 
 export async function addCart(obj) {
     return await persistenceCart.addCart(obj);

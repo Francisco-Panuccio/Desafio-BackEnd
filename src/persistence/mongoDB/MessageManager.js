@@ -1,6 +1,6 @@
 import { messagesModel } from "./models/messages.model.js";
 
-const MessageManager = {
+export default class MessageManager {
     async addMessage(obj) {
         try {
             const newMsg = await messagesModel.create(obj);
@@ -8,7 +8,7 @@ const MessageManager = {
         } catch (error) {
             console.log("Error al agregar el mensaje:", error)
         }
-    },
+    }
 
     async getMessages() {
         try {
@@ -19,5 +19,3 @@ const MessageManager = {
         }
     } 
 }
-
-export default MessageManager;
