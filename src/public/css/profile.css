@@ -1,0 +1,53 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url("https://wallpaperset.com/w/full/4/9/c/186657.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.divContainer {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn3 {
+    width: 20rem;
+    height: 3rem;
+    justify-self: start;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 4rem;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace; 
+    margin: 1rem 0 0 0;
+}
+
+.btn3:hover {
+    background-color: rgba(255, 255, 255, 0.81);
+    border: .1rem solid black;
+}
+
+#divUsers {
+    background-color: black;
+    width: fit-content;
+    border-radius: 1rem;
+    padding: .1rem .6rem;
+    margin: 2rem 0 0 0;
+    border: white .2rem solid;
+}
+
+#divUsers p {
+    font-size: 1.2rem;
+    color: whitesmoke;
+}
+
+#divUsers p span {
+    color: chartreuse;
+}

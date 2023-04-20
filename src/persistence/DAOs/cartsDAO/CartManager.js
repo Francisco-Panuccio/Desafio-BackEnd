@@ -1,4 +1,4 @@
-import { cartsModel } from "./models/carts.model.js";
+import { cartsModel } from "../../mongoDB/models/carts.model.js";
 
 export default class CartManager {
     async addCart(obj) {

@@ -19,4 +19,6 @@ router.put("/:cid/products/:pid", updatePrdctCartController)
 
 router.put("/:cid", updateCartController)
 
+/* router.get("/:cid/purchase",) */
+
 export default router;

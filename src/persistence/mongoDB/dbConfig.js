@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import config from "../../../env/config.js"
 
-const URI = "mongodb+srv://FranciscoP:Computadora@coderclouster.jnpoa1s.mongodb.net/?retryWrites=true&w=majority"
+const URI = config.mongoUrl
 
 mongoose.connect(URI, (error) => {
     if(error) {

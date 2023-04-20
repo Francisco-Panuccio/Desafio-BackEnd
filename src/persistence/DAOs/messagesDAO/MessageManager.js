@@ -1,4 +1,4 @@
-import { messagesModel } from "./models/messages.model.js";
+import { messagesModel } from "../../mongoDB/models/messages.model.js";
 
 export default class MessageManager {
     async addMessage(obj) {

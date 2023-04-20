@@ -1,4 +1,7 @@
 <div class="indexHeader">
+    <div class="divProfile">
+        <a href="http://localhost:8080/profile"><button class="profileBtn">Perfil</button></a>
+    </div>
     <div class="divTitle">
         <h1>$neaker</h1>
     </div>
@@ -7,16 +10,10 @@
     </div>
 </div>
 
-
 <nav class="aContainer">
     <a href="http://localhost:8080/products"><button class="btn" id="prdts">Ver Listado de Productos</button></a>
     <a href="http://localhost:8080/chat"><button class="btn">Chat CoderHouse</button></a>
 </nav>
-
-<div id="divUsers">
-    <p>Bienvenido: <span>{{session.userName}}</span></p>
-    <p>Rol: <span>{{session.userRol}}</span></p>
-</div>
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="index.js"></script>

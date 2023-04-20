@@ -1,7 +1,7 @@
-import CartsMongoDB from "./mongoDB/CartManager.js";
-import ProductsMongoDB from "./mongoDB/ProductManager.js";
-import UsersMongoDB from "./mongoDB/UserManager.js";
-import MessagesMongoDB from "./mongoDB/MessageManager.js";
+import CartsMongoDB from "./DAOs/cartsDAO/CartManager.js";
+import ProductsMongoDB from "./DAOs/productsDAO/ProductManager.js";
+import UsersMongoDB from "./DAOs/usersDAO/UserManager.js";
+import MessagesMongoDB from "./DAOs/messagesDAO/MessageManager.js";
 
 let persistenceCart = new CartsMongoDB();
 let persistenceProduct = new ProductsMongoDB();

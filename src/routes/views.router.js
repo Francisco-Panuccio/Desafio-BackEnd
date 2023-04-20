@@ -2,6 +2,7 @@ import { Router } from "express";
 import { userValidation } from "../middlewares/userValidation.js";
 import { loginControl } from "../middlewares/loginControl.js";
 import { userValidationAdmin } from "../middlewares/userValidationAdmin.js"
+import { onlyUserValidation } from "../middlewares/onlyUserValidation.js";
 
 const router = Router();
 
@@ -19,7 +20,14 @@ router.get("/indexAdmin", userValidationAdmin, (req, res) => {
     })
 })
 
-router.get("/products", userValidation, (req, res) => {
+/* router.get("/profile", userValidation, (req, res) => {
+    res.render("profile", {
+        style:"profile.css",
+        session: req.session
+    })
+}) */
+
+router.get("/products", userValidation, onlyUserValidation, (req, res) => {
     res.render("products", {
         style: "products.css"
     })
@@ -31,13 +39,13 @@ router.get("/carts", userValidation, (req, res) => {
     })
 })
 
-router.get("/realTimeProducts", userValidation, (req, res) => {
+router.get("/realTimeProducts", userValidationAdmin, (req, res) => {
     res.render("realTimeProducts", {
         style: "realTimeProducts.css"
     })
 })
 
-router.get("/chat", userValidation, (req, res) => {
+router.get("/chat", userValidation, onlyUserValidation, (req, res) => {
     res.render("chat", {
         style: "chat.css"
     })

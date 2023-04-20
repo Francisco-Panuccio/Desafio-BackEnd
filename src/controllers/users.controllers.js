@@ -45,3 +45,9 @@ export const logoutController = async (req, res) => {
         }
     })
 }
+
+/* export const profileUserController = async (req, res) => {
+    const { email, password } = req.body;
+    const user = await loginUserService(req.body)
+    console.log(user)
+} */

@@ -38,6 +38,23 @@ h1 {
     align-items: end;
 }
 
+.profileBtn {
+    margin: 1rem 0 0 .5rem;
+    width: 8rem;
+    height: 3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: blue;
+    border: none;
+    border-radius: 4rem;
+    color: whitesmoke;
+}
+
+.btnLog:hover, .profileBtn:hover {
+    background-color: rgb(16, 16, 224);
+    border: .1rem solid white;
+}
+
 .btnLog {
     margin: 1rem .5rem 0 0;
     width: 8rem;
@@ -64,22 +81,4 @@ h1 {
 .btnLog:hover {
     background-color: rgba(255, 0, 0, 0.738);
     border: .1rem solid white;
-}
-
-#divUsers {
-    background-color: black;
-    width: fit-content;
-    border-radius: 1rem;
-    padding: .1rem .6rem;
-    margin: 2rem 0 0 2rem;
-    border: white .2rem solid;
-}
-
-#divUsers p {
-    font-size: 1.2rem;
-    color: whitesmoke;
-}
-
-#divUsers p span {
-    color: chartreuse;
 }

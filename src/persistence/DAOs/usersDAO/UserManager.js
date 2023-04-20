@@ -1,10 +1,8 @@
-import { usersModel } from "./models/users.model.js";
-import { hashPassword, comparePasswords } from "../../utils.js"
-import { addCartService } from "../../service/carts.services.js";
-import config from "../../../env/config.js";
-
-const ADMIN_EMAIL = config.adminEmail;
-const ADMIN_PASSWORD = config.adminPassword;
+import { usersModel } from "../../mongoDB/models/users.model.js";
+import { hashPassword, comparePasswords } from "../../../utils.js"
+import { addCartService } from "../../../service/carts.services.js";
+import config from "../../../../env/config.js";
+/* import UsersDTO from "../../DTOs/users.dto.js"; */
 
 export default class UserManager {
     async createUser(user) {
@@ -27,7 +25,7 @@ export default class UserManager {
 
     async loginUser(user) {
         const { email, password } = user;
-        if(email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+        if(email === config.adminEmail && password === config.adminPassword) {
             const newUserAd = {
                 userName: "Admin",
                 userEmail: email,
@@ -39,6 +37,7 @@ export default class UserManager {
             const userOne = await usersModel.findOne({ email });
             if(userOne) {
                 const isPassword = comparePasswords(password, userOne.password);
+                console.log("password hasheada:", isPassword)
                 if(isPassword) {
                     const newUserUs = {
                         userName: userOne.first_name,
