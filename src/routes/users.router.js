@@ -1,6 +1,6 @@
 import { Router } from "express";
 import passport from "passport";
-import { createUserController, loginUserController, getUserByEmailController, logoutController} from "../controllers/users.controllers.js";
+import { createUserController, loginUserController, getUserByEmailController, logoutController, profileUserController} from "../controllers/users.controllers.js";
 
 const router = Router();
 
@@ -12,7 +12,7 @@ router.get("/", getUserByEmailController)
 
 router.get("/logout", logoutController)
 
-/* router.get("/current", profileUserController) */
+router.get("/current", profileUserController)
 
 router.get("/registerGithub", passport.authenticate("github", { scope: ["user:email"] }))
 

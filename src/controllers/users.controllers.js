@@ -1,4 +1,4 @@
-import { createUserService, loginUserService, getUserByEmailService } from "../service/users.services.js";
+import { createUserService, loginUserService, getUserByEmailService, getProfileUserService } from "../service/users.services.js";
 
 export const createUserController = async (req, res) => {
     const user = req.body;
@@ -15,11 +15,7 @@ export const loginUserController = async (req, res) => {
     const user = await loginUserService(req.body);
     if(user) {
         req.session.email = email
-        req.session.password = password
-        req.session.userName = user.userName
-        req.session.userRol = user.userRol
-        req.session.userCart = user.userCart
-        if(user.userRol === "Admin") {
+        if(user.userRole === "Admin") {
             res.redirect("/indexAdmin")
         } else {
             res.redirect("/index")
@@ -46,8 +42,8 @@ export const logoutController = async (req, res) => {
     })
 }
 
-/* export const profileUserController = async (req, res) => {
-    const { email, password } = req.body;
-    const user = await loginUserService(req.body)
-    console.log(user)
-} */
+export const profileUserController = async (req, res) => {
+    const email = req.session.email;
+    const user = await getProfileUserService(email);
+    res.json(user)
+}

@@ -20,12 +20,12 @@ router.get("/indexAdmin", userValidationAdmin, (req, res) => {
     })
 })
 
-/* router.get("/profile", userValidation, (req, res) => {
+router.get("/profile", userValidation, (req, res) => {
     res.render("profile", {
         style:"profile.css",
         session: req.session
     })
-}) */
+})
 
 router.get("/products", userValidation, onlyUserValidation, (req, res) => {
     res.render("products", {

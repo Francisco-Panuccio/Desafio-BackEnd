@@ -2,7 +2,8 @@ import { usersModel } from "../../mongoDB/models/users.model.js";
 import { hashPassword, comparePasswords } from "../../../utils.js"
 import { addCartService } from "../../../service/carts.services.js";
 import config from "../../../../env/config.js";
-/* import UsersDTO from "../../DTOs/users.dto.js"; */
+import UsersDTO from "../../DTOs/users.dto.js";
+import AdminDTO from "../../DTOs/admin.dto.js";
 
 export default class UserManager {
     async createUser(user) {
@@ -26,29 +27,17 @@ export default class UserManager {
     async loginUser(user) {
         const { email, password } = user;
         if(email === config.adminEmail && password === config.adminPassword) {
-            const newUserAd = {
-                userName: "Admin",
-                userEmail: email,
-                userPassword: password,
-                userRol: "Admin"
-            }
-            return newUserAd;
+            const adminDTO = new AdminDTO(email)
+            return adminDTO;
         } else {
             const userOne = await usersModel.findOne({ email });
             if(userOne) {
                 const isPassword = comparePasswords(password, userOne.password);
-                console.log("password hasheada:", isPassword)
                 if(isPassword) {
-                    const newUserUs = {
-                        userName: userOne.first_name,
-                        userEmail: userOne.email,
-                        userPassword: userOne.password,
-                        userRol: userOne.role,
-                        userCart: userOne.cart
-                    }
-                    return newUserUs;
+                    const userDTO = new UsersDTO(userOne)
+                    return userDTO;
                 } else {
-                    return null
+                    return null;
                 }
             } else {
                 return null;
@@ -62,6 +51,22 @@ export default class UserManager {
             return users;
         } catch (error) {
             console.log("Id no encontrado", error)
+        }
+    }
+
+    async getProfileUser(user) {
+        const email = user;
+        if(email === config.adminEmail) {
+            const adminDTO = new AdminDTO(email)
+            return adminDTO;
+        } else {
+            const userOne = await usersModel.findOne({ email });
+            if(userOne) {
+                const userDTO = new UsersDTO(userOne)
+                return userDTO;
+            } else {
+                return null;
+            }
         }
     }
 }
