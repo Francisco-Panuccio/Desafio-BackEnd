@@ -1,4 +1,4 @@
-import { addCartService, getCartsService, getCartByIdService, addToCartService, deletePrdcCartService, deleteAllPrdctsService, updatePrdctCartService, updateCartService } from "../service/carts.services.js";
+import { addCartService, getCartsService, getCartByIdService, addToCartService, deletePrdcCartService, deleteAllPrdctsService, updatePrdctCartService, updateCartService, endPurchaseService, reduceStockService, incStockService } from "../service/carts.services.js";
 import { getProductsService } from "../service/products.services.js";
 
 export const addCartController = async (req, res) => {
@@ -67,4 +67,24 @@ export const updateCartController = async (req, res) => {
     const objValue = req.body;
     const updCart = await updateCartService(cid, objValue);
     res.json({message:"Productos agregados exitosamente", updCart});
+}
+
+export const reduceStockController = async (req, res) => {
+    const {pid} = req.params;
+    const stock = await reduceStockService(pid);
+    res.json(stock);
+}
+
+export const incStockController = async (req, res) => {
+    const {pid} = req.params;
+    const stock = await incStockService(pid);
+    res.json(stock);
+}
+
+export const endPurchaseController = async (req, res) => {
+    const email = req.session.email;
+    const { total } = req.body;
+    console.log(email, total)
+    const ticket = await endPurchaseService(email, total);
+    res.json(ticket);
 }

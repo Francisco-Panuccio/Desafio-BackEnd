@@ -1,12 +1,10 @@
 import mongoose from "mongoose";
-import randomCode from "../../../public/functions/randomCode.js"
 
 const ticketsSchema = new mongoose.Schema({
     code: {
         type: String,
         required: true,
         unique: true,
-        default: randomCode()
     },
     purchase_datetime: {
         type: Date,
@@ -14,7 +12,8 @@ const ticketsSchema = new mongoose.Schema({
     },
     amount: {
         type: Number,
-        required: true
+        required: true,
+        default: 0
     },
     purchaser: {
         type: String,

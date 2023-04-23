@@ -121,6 +121,17 @@ ul {
     border: .1rem solid gray;
 }
 
+.btnDisable {
+    background-color: #e1b833;
+    border-radius: 0 0 1rem 1rem;
+    padding: .3rem .5rem;
+    width: 21.1rem;
+    border: .1rem solid whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+
 .btn3 {
     width: 20rem;
     height: 3rem;

@@ -131,3 +131,13 @@ input {
     font-size: 1rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+#swalInput1 {
+    margin: 0 1rem;
+}
+
+#swalInput2 {
+    margin: 0 1rem;
+    border-radius: 2rem;
+    padding-left: .4rem;
+}

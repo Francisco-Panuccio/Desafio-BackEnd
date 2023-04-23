@@ -7,6 +7,11 @@ export const addProductController = async (req, res) => {
     res.json(generatePrdc)
 }
 
+export const getProductsController = async (req, res) => {
+    const products = await getProductsService()
+    res.json(products)
+}
+
 export const getProductByController = async (req, res) => {
     const {pid} = req.params;
     const idPrdct = await getProductByIdService(pid);
@@ -16,9 +21,8 @@ export const getProductByController = async (req, res) => {
 export const updateProductController = async (req, res) => {
     const {pid} = req.params;
     const objValue = req.body;
-    const field = Object.keys(objValue)
-    const value = Object.values(objValue)
-    const updatePrdc = await updateProductService(pid, ...field, ...value);
+    const values = Object.values(objValue)
+    const updatePrdc = await updateProductService(pid, values[0], values[1]);
     res.json(updatePrdc);
 }
 

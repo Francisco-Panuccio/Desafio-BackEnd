@@ -1,9 +1,11 @@
 import { Router } from "express";
-import { addProductController, getProductByController, updateProductController, deleteProductController, aggregationFuncController, aggregationFunc2Controller, paginateController } from "../controllers/products.controllers.js";
+import { addProductController, getProductsController, getProductByController, updateProductController, deleteProductController, aggregationFuncController, aggregationFunc2Controller, paginateController } from "../controllers/products.controllers.js";
 
 const router = Router();
 
-router.get("/", paginateController)
+router.get("/", getProductsController)
+
+router.get("/paginate", paginateController)
 
 router.get("/aggregation/category/:category", aggregationFuncController)
 

@@ -13,8 +13,7 @@ import { Server } from "socket.io";
 import { __dirname } from "./utils.js";
 import "./persistence/mongoDB/dbConfig.js";
 import "./passport/passportStrategies.js";
-import { getProductsService } from "./service/products.services.js";
-import { addToCartService } from "./service/carts.services.js";
+import { addToCartService, endPurchaseService } from "./service/carts.services.js";
 import config from "../env/config.js";
 
 const app = express();
@@ -49,13 +48,10 @@ app.engine("handlebars", handlebars.engine());
 app.set("view engine", "handlebars");
 app.set("views", __dirname + "/views");
 
-const arrayPrdct = [];
 const infoMessage = [];
 
 socketServer.on("connection", async (socket) => {
     console.log(`Cliente Conectado: ${socket.id}`)
-    const prdcs = await getProductsService()
-    socketServer.emit("list", prdcs)
     
     socket.on("disconnect", () => {
         console.log("Cliente Desconectado")
@@ -64,11 +60,6 @@ socketServer.on("connection", async (socket) => {
     socket.on("userData", data => {
         console.log(data)
         socketServer.emit("data", data)
-    })
-
-    socket.on("object", newPrdc => {
-        arrayPrdct.push(newPrdc)
-        socketServer.emit("list2", arrayPrdct)
     })
 
     socket.on("newUser", user => {
@@ -82,5 +73,6 @@ socketServer.on("connection", async (socket) => {
 
     socket.on("addPrdc", async (cart, prdt) => {
         const prdcts = await addToCartService(cart, prdt)
+        const stockCart = await endPurchaseService(cart, prdt)
     })
 });

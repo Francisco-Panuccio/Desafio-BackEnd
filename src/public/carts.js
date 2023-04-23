@@ -15,7 +15,7 @@ setTimeout(() => {
     fetch(`/api/carts/${idCart}`)
     .then((resp) => resp.json())
     .then((data) => {
-        for(const prd of data[0].products) {
+        for(const prd of data[0].products) { //ACA HAY UN ERROR UNDEFINED IDCART
             const totalAmount = ((prd.product.price)*(prd.quantity));
             total = total + totalAmount
             let div = document.createElement("div");
@@ -32,13 +32,26 @@ setTimeout(() => {
 
         for(const button of buttons) {
             button.onclick = () => {
-                console.log("ELIMINANDO")
+                button.disabled = true;
+                console.log("Eliminando")
+                fetch(`/api/carts/stockInc/${button.id}`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json;charset=UTF-8"
+                    }
+                })
+                    .then((resp) => resp.json())
+                    .then((data) => {
+                        console.log(data)
+                    })
+
                 fetch(`/api/carts/${idCart}/products/${button.id}`, {
                     method: "DELETE",
                 })
                     .then((resp) => resp.json())
                     .then((data) => {
-                    location.href = "/carts"
+                        console.log(data)
+                        location.href = "/carts"
                     })
             }
         }
@@ -47,9 +60,42 @@ setTimeout(() => {
             let div2 = document.createElement("div");
             div2.innerHTML = `
             <span class="total">Total: $${total.toLocaleString()}</span>
-            <input type="button" class="buyBtn" value="Realizar Compra">`
+            <input type="button" class="buyBtn" id="endPurchase" value="Realizar Compra">`
             div2.className = "buy"
             container.appendChild(div2);
+        }
+
+        const btnPurchase = document.getElementById("endPurchase");
+
+        let prdcPurchase = {
+            total 
+        }
+
+        btnPurchase.onclick = () => {
+            fetch(`/api/carts/${idCart}/purchase`, {
+                method: "POST",
+                body: JSON.stringify(prdcPurchase),
+                headers: {
+                    "Content-Type": "application/json;charset=UTF-8"
+                }
+            })
+                .then((resp) => console.log(resp.json()))
+
+            fetch(`/api/carts/${idCart}`, {
+                method: "DELETE",
+            })
+                .then((resp) => resp.json())
+                .then((data) => {
+                    console.log(data)
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Compra Realizada Exitosamente',
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.href = "/carts"
+                        }
+                      })
+                })
         }
     })
 }, 1000)

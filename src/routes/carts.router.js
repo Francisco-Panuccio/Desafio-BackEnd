@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addCartController, getCartsController, getCartByIdController, addToCartController, deletePrdcCartController, deleteAllPrdctsController, updatePrdctCartController, updateCartController } from "../controllers/carts.controllers.js";
+import { addCartController, getCartsController, getCartByIdController, addToCartController, deletePrdcCartController, deleteAllPrdctsController, updatePrdctCartController, updateCartController, endPurchaseController, reduceStockController, incStockController } from "../controllers/carts.controllers.js";
 
 const router = Router();
 
@@ -19,6 +19,10 @@ router.put("/:cid/products/:pid", updatePrdctCartController)
 
 router.put("/:cid", updateCartController)
 
-/* router.get("/:cid/purchase",) */
+router.put("/stockDec/:pid", reduceStockController)
+
+router.put("/stockInc/:pid", incStockController)
+
+router.post("/:cid/purchase", endPurchaseController)
 
 export default router;

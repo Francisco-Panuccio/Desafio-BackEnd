@@ -32,7 +32,7 @@ export default class UserManager {
         } else {
             const userOne = await usersModel.findOne({ email });
             if(userOne) {
-                const isPassword = comparePasswords(password, userOne.password);
+                const isPassword = await comparePasswords(password, userOne.password);
                 if(isPassword) {
                     const userDTO = new UsersDTO(userOne)
                     return userDTO;

@@ -1,4 +1,4 @@
-import { addCart, getCarts, getCartById, addToCart, deletePrdcCart, deleteAllPrdcts, updatePrdctCart, updateCart } from "../persistence/persistence.js";
+import { addCart, getCarts, getCartById, addToCart, deletePrdcCart, deleteAllPrdcts, updatePrdctCart, updateCart, endPurchase, reduceStock, incStock } from "../persistence/persistence.js";
 
 export async function addCartService(obj) {
     const cart = await addCart(obj);
@@ -38,4 +38,19 @@ export async function updatePrdctCartService(cid, pid, qnt) {
 export async function updateCartService(cid, arrayCart) {
     const cart = await updateCart(cid, arrayCart);
     return cart;
+}
+
+export async function reduceStockService(pid) {
+    const cartEnd = await reduceStock(pid);
+    return cartEnd;
+}
+
+export async function incStockService(pid) {
+    const cartEnd = await incStock(pid);
+    return cartEnd;
+}
+
+export async function endPurchaseService(email, total) {
+    const ticket = await endPurchase(email, total);
+    return ticket;
 }

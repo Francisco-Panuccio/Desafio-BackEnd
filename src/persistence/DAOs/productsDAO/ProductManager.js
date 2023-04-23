@@ -76,7 +76,6 @@ export default class ProductManager {
                         $match: {stock: {$eq: stc}}
                     },
                     {
-
                         $sort: {price: srt}
                     }
                 ])

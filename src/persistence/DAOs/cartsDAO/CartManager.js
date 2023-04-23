@@ -1,4 +1,7 @@
 import { cartsModel } from "../../mongoDB/models/carts.model.js";
+import { productsModel } from "../../mongoDB/models/products.model.js";
+import { ticketsModel } from "../../mongoDB/models/tickets.model.js";
+import randomCode from "../../../public/functions/randomCode.js"
 
 export default class CartManager {
     async addCart(obj) {
@@ -34,15 +37,20 @@ export default class CartManager {
             if(idCart) {
                 const idPrdc = idCart.products.findIndex((element) => element.product == pid);
                 if(idPrdc !== -1) {
-                    const updQty = cartsModel.updateOne(
-                        {_id: cid, "products.product": pid},
-                        {$inc: {"products.$.quantity": 1}}
-                    )
-                    console.log("Cantidad aumentada")
-                    return updQty;
+                    const prdStock = await productsModel.findById(pid)
+                    if(prdStock.stock > 0) {
+                        const updQty = cartsModel.updateOne(
+                            {_id: cid, "products.product": pid},
+                            {$inc: {"products.$.quantity": 1}}
+                        )
+                        console.log("Cantidad aumentada")
+                        return (updQty);
+                    } else {
+                        console.log("Stock Insuficiente")
+                    }
                 } else {
                     const pushPrdc = cartsModel.updateOne(
-                        { _id: cid },
+                        {_id: cid},
                         { $push: {"products":
                             {product: pid,
                             quantity: 1}
@@ -56,7 +64,7 @@ export default class CartManager {
         }
     }
 
-        async deletePrdcCart(cid, pid) {
+    async deletePrdcCart(cid, pid) {
         try {
             const cartPrdc = await cartsModel.findById(cid)
             const prdcIndex = cartPrdc.products.findIndex((element) => element.product == pid);
@@ -100,6 +108,46 @@ export default class CartManager {
             cart.products.push(arrayCart);
             const newCart = await cart.save();
             return newCart;
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async reduceStock(pid) {
+        try {
+            const updPrd = productsModel.updateOne(
+                {_id: pid},
+                {$inc: {"stock": -1}}
+            )
+            console.log("Stock disminuído")
+            return updPrd;
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async incStock(pid) {
+        try {
+            const updPrd = productsModel.updateOne(
+                {_id: pid},
+                {$inc: {"stock": 1}}
+            )
+            return updPrd;
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async endPurchase(email, total) {
+        try {
+            let obj = {
+                code: randomCode(),
+                purchase_datetime: new Date(),
+                amount: total,
+                purchaser: email,
+            }
+            const ticket = await ticketsModel.create(obj)
+            return ticket;
         } catch (error) {
             console.log(error)
         }

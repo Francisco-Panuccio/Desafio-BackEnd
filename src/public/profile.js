@@ -1,6 +1,7 @@
 const socketClient = io();
 
 const divUser = document.getElementById("divContainer")
+const btnProfile = document.getElementById("btnProfile")
 
 fetch(`/api/users/current`)
     .then((resp) => resp.json())
@@ -14,4 +15,12 @@ fetch(`/api/users/current`)
         <p>Rol: <span>${data.userRole}</span></p>
         <p>Carrito: <span>${data.userCart}</span></p>`
         divUser.append(div)
+
+        btnProfile.addEventListener("click", () => {
+            if(data.userName === "Admin") {
+                location.href = "/indexAdmin"
+            } else {
+                location.href = "/index"
+            }
+        })
 });

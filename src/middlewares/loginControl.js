@@ -8,4 +8,4 @@ export async function loginControl(req, res, next){
     } else {
         next()
     }
-}   
+}
