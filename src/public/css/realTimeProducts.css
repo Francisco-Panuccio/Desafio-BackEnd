@@ -1,7 +1,6 @@
 body {
-    background-image: url("https://wallpaperset.com/w/full/4/9/c/186657.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url('../images/Fondo1.jpg');
+    background-repeat: repeat;
 }
 
 h2, h3 {
@@ -51,7 +50,7 @@ input {
 
 .title {
     color: whitesmoke;
-    background-color: rgba(0, 0, 0, 0.825);
+    background-color: black;
     border-radius: 1rem 1rem 0 0;
     font-size: 1.5rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;

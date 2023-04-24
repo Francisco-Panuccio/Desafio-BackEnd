@@ -84,7 +84,6 @@ export const incStockController = async (req, res) => {
 export const endPurchaseController = async (req, res) => {
     const email = req.session.email;
     const { total } = req.body;
-    console.log(email, total)
     const ticket = await endPurchaseService(email, total);
     res.json(ticket);
 }

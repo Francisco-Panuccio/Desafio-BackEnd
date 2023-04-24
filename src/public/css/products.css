@@ -1,7 +1,6 @@
 body {
-    background-image: url("https://wallpaperset.com/w/full/4/9/c/186657.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url('../images/Fondo3.jpg');
+    background-repeat: repeat;
 }
 
 #cart {
@@ -61,7 +60,7 @@ ul {
 
 .title {
     color: whitesmoke;
-    background-color: rgba(0, 0, 0, 0.825);
+    background-color: rgb(0, 0, 0);
     border-radius: 1rem 1rem 0 0;
     font-size: 1.5rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;

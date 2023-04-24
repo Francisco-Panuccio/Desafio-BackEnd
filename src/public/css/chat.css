@@ -3,9 +3,8 @@ html {
 }
 
 body {
-    background-image: url("https://wallpaperset.com/w/full/4/9/c/186657.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url('../images/Fondo1.jpg');
+    background-repeat: repeat;
 }
 
 h4 {
@@ -38,6 +37,11 @@ h4 {
     font-size: 1rem;
     text-align: center;
     margin-top: 0;
+}
+
+#chat p {
+    background-color: rgb(255, 255, 255);
+    width: fit-content;
 }
 
 .btn {

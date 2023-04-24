@@ -18,6 +18,8 @@ if(!user) {
             return 'Necesitas ingresar un nombre'
           }
         },
+        allowEscapeKey: false,
+        allowOutsideClick: false,
       }).then((username) => {
         user = username.value
         userName.innerText = user
