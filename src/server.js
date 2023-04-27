@@ -58,7 +58,6 @@ socketServer.on("connection", async (socket) => {
     })
 
     socket.on("userData", data => {
-        console.log(data)
         socketServer.emit("data", data)
     })
 

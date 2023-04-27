@@ -1,4 +1,4 @@
-import { addProduct, getProducts, getProductById, updateProduct, deleteProduct, aggregationFunc, aggregationFunc2 } from "../persistence/persistence.js";
+import { addProduct, getProducts, getProductById, updateProduct, deleteProduct, aggregationFunc, aggregationFunc2, getMockingProducts, generateMockingProducts } from "../persistence/persistence.js";
 
 export async function addProductService(obj) {
     const product = await addProduct(obj);
@@ -33,4 +33,14 @@ export async function aggregationFuncService(ctg, srt) {
 export async function aggregationFunc2Service(ctg, srt) {
     const product = await aggregationFunc2(ctg, srt);
     return product;
+}
+
+export async function getMockingProductsService() {
+    const prdcs = await getMockingProducts();
+    return prdcs;
+}
+
+export async function generateMockingProductsService() {
+    const prdcs = await generateMockingProducts();
+    return prdcs;
 }

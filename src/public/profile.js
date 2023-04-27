@@ -6,7 +6,6 @@ const btnProfile = document.getElementById("btnProfile")
 fetch(`/api/users/current`)
     .then((resp) => resp.json())
     .then((data) => {
-        console.log(data)
         if(data.userRole !== "Admin") {
             const div = document.createElement("div")
             div.className = "divUsers"

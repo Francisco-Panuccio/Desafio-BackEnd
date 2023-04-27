@@ -1,4 +1,4 @@
-import { addProductService, getProductsService, getProductByIdService, updateProductService, deleteProductService, aggregationFuncService, aggregationFunc2Service } from "../service/products.services.js";
+import { addProductService, getProductsService, getProductByIdService, updateProductService, deleteProductService, aggregationFuncService, aggregationFunc2Service, getMockingProductsService, generateMockingProductsService } from "../service/products.services.js";
 import { productsModel } from "../persistence/mongoDB/models/products.model.js"; 
 
 export const addProductController = async (req, res) => {
@@ -64,4 +64,15 @@ export const paginateController = async (req, res) => {
         prevLink,
         nextLink
     }});
+}
+
+export const getMockingProductsController = async (req, res) => {
+    console.log("FUNCA CONTROLLER")
+    const prdcs = await getMockingProductsService();
+    res.json(prdcs);
+}
+
+export const generateMockingProductsController = async (req, res) => {
+    const prdc = await generateMockingProductsService();
+    res.json(prdc);
 }

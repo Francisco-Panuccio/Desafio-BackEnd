@@ -33,7 +33,6 @@ setTimeout(() => {
         for(const button of buttons) {
             button.onclick = () => {
                 button.disabled = true;
-                console.log("Eliminando")
                 fetch(`/api/carts/stockInc/${button.id}`, {
                     method: "PUT",
                     headers: {
@@ -41,16 +40,13 @@ setTimeout(() => {
                     }
                 })
                     .then((resp) => resp.json())
-                    .then((data) => {
-                        console.log(data)
-                    })
+                    .then((data) => {})
 
                 fetch(`/api/carts/${idCart}/products/${button.id}`, {
                     method: "DELETE",
                 })
                     .then((resp) => resp.json())
                     .then((data) => {
-                        console.log(data)
                         location.href = "/carts"
                     })
             }
@@ -86,7 +82,6 @@ setTimeout(() => {
             })
                 .then((resp) => resp.json())
                 .then((data) => {
-                    console.log(data)
                     Swal.fire({
                         icon: 'success',
                         title: 'Compra Realizada Exitosamente',

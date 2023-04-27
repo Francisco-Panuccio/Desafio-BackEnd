@@ -1,12 +1,20 @@
 import { productsModel } from "../../mongoDB/models/products.model.js";
+import { mockingsModel } from "../../mongoDB/models/mockings.model.js";
+import { generateProducts } from "../../../public/functions/mockings.js";
+import CustomError from "../../../errors/CustomError.js";
+import { ErrorsName, ErrorsMessage, ErrorsCause } from "../../../errors/errors.enum.js";
 
 export default class ProductManager {
     async addProduct(obj) {
         try {
             const newPrdc = await productsModel.create(obj);
             return newPrdc;
-        } catch (error) {
-            console.log("Error al Agregar el Producto", error)
+        } catch {
+            CustomError.createCustomError({
+                name: ErrorsName.addProductError,
+                message: ErrorsMessage.addProductError,
+                cause: ErrorsCause.addProductError,
+            })
         }
     }
 
@@ -32,8 +40,12 @@ export default class ProductManager {
         try {
             const prdcToUpdate = await productsModel.findByIdAndUpdate(id, {[field]: value});
             return prdcToUpdate;
-        } catch (error) {
-            console.log("Inserte un ID válido", error)
+        } catch {
+            CustomError.createCustomError({
+                name: ErrorsName.updateProductError,
+                message: ErrorsMessage.updateProductError,
+                cause: ErrorsCause.updateProductError,
+            })
         }
     }
 
@@ -41,8 +53,12 @@ export default class ProductManager {
         try {
             const prdcToDelete = await productsModel.deleteOne({_id:id});
             return prdcToDelete;
-        } catch (error) {
-            console.log("Producto no encontrado", error)
+        } catch {
+            CustomError.createCustomError({
+                name: ErrorsName.deleteProductError,
+                message: ErrorsMessage.deleteProductError,
+                cause: ErrorsCause.deleteProductError,
+            })
         }
     }
 
@@ -81,6 +97,26 @@ export default class ProductManager {
                 ])
                 return stck;
             }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async generateMockingProducts() {
+        try {
+            const prdcts = generateProducts();
+            const newPrdcs = await mockingsModel.create(prdcts);
+            return newPrdcs;
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    
+    async getMockingProducts() {
+        try {
+            console.log("FUNCA")
+/*             const prdcs = await mockingsModel.find({});
+            return prdcs; */
         } catch (error) {
             console.log(error)
         }

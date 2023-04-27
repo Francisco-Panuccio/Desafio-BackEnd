@@ -64,6 +64,12 @@ export async function aggregationFunc(ctg, srt) {
 export async function aggregationFunc2(ctg, srt) {
     return await persistenceProduct.aggregationFunc2(ctg, srt);
 }
+export async function getMockingProducts() {
+    return await persistenceProduct.getMockingProducts();
+}
+export async function generateMockingProducts() {
+    return await persistenceProduct.generateMockingProducts();
+}
 
 
 export async function createUser(user) {

@@ -136,7 +136,6 @@ fetch(`/api/products`)
                         })
                             .then((resp) => resp.json())
                             .then((data) => {
-                                console.log(data)
                                 location.href = "/realTimeProducts"
                             })
                     }
