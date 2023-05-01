@@ -84,6 +84,9 @@ export async function getUserByEmail(email) {
 export async function getProfileUser(user) {
     return await persistenceUser.getProfileUser(user);
 }
+export async function getMail(userEmail) {
+    return await persistenceUser.getMail(userEmail);
+}
 
 
 export async function addMessage(obj) {

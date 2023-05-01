@@ -1,4 +1,4 @@
-import { createUserService, loginUserService, getUserByEmailService, getProfileUserService } from "../service/users.services.js";
+import { createUserService, loginUserService, getUserByEmailService, getProfileUserService, getMailService } from "../service/users.services.js";
 
 export const createUserController = async (req, res) => {
     const user = req.body;
@@ -26,8 +26,10 @@ export const loginUserController = async (req, res) => {
 }
 
 export const getUserByEmailController = async (req, res) => {
+    console.log("Correo?")
     const email = req.session.email;
     const users = await getUserByEmailService(email)
+    console.log("Correo enviado correctamente")
     res.json(users)
 }
 
@@ -46,4 +48,10 @@ export const profileUserController = async (req, res) => {
     const email = req.session.email;
     const user = await getProfileUserService(email);
     res.json(user)
+}
+
+export const getMailController = async (req, res) => {
+    const email = req.session.email;
+    const mailing = await getMailService(email)
+    res.send(mailing)
 }

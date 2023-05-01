@@ -4,6 +4,16 @@ import { addCartService } from "../../../service/carts.services.js";
 import config from "../../../../env/config.js";
 import UsersDTO from "../../DTOs/users.dto.js";
 import AdminDTO from "../../DTOs/admin.dto.js";
+import nodemailer from 'nodemailer';
+
+const transport = nodemailer.createTransport({
+    service: 'gmail',
+    port: 587,
+    auth: {
+        user: config.googleEmail,
+        pass: config.googlePassword
+    }
+})
 
 export default class UserManager {
     async createUser(user) {
@@ -68,5 +78,19 @@ export default class UserManager {
                 return null;
             }
         }
+    }
+    
+    async getMail(userEmail) {
+        let result = await transport.sendMail({
+            from: "$neakers",
+            to: userEmail,
+            subject: 'Check Login',
+            html: `
+                <div>
+                    <p>¡Te has logeado correctamente en $neakers!</p>
+                </div>
+            `
+        })
+        return result;
     }
 }

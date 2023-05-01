@@ -2,6 +2,7 @@ const socketClient = io();
 
 const divUser = document.getElementById("divContainer")
 const btnProfile = document.getElementById("btnProfile")
+const btnMailing = document.getElementById("btnMailing")
 
 fetch(`/api/users/current`)
     .then((resp) => resp.json())
@@ -33,3 +34,13 @@ fetch(`/api/users/current`)
             }
         })
 });
+
+btnMailing.onclick = () => {
+    btnMailing.disabled = true;
+
+    fetch('/api/users/mailing')
+        .then((resp) => resp.json())
+        .then((data) => {
+            console.log(data)
+        })
+}

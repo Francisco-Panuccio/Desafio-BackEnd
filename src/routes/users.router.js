@@ -1,6 +1,6 @@
 import { Router } from "express";
 import passport from "passport";
-import { createUserController, loginUserController, getUserByEmailController, logoutController, profileUserController} from "../controllers/users.controllers.js";
+import { createUserController, loginUserController, getUserByEmailController, logoutController, profileUserController, getMailController} from "../controllers/users.controllers.js";
 
 const router = Router();
 
@@ -22,5 +22,7 @@ router.get("/github", passport.authenticate("github"), (req, res) => {
     req.session.userRol = "Usuario"
     res.redirect("/index")
 })
+
+router.get("/mailing", getMailController)
 
 export default router;

@@ -3,6 +3,7 @@ import { userValidation } from "../middlewares/userValidation.js";
 import { loginControl } from "../middlewares/loginControl.js";
 import { userValidationAdmin } from "../middlewares/userValidationAdmin.js"
 import { onlyUserValidation } from "../middlewares/onlyUserValidation.js";
+import { mailing } from "../middlewares/mailing.js";
 
 const router = Router();
 

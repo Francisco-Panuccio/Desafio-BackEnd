@@ -1,4 +1,4 @@
-import { createUser, loginUser, getUserByEmail, getProfileUser } from "../persistence/persistence.js";
+import { createUser, loginUser, getUserByEmail, getProfileUser, getMail } from "../persistence/persistence.js";
 
 export async function createUserService(user) {
     const userC = await createUser(user);
@@ -18,4 +18,9 @@ export async function getUserByEmailService(email) {
 export async function getProfileUserService(user) {
     const userP = await getProfileUser(user);
     return userP;
+}
+
+export async function getMailService(userEmail) {
+    const mailing = await getMail(userEmail);
+    return mailing;
 }
