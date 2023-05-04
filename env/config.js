@@ -8,5 +8,6 @@ export default {
     adminEmail: process.env.ADMIN_EMAIL,
     adminPassword: process.env.ADMIN_PASSWORD,
     googlePassword: process.env.GOOGLE_PASSWORD,
-    googleEmail: process.env.GOOGLE_EMAIL
+    googleEmail: process.env.GOOGLE_EMAIL,
+    node_env: process.env.NODE_ENV,
 }

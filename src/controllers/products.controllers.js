@@ -1,4 +1,4 @@
-import { addProductService, getProductsService, getProductByIdService, updateProductService, deleteProductService, aggregationFuncService, aggregationFunc2Service, getMockingProductsService, generateMockingProductsService } from "../service/products.services.js";
+import { addProductService, getProductsService, getProductByIdService, updateProductService, deleteProductService, aggregationFuncService, aggregationFunc2Service, getMockingProductsService, generateMockingProductsService, getLogsWinstonService } from "../service/products.services.js";
 import { productsModel } from "../persistence/mongoDB/models/products.model.js"; 
 
 export const addProductController = async (req, res) => {
@@ -75,4 +75,9 @@ export const getMockingProductsController = async (req, res) => {
 export const generateMockingProductsController = async (req, res) => {
     const prdc = await generateMockingProductsService();
     res.json(prdc);
+}
+
+export const getLogsWinstonController = async (req, res) => {
+    const logs = await getLogsWinstonService();
+    res.json(logs);
 }

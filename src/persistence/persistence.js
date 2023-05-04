@@ -70,6 +70,9 @@ export async function getMockingProducts() {
 export async function generateMockingProducts() {
     return await persistenceProduct.generateMockingProducts();
 }
+export async function getLogsWinston() {
+    return await persistenceProduct.getLogsWinston();
+}
 
 
 export async function createUser(user) {

@@ -2,6 +2,7 @@ import { productsModel } from "../../mongoDB/models/products.model.js";
 import { mockingsModel } from "../../mongoDB/models/mockings.model.js";
 import { generateProducts } from "../../../public/functions/mockings.js";
 import CustomError from "../../../errors/CustomError.js";
+import logger from "../../../winston/winston.js";
 import { ErrorsName, ErrorsMessage, ErrorsCause } from "../../../errors/errors.enum.js";
 
 export default class ProductManager {
@@ -23,7 +24,7 @@ export default class ProductManager {
             const products = await productsModel.find({});
             return products;
         } catch (error) {
-            console.log("No hay productos en la Base de Datos", error)
+            logger.error("No hay productos en la Base de Datos,", error)
         }
     }
 
@@ -32,7 +33,7 @@ export default class ProductManager {
             const productId = await productsModel.findById(id);
             return productId;
         } catch (error) {
-            console.log("Id no encontrado", error)
+            logger.error("Id no encontrado,", error)
         }
     }
 
@@ -78,7 +79,7 @@ export default class ProductManager {
                 return ctgy;
             }
         } catch (error) {
-            console.log(error)
+            logger.error(error)
         }
     }
 
@@ -98,7 +99,7 @@ export default class ProductManager {
                 return stck;
             }
         } catch (error) {
-            console.log(error)
+            logger.error(error)
         }
     }
 
@@ -108,17 +109,26 @@ export default class ProductManager {
             const newPrdcs = await mockingsModel.create(prdcts);
             return newPrdcs;
         } catch (error) {
-            console.log(error)
+            logger.error(error)
         }
     }
     
     async getMockingProducts() {
         try {
             console.log("FUNCA")
-/*             const prdcs = await mockingsModel.find({});
-            return prdcs; */
+            const prdcs = await mockingsModel.find({});
+            return prdcs;
         } catch (error) {
-            console.log(error)
+            logger.error(error)
         }
+    }
+
+    async getLogsWinston() {
+        logger.fatal("Fatal Log")
+        logger.error("Error Log")
+        logger.warning("Warning Log")
+        logger.info("Info Log")
+        logger.http("Http Log")
+        logger.debug("Debug Log")
     }
 }
