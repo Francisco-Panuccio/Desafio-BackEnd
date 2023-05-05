@@ -24,7 +24,7 @@ export default class ProductManager {
             const products = await productsModel.find({});
             return products;
         } catch (error) {
-            logger.error("No hay productos en la Base de Datos,", error)
+            logger.warning("No hay productos en la Base de Datos,", error)
         }
     }
 
@@ -33,7 +33,7 @@ export default class ProductManager {
             const productId = await productsModel.findById(id);
             return productId;
         } catch (error) {
-            logger.error("Id no encontrado,", error)
+            logger.info("Id no encontrado,", error)
         }
     }
 

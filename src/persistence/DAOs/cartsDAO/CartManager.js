@@ -3,6 +3,7 @@ import { productsModel } from "../../mongoDB/models/products.model.js";
 import { ticketsModel } from "../../mongoDB/models/tickets.model.js";
 import randomCode from "../../../public/functions/randomCode.js"
 import CustomError from "../../../errors/CustomError.js";
+import logger from "../../../winston/winston.js";
 
 export default class CartManager {
     async addCart(obj) {
@@ -10,7 +11,7 @@ export default class CartManager {
             const newCart = await cartsModel.create(obj);
             return newCart;
         } catch (error) {
-            console.log("Error al Agregar el Carrito", error)
+            logger.error("Error al Agregar el Carrito", error)
         }
     }
 
@@ -19,7 +20,7 @@ export default class CartManager {
             const carts = await cartsModel.find({});
             return carts;
         } catch (error) {
-            console.log("No hay productos en la Base de Datos", error)
+            logger.warning("No hay productos en la Base de Datos", error)
         }
     } 
 
@@ -28,7 +29,7 @@ export default class CartManager {
             const cartId = await cartsModel.find({_id:id});
             return cartId;
         } catch (error) {
-            console.log("Id no encontrado", error)
+            logger.info("Id no encontrado", error)
         }
     } 
 
@@ -141,7 +142,7 @@ export default class CartManager {
             )
             return updPrd;
         } catch (error) {
-            console.log(error)
+            logger.error(error)
         }
     }
 
@@ -153,7 +154,7 @@ export default class CartManager {
             )
             return updPrd;
         } catch (error) {
-            console.log(error)
+            logger.error(error)
         }
     }
 
@@ -168,7 +169,7 @@ export default class CartManager {
             const ticket = await ticketsModel.create(obj)
             return ticket;
         } catch (error) {
-            console.log(error)
+            logger.error(error)
         }
     }
 }

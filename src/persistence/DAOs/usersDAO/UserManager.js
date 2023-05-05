@@ -5,6 +5,7 @@ import config from "../../../../env/config.js";
 import UsersDTO from "../../DTOs/users.dto.js";
 import AdminDTO from "../../DTOs/admin.dto.js";
 import nodemailer from 'nodemailer';
+import logger from "../../../winston/winston.js";
 
 const transport = nodemailer.createTransport({
     service: 'gmail',
@@ -30,7 +31,7 @@ export default class UserManager {
                 return null;
             }
         } catch (error) {
-            console.log("Error en la creación del usuario", error)
+            logger.error("Error en la creación del usuario", error)
         }
     }
 
@@ -60,7 +61,7 @@ export default class UserManager {
             const users = await usersModel.findOne({ email });
             return users;
         } catch (error) {
-            console.log("Id no encontrado", error)
+            logger.info("Id no encontrado", error)
         }
     }
 

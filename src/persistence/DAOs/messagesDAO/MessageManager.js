@@ -1,4 +1,5 @@
 import { messagesModel } from "../../mongoDB/models/messages.model.js";
+import logger from "../../../winston/winston.js";
 
 export default class MessageManager {
     async addMessage(obj) {
@@ -6,7 +7,7 @@ export default class MessageManager {
             const newMsg = await messagesModel.create(obj);
             return newMsg;
         } catch (error) {
-            console.log("Error al agregar el mensaje:", error)
+            logger.error("Error al agregar el mensaje:", error)
         }
     }
 
@@ -15,7 +16,7 @@ export default class MessageManager {
             const messages = await messagesModel.find({});
             return messages;
         } catch (error) {
-            console.log("No se encuentran mensajes en la Base de Datos", error)
+            logger.warning("No se encuentran mensajes en la Base de Datos", error)
         }
     } 
 }
