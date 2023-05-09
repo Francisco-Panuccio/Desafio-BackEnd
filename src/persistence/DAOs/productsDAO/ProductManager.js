@@ -1,6 +1,4 @@
 import { productsModel } from "../../mongoDB/models/products.model.js";
-import { mockingsModel } from "../../mongoDB/models/mockings.model.js";
-import { generateProducts } from "../../../public/functions/mockings.js";
 import CustomError from "../../../errors/CustomError.js";
 import logger from "../../../winston/winston.js";
 import { ErrorsName, ErrorsMessage, ErrorsCause } from "../../../errors/errors.enum.js";
@@ -98,26 +96,6 @@ export default class ProductManager {
                 ])
                 return stck;
             }
-        } catch (error) {
-            logger.error(error)
-        }
-    }
-
-    async generateMockingProducts() {
-        try {
-            const prdcts = generateProducts();
-            const newPrdcs = await mockingsModel.create(prdcts);
-            return newPrdcs;
-        } catch (error) {
-            logger.error(error)
-        }
-    }
-    
-    async getMockingProducts() {
-        try {
-            console.log("FUNCA")
-            const prdcs = await mockingsModel.find({});
-            return prdcs;
         } catch (error) {
             logger.error(error)
         }
