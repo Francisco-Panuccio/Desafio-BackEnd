@@ -12,7 +12,7 @@ const customLevelsOptions = {
     },
     colors: {
         fatal: 'red',
-        error: 'orange',
+        error: 'magenta',
         warning: 'yellow',
         info: 'blue',
         http: 'green',
@@ -47,11 +47,11 @@ if(config.node_env === "development") {
                 )
             }),
             new winston.transports.File({
-                filename: "../errors.log",
+                filename: "./errors.log",
                 level: "error",
                 format: winston.format.combine(
-                    winston.format.colorize({colors: customLevelsOptions.colors}),
-                    winston.format.simple(),
+                    winston.format.timestamp(),
+                    winston.format.prettyPrint()
                 )
             })
         ]

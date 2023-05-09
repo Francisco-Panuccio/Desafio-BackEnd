@@ -66,8 +66,8 @@ export async function aggregationFunc(ctg, srt) {
 export async function aggregationFunc2(ctg, srt) {
     return await persistenceProduct.aggregationFunc2(ctg, srt);
 }
-export async function getLogsWinston() {
-    return await persistenceProduct.getLogsWinston();
+export async function logsWinston() {
+    return await persistenceProduct.logsWinston();
 }
 
 
@@ -94,6 +94,7 @@ export async function addMessage(obj) {
 export async function getMessages() {
     return await persistenceMessage.getMessages();
 }
+
 
 export async function getMockingProducts() {
     return await persistenceMocking.getMockingProducts();

@@ -31,7 +31,7 @@ export default class ProductManager {
             const productId = await productsModel.findById(id);
             return productId;
         } catch (error) {
-            logger.info("Id no encontrado,", error)
+            logger.error("Id no encontrado,", error)
         }
     }
 
@@ -59,6 +59,15 @@ export default class ProductManager {
                 cause: ErrorsCause.deleteProductError,
             })
         }
+    }
+
+    async logsWinston() {
+        logger.fatal("Fatal Log")
+        logger.error("Error Log")
+        logger.warning("Warning Log")
+        logger.info("Info Log")
+        logger.http("Http Log")
+        logger.debug("Debug Log")
     }
 
     async aggregationFunc(ctg, srt) {
@@ -99,14 +108,5 @@ export default class ProductManager {
         } catch (error) {
             logger.error(error)
         }
-    }
-
-    async getLogsWinston() {
-        logger.fatal("Fatal Log")
-        logger.error("Error Log")
-        logger.warning("Warning Log")
-        logger.info("Info Log")
-        logger.http("Http Log")
-        logger.debug("Debug Log")
     }
 }
