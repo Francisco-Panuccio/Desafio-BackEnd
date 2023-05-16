@@ -127,15 +127,21 @@ export default class UserManager {
     async recoveryForm(userData) {
         try {
             const {email, password} = userData;
-            const emailFound = await usersModel.find({email: email});
-            if(emailFound[0] !== undefined && emailFound[0].email === email) {
+            const emailFounded = await usersModel.find({email: email});
+            const isPassword = await comparePasswords(password[0], emailFounded[0].password);
+            console.log(isPassword)
+            if(emailFounded[0] !== undefined && emailFounded[0].email === email) {
                 if(password[0] === password[1]) {
-                    const newHashPass = await hashPassword(password[0]);
-                    const newUserPass = await usersModel.updateOne(
-                        {email: email},
-                        {password: newHashPass}
-                    );
-                    return (newUserPass, "Contraseña cambiada exitosamente");
+                    if(!isPassword) {
+                        const newHashPass = await hashPassword(password[0]);
+                        const newUserPass = await usersModel.updateOne(
+                            {email: email},
+                            {password: newHashPass}
+                        );
+                        return (newUserPass, "Contraseña cambiada exitosamente");
+                    } else {
+                        return("No puedes reestablecer con la misma contraseña");
+                    }
                 } else {
                     return("Las contraseñas no coinciden");
                 }
