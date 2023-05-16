@@ -49,9 +49,10 @@ h1 {
     color: whitesmoke;
 }
 
-.btnLog:hover, .profileBtn:hover {
+.profileBtn:hover {
     background-color: rgb(16, 16, 224);
     border: .1rem solid white;
+    cursor: pointer;
 }
 
 .btnLog {
@@ -66,6 +67,12 @@ h1 {
     color: black;
 }
 
+.btnLog:hover {
+    background-color: rgba(255, 0, 0, 0.738);
+    border: .1rem solid white;
+    cursor: pointer;
+}
+
 .btn {
     width: 20rem;
     height: 3rem;
@@ -77,7 +84,31 @@ h1 {
     font-family: 'Courier New', Courier, monospace;
 }
 
-.btnLog:hover {
-    background-color: rgba(255, 0, 0, 0.738);
-    border: .1rem solid white;
+.btn:hover {
+    cursor: pointer;
+}
+
+.footerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 0;
+}
+
+.btnRole {
+    width: 10rem;
+    height: 3rem;
+    padding: 0 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: greenyellow;
+    border: solid .2rem black;
+    border-radius: 4rem;
+    color: black;
+}
+
+.btnRole:hover {
+    background-color: green;
+    border: .2rem solid white;
+    cursor: pointer;
 }

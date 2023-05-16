@@ -3,19 +3,22 @@ const socketClient = io();
 const container = document.getElementById("container");
 const listCart = document.getElementById("listCart");
 let idCart;
+let rol;
 let total = 0;
 
 fetch(`/api/users`)
     .then((resp) => resp.json())
     .then((data) => {
         idCart = (data.cart)
+
+        rol = (data.role)
     });
 
 setTimeout(() => {
     fetch(`/api/carts/${idCart}`)
     .then((resp) => resp.json())
     .then((data) => {
-        for(const prd of data[0].products) { //ACA HAY UN ERROR UNDEFINED IDCART
+        for(const prd of data[0].products) {
             const totalAmount = ((prd.product.price)*(prd.quantity));
             total = total + totalAmount
             let div = document.createElement("div");

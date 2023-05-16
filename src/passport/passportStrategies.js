@@ -33,7 +33,3 @@ passport.deserializeUser(async (id, done) => {
 const user = await usersModel.findById(id)
 done(null, user)
 })
-
-/* App ID: 306052
-Client ID: Iv1.fec2eb6bc05e9fec
-Client Secret: 81811249b3c4a7772a33d88d7814f5c2e429a80c */

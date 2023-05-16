@@ -24,3 +24,478 @@
     '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
   timestamp: '2023-05-09T15:30:39.261Z'
 }
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "64063768365800f6cd3f4ea2" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"64063768365800f6cd3f4ea2"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '64063768365800f6cd3f4ea2',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-05-11T18:01:28.763Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "64063768365800f6cd3f4ea2" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"64063768365800f6cd3f4ea2"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '64063768365800f6cd3f4ea2',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-05-12T23:07:37.026Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "64063768365800f6cd3f4ea2" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"64063768365800f6cd3f4ea2"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '64063768365800f6cd3f4ea2',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-05-12T23:10:04.365Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "64063768365800f6cd3f4ea2" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"64063768365800f6cd3f4ea2"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '64063768365800f6cd3f4ea2',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-05-12T23:11:26.827Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "64063768365800f6cd3f4ea2" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"64063768365800f6cd3f4ea2"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '64063768365800f6cd3f4ea2',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-05-12T23:12:15.089Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "64063768365800f6cd3f4ea2" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"64063768365800f6cd3f4ea2"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '64063768365800f6cd3f4ea2',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-05-12T23:13:20.881Z'
+}
+{
+  code: 'EENVELOPE',
+  command: 'API',
+  level: 'error',
+  message: 'Email de usuario no encontrado No recipients defined',
+  stack: 'Error: No recipients defined\n' +
+    '    at SMTPConnection._formatError (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:790:19)\n' +
+    '    at SMTPConnection._setEnvelope (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1007:34)\n' +
+    '    at SMTPConnection.send (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:621:14)\n' +
+    '    at sendMessage (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:228:28)\n' +
+    '    at C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:286:25\n' +
+    '    at SMTPConnection._actionAUTHComplete (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1562:9)\n' +
+    '    at SMTPConnection.<anonymous> (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:546:26)\n' +
+    '    at SMTPConnection._processResponse (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:953:20)\n' +
+    '    at SMTPConnection._onData (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:755:14)\n' +
+    '    at TLSSocket.SMTPConnection._onSocketData (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:193:44)',
+  timestamp: '2023-05-15T17:05:45.683Z'
+}
+{
+  code: 'EENVELOPE',
+  command: 'API',
+  level: 'error',
+  message: 'Email de usuario no encontrado No recipients defined',
+  stack: 'Error: No recipients defined\n' +
+    '    at SMTPConnection._formatError (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:790:19)\n' +
+    '    at SMTPConnection._setEnvelope (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1007:34)\n' +
+    '    at SMTPConnection.send (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:621:14)\n' +
+    '    at sendMessage (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:228:28)\n' +
+    '    at C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:286:25\n' +
+    '    at SMTPConnection._actionAUTHComplete (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1562:9)\n' +
+    '    at SMTPConnection.<anonymous> (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:546:26)\n' +
+    '    at SMTPConnection._processResponse (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:953:20)\n' +
+    '    at SMTPConnection._onData (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:755:14)\n' +
+    '    at TLSSocket.SMTPConnection._onSocketData (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:193:44)',
+  timestamp: '2023-05-15T17:07:11.842Z'
+}
+{
+  code: 'EENVELOPE',
+  command: 'API',
+  level: 'error',
+  message: 'Email de usuario no encontrado No recipients defined',
+  stack: 'Error: No recipients defined\n' +
+    '    at SMTPConnection._formatError (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:790:19)\n' +
+    '    at SMTPConnection._setEnvelope (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1007:34)\n' +
+    '    at SMTPConnection.send (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:621:14)\n' +
+    '    at sendMessage (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:228:28)\n' +
+    '    at C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:286:25\n' +
+    '    at SMTPConnection._actionAUTHComplete (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1562:9)\n' +
+    '    at SMTPConnection.<anonymous> (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:546:26)\n' +
+    '    at SMTPConnection._processResponse (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:953:20)\n' +
+    '    at SMTPConnection._onData (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:755:14)\n' +
+    '    at TLSSocket.SMTPConnection._onSocketData (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:193:44)',
+  timestamp: '2023-05-15T17:08:09.808Z'
+}
+{
+  code: 'EENVELOPE',
+  command: 'API',
+  level: 'error',
+  message: 'Email de usuario no encontrado No recipients defined',
+  stack: 'Error: No recipients defined\n' +
+    '    at SMTPConnection._formatError (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:790:19)\n' +
+    '    at SMTPConnection._setEnvelope (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1007:34)\n' +
+    '    at SMTPConnection.send (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:621:14)\n' +
+    '    at sendMessage (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:228:28)\n' +
+    '    at C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:286:25\n' +
+    '    at SMTPConnection._actionAUTHComplete (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1562:9)\n' +
+    '    at SMTPConnection.<anonymous> (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:546:26)\n' +
+    '    at SMTPConnection._processResponse (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:953:20)\n' +
+    '    at SMTPConnection._onData (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:755:14)\n' +
+    '    at TLSSocket.SMTPConnection._onSocketData (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:193:44)',
+  timestamp: '2023-05-15T17:08:30.293Z'
+}
+{
+  code: 'EENVELOPE',
+  command: 'API',
+  level: 'error',
+  message: 'Email de usuario no encontrado No recipients defined',
+  stack: 'Error: No recipients defined\n' +
+    '    at SMTPConnection._formatError (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:790:19)\n' +
+    '    at SMTPConnection._setEnvelope (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1007:34)\n' +
+    '    at SMTPConnection.send (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:621:14)\n' +
+    '    at sendMessage (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:228:28)\n' +
+    '    at C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:286:25\n' +
+    '    at SMTPConnection._actionAUTHComplete (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1562:9)\n' +
+    '    at SMTPConnection.<anonymous> (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:546:26)\n' +
+    '    at SMTPConnection._processResponse (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:953:20)\n' +
+    '    at SMTPConnection._onData (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:755:14)\n' +
+    '    at TLSSocket.SMTPConnection._onSocketData (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:193:44)',
+  timestamp: '2023-05-15T17:09:13.935Z'
+}
+{
+  code: 'EENVELOPE',
+  command: 'API',
+  level: 'error',
+  message: 'Email de usuario no encontrado No recipients defined',
+  stack: 'Error: No recipients defined\n' +
+    '    at SMTPConnection._formatError (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:790:19)\n' +
+    '    at SMTPConnection._setEnvelope (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1007:34)\n' +
+    '    at SMTPConnection.send (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:621:14)\n' +
+    '    at sendMessage (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:228:28)\n' +
+    '    at C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:286:25\n' +
+    '    at SMTPConnection._actionAUTHComplete (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1562:9)\n' +
+    '    at SMTPConnection.<anonymous> (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:546:26)\n' +
+    '    at SMTPConnection._processResponse (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:953:20)\n' +
+    '    at SMTPConnection._onData (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:755:14)\n' +
+    '    at TLSSocket.SMTPConnection._onSocketData (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:193:44)',
+  timestamp: '2023-05-15T17:09:32.308Z'
+}
+{
+  errors: {
+    first_name: ValidatorError: Path `first_name` is required.
+        at validate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaString.SchemaType.doValidate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:2905:18
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      properties: {
+        validator: [Function (anonymous)],
+        message: 'Path `first_name` is required.',
+        type: 'required',
+        path: 'first_name',
+        value: ''
+      },
+      kind: 'required',
+      path: 'first_name',
+      value: '',
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    last_name: ValidatorError: Path `last_name` is required.
+        at validate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaString.SchemaType.doValidate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:2905:18
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      properties: {
+        validator: [Function (anonymous)],
+        message: 'Path `last_name` is required.',
+        type: 'required',
+        path: 'last_name',
+        value: ''
+      },
+      kind: 'required',
+      path: 'last_name',
+      value: '',
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    email: ValidatorError: Path `email` is required.
+        at validate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaString.SchemaType.doValidate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:2905:18
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      properties: {
+        validator: [Function (anonymous)],
+        message: 'Path `email` is required.',
+        type: 'required',
+        path: 'email',
+        value: ''
+      },
+      kind: 'required',
+      path: 'email',
+      value: '',
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    age: ValidatorError: Path `age` is required.
+        at validate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaNumber.SchemaType.doValidate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:2905:18
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      properties: {
+        validator: [Function (anonymous)],
+        message: 'Path `age` is required.',
+        type: 'required',
+        path: 'age',
+        value: null
+      },
+      kind: 'required',
+      path: 'age',
+      value: null,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'Users validation failed',
+  level: 'error',
+  message: 'Error en la creación del usuario Users validation failed: first_name: Path `first_name` is required., last_name: Path `last_name` is required., email: Path `email` is required., age: Path `age` is required.',
+  stack: 'ValidationError: Users validation failed: first_name: Path `first_name` is required., last_name: Path `last_name` is required., email: Path `email` is required., age: Path `age` is required.\n' +
+    '    at model.Document.invalidate (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\mongoose\\lib\\document.js:3125:32)\n' +
+    '    at C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\mongoose\\lib\\document.js:2913:17\n' +
+    '    at C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\mongoose\\lib\\schematype.js:1349:9\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:78:11)',
+  timestamp: '2023-05-16T16:11:15.376Z'
+}
+{ level: 'error', timestamp: '2023-05-16T17:09:45.855Z' }
+{ level: 'error', timestamp: '2023-05-16T17:10:16.150Z' }
+{ level: 'error', timestamp: '2023-05-16T17:10:32.544Z' }
+{ level: 'error', timestamp: '2023-05-16T17:10:39.680Z' }
+{ level: 'error', timestamp: '2023-05-16T17:13:15.779Z' }
+{ level: 'error', timestamp: '2023-05-16T17:14:33.897Z' }
+{ level: 'error', timestamp: '2023-05-16T17:19:25.605Z' }
+{ level: 'error', timestamp: '2023-05-16T18:29:21.594Z' }
+{ level: 'error', timestamp: '2023-05-16T18:46:22.777Z' }
+{ level: 'error', timestamp: '2023-05-16T18:51:08.654Z' }
+{ level: 'error', timestamp: '2023-05-16T18:51:23.299Z' }
+{ level: 'error', timestamp: '2023-05-16T18:51:34.883Z' }

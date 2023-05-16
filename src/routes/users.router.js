@@ -1,6 +1,6 @@
 import { Router } from "express";
 import passport from "passport";
-import { createUserController, loginUserController, getUserByEmailController, logoutController, profileUserController, getMailController} from "../controllers/users.controllers.js";
+import { createUserController, loginUserController, getUserByEmailController, logoutController, profileUserController, getMailController, changeRoleController, recoveryFormController} from "../controllers/users.controllers.js";
 
 const router = Router();
 
@@ -19,10 +19,18 @@ router.get("/registerGithub", passport.authenticate("github", { scope: ["user:em
 router.get("/github", passport.authenticate("github"), (req, res) => {
     req.session.userName = req.user.first_name
     req.session.email = req.user.email
-    req.session.userRol = "Usuario"
-    res.redirect("/index")
+    req.session.userRole = req.user.role
+    if(req.session.userRole === "Usuario") {
+        res.redirect("/index")
+    } else {
+        res.redirect("/indexPremium")
+    }
 })
 
-router.get("/mailing", getMailController)
+router.post("/recoveryPassword", getMailController)
+
+router.post("/recoveryForm", recoveryFormController)
+
+router.put("/premium/:uid", changeRoleController)
 
 export default router;

@@ -1,6 +1,7 @@
 body {
-    background-image: url('../images/Fondo1.jpg');
-    background-repeat: repeat;
+    background-image: url("https://wallpaperset.com/w/full/4/9/c/186657.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h2, h3 {
@@ -107,6 +108,15 @@ input {
     background-color: black; 
 }
 
+.owner {
+    text-align: center;
+    padding: .5rem;
+    color: slateblue;
+    font-weight: 700;
+    background-color: black; 
+    font-size: .9rem;
+}
+
 .containerBtnUD {
     display: flex;
     justify-content: center;
@@ -139,4 +149,47 @@ input {
     margin: 0 1rem;
     border-radius: 2rem;
     padding-left: .4rem;
+}
+
+#headerRTP div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnCart {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 2rem;
+    background-color: greenyellow;
+    border: solid .2rem black;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.btnCart img {
+    display: flex;
+    width: 2.8rem;
+    height: 2.8rem;
+    margin-top: .5rem;
+    padding-left: .1rem;
+}
+
+.buttonContainer {
+    background-color: #e1b833;
+    border-radius: 0 0 1rem 1rem;
+    padding: .3rem .5rem;
+    width: 21.1rem;
+    border: .1rem solid whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+}
+
+.buttonContainer:hover {
+    color: rgba(0, 0, 0, 0.821);
+    background-color: #c0a13d;
+}
+
+.buttonContainer:active {
+    border: .1rem solid gray;
 }

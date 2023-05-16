@@ -64,8 +64,8 @@ input {
     align-items: center;
 }
 
-h6 {
-    font-size: 1.3rem;
+.btnRecover {
+    font-size: 0.8rem;
     color: black;
     margin: 1rem;
     background-color: white;

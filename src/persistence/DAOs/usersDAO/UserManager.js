@@ -82,16 +82,68 @@ export default class UserManager {
     }
     
     async getMail(userEmail) {
-        let result = await transport.sendMail({
-            from: "$neakers",
-            to: userEmail,
-            subject: 'Check Login',
-            html: `
-                <div>
-                    <p>¡Te has logeado correctamente en $neakers!</p>
-                </div>
-            `
-        })
-        return result;
+        try {
+            const emailRecovery = await usersModel.findOne({userEmail});
+            if(emailRecovery) {
+                let result = await transport.sendMail({
+                    from: "Sneakers <franciscopanuccio@gmail.com>",
+                    to: emailRecovery.email,
+                    subject: 'Reestablecer Contraseña',
+                    html: `
+                        <div>
+                            <p>Para reestablecer tu contraseña ingresa en el siguiente link:</p>
+                            <a href="http://localhost:8080/recoveryPassword">Click aquí</a>
+                        </div>
+                    `
+                })
+                return result;
+            }
+        } catch (error) {
+            logger.error("Email de usuario no encontrado", error)
+        }
+    }
+    
+    async changeRole(uid) {
+        try {
+            const changeRol = await usersModel.findById(uid);
+            if(changeRol.role === "Usuario") {
+                const newRole = usersModel.updateOne(
+                    {_id: uid},
+                    {role: "Premium"}
+                )
+                return newRole;
+            } else {
+                const newRole = usersModel.updateOne(
+                    {_id: uid},
+                    {role: "Usuario"}
+                )
+                return newRole;
+            }
+        } catch (error) {
+            logger.info(error)
+        }
+    }
+
+    async recoveryForm(userData) {
+        try {
+            const {email, password} = userData;
+            const emailFound = await usersModel.find({email: email});
+            if(emailFound[0] !== undefined && emailFound[0].email === email) {
+                if(password[0] === password[1]) {
+                    const newHashPass = await hashPassword(password[0]);
+                    const newUserPass = await usersModel.updateOne(
+                        {email: email},
+                        {password: newHashPass}
+                    );
+                    return (newUserPass, "Contraseña cambiada exitosamente");
+                } else {
+                    return("Las contraseñas no coinciden");
+                }
+            } else {
+                return("Usuario no encontrado");
+            }
+        } catch (err) {
+            logger.error(err)
+        }
     }
 }

@@ -86,6 +86,12 @@ export async function getProfileUser(user) {
 export async function getMail(userEmail) {
     return await persistenceUser.getMail(userEmail);
 }
+export async function changeRole(uid) {
+    return await persistenceUser.changeRole(uid);
+}
+export async function recoveryForm(userData) {
+    return await persistenceUser.recoveryForm(userData);
+}
 
 
 export async function addMessage(obj) {

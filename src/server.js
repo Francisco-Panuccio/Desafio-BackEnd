@@ -25,7 +25,7 @@ const socketServer = new Server(httpServer);
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(express.static(__dirname + "/public"));  //PONER LA SESSION ARRIBA DEL ROUTER
+app.use(express.static(__dirname + "/public"));
 app.use(session({
     store: MongoStore.create({
         mongoUrl:MONGO_URL,

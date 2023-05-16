@@ -1,13 +1,14 @@
 import { Router } from "express";
 import { userValidation } from "../middlewares/userValidation.js";
 import { loginControl } from "../middlewares/loginControl.js";
-import { userValidationAdmin } from "../middlewares/userValidationAdmin.js"
+import { userValidationAdmin } from "../middlewares/userValidationAdmin.js";
+import { userValidationPremium } from "../middlewares/userValidationPremium.js";
 import { onlyUserValidation } from "../middlewares/onlyUserValidation.js";
-import { mailing } from "../middlewares/mailing.js";
+import { validationAdminPremium } from "../middlewares/validationAdminPremium.js";
 
 const router = Router();
 
-router.get("/index", userValidation, (req, res) => {
+router.get("/index", userValidation, onlyUserValidation, (req, res) => {
     res.render("index", {
         style: "index.css",
         session: req.session
@@ -16,6 +17,13 @@ router.get("/index", userValidation, (req, res) => {
 
 router.get("/indexAdmin", userValidationAdmin, (req, res) => {
     res.render("indexAdmin", {
+        style: "index.css",
+        session: req.session
+    })
+})
+
+router.get("/indexPremium", userValidationPremium, (req, res) => {
+    res.render("indexPremium", {
         style: "index.css",
         session: req.session
     })
@@ -40,7 +48,7 @@ router.get("/carts", userValidation, (req, res) => {
     })
 })
 
-router.get("/realTimeProducts", userValidationAdmin, (req, res) => {
+router.get("/realTimeProducts", validationAdminPremium, (req, res) => {
     res.render("realTimeProducts", {
         style: "realTimeProducts.css"
     })
@@ -70,15 +78,21 @@ router.get("/", loginControl, (req, res) => {
     })
 })
 
-router.get("/loginFail", loginControl, (req, res) => {
-    res.render("loginFail", {
-        style: "login.css"
-    })
-})
-
 router.get("/sessionExpired", (req, res) => {
     res.render("sessionExpired", {
         style: "sessionExpired.css"
+    })
+})
+
+router.get("/", loginControl, (req, res) => {
+    res.render("registerFail", {
+        style: "register.css"
+    })
+})
+
+router.get("/recoveryPassword", (req, res) => {
+    res.render("recoveryPassword", {
+        style: "recoveryPassword.css"
     })
 })
 

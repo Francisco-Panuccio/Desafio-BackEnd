@@ -2,14 +2,14 @@
 
 <div class="divLoginReg">
     <form class="formLR" id="formLogin" action="/api/users/login" method="POST">
-        Email: <input type="email" name="email" id="email">
-        Contraseña: <input type="password" name="password" id="password">
+        Email: <input type="email" name="email" id="email" required>
+        Contraseña: <input type="password" name="password" id="password" required>
         <input id="loginSubmit" class="loginBtn" type="submit" value="Logearse">
     </form>
 </div>
 
 <div class="divLogin2">
-    <h6>¿Eres nuevo?</h6>
+    <button class="btnRecover" id="btnMailing">¿Olvidaste tu contraseña?</button>
     <button onclick="location.href='/register'" class="registerBtn">Registrarse</button>
 </div>
 
@@ -18,5 +18,5 @@
     <button onclick="location.href='/api/users/registerGithub'" class="registerBtn2">Logearse con GitHub</button>
 </div>
 
-<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="login.js"></script>

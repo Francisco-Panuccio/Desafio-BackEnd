@@ -1,8 +1,5 @@
-const socketClient = io();
-
 const divUser = document.getElementById("divContainer")
 const btnProfile = document.getElementById("btnProfile")
-const btnMailing = document.getElementById("btnMailing")
 
 fetch(`/api/users/current`)
     .then((resp) => resp.json())
@@ -29,18 +26,10 @@ fetch(`/api/users/current`)
         btnProfile.addEventListener("click", () => {
             if(data.userName === "Admin") {
                 location.href = "/indexAdmin"
+            } else if(data.userRole === "Premium") {
+                location.href = "/indexPremium"
             } else {
                 location.href = "/index"
             }
         })
 });
-
-btnMailing.onclick = () => {
-    btnMailing.disabled = true;
-
-    fetch('/api/users/mailing')
-        .then((resp) => resp.json())
-        .then((data) => {
-            console.log(data)
-        })
-}

@@ -3,8 +3,9 @@ html {
 }
 
 body {
-    background-image: url('../images/Fondo1.jpg');
-    background-repeat: repeat;
+    background-image: url("https://wallpaperset.com/w/full/4/9/c/186657.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h4 {
