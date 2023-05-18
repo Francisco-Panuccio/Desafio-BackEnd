@@ -16,7 +16,6 @@ let rol;
 let ownerPremiumEmail;
 let idCart;
 
-
 fetch(`/api/users`)
     .then((resp) => resp.json())
     .then((data) => {
@@ -24,23 +23,23 @@ fetch(`/api/users`)
         ownerPremiumEmail = (data.email);
         idCart = (data.cart)
 
-        console.log(rol, idCart)
-
-        let div = document.createElement("div");
-        div.innerHTML = `<button class="btn btn2" id="btnHomeRTP">Home</button>
-        <button id="cartBtn" class="btnCart" onclick="location.href='/carts'"><img src="https://cdn-icons-png.flaticon.com/512/107/107831.png"></button>`
-        headerRTP.appendChild(div);
-
-        const btnHomeRTP = document.getElementById("btnHomeRTP");
-
-        btnHomeRTP.onclick = () => {
-            btnHomeRTP.disabled = true;
-            if(rol === "Premium") {
-                location.href = "/indexPremium"
-            } else {
-                location.href = "/indexAdmin"
+        setTimeout(() => {
+            let div = document.createElement("div");
+            div.innerHTML = `<button class="btn btn2" id="btnHomeRTP">Home</button>
+            <button id="cartBtn" class="btnCart" onclick="location.href='/carts'"><img src="https://cdn-icons-png.flaticon.com/512/107/107831.png"></button>`
+            headerRTP.appendChild(div);
+    
+            const btnHomeRTP = document.getElementById("btnHomeRTP");
+    
+            btnHomeRTP.onclick = () => {
+                btnHomeRTP.disabled = true;
+                if(rol === "Premium") {
+                    location.href = "/indexPremium"
+                } else {
+                    location.href = "/indexAdmin"
+                }
             }
-        }
+        }, 200) 
 });
 
 
@@ -57,7 +56,8 @@ formSub.onsubmit = (e) => {
             status: statusSub.value,
             stock: stockSub.value,
             category: categorySub.value,
-            thumbnail: thumbnailSub.value
+            thumbnail: thumbnailSub.value,
+            owner: ownerPremiumEmail
         }
     } else {
         newPrdc = {
@@ -95,10 +95,10 @@ formSub.onsubmit = (e) => {
         })
 }
 
-fetch(`/api/products`)
+setTimeout(() => {
+    fetch(`/api/products`)
     .then((resp) => resp.json())
     .then((data) => {
-        console.log(rol) //PREGUNTAR PQ NO FUNCIONA CONSTANTEMENTE
         if(rol === "Premium") {
             const newArrayPrdcts = data.filter(dt => dt.owner === ownerPremiumEmail)
             
@@ -153,7 +153,6 @@ fetch(`/api/products`)
         }
 
         for(const btn of buttons) {
-            console.log(btn.id)
             btn.onclick = () => {
                 btn.disabled = true;
                 socketClient.emit("addPrdc", idCart, btn.id)
@@ -252,3 +251,4 @@ fetch(`/api/products`)
             }
         }
     }})
+}, 500)
