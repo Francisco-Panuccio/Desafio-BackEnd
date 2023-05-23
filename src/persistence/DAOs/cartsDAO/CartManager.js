@@ -20,7 +20,7 @@ export default class CartManager {
             const carts = await cartsModel.find({});
             return carts;
         } catch (error) {
-            logger.warning("No hay productos en la Base de Datos", error)
+            logger.warning("No hay carritos en la Base de Datos", error)
         }
     } 
 

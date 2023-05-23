@@ -1,0 +1,170 @@
+paths:
+  /api/products:
+    get:
+      summary: Devuelve todos los productos existentes
+      tags:
+        - Productos
+      responses:
+        "200":
+          description: Productos obtenidos correctamente
+        "500":
+          description: Fallo de conexión con la base de datos
+    post:
+      summary: Permite agregar un producto a la base de datos
+      tags:
+        - Productos
+      requestBody:
+        description: Objeto JSON que contiene la información del producto
+        required: true
+        content:
+          application/json:
+            schema:    
+              $ref: '#/components/requestBodies/ProductBody'
+      responses:
+        "200":
+          description: Producto añadido correctamente
+        "500":
+          description: Fallo de conexión con la base de datos
+
+  /api/products/{pid}:
+    get:
+      summary: Devuelve un producto por ID
+      tags:
+        - Productos
+      parameters:
+      - name: pid
+        in: path
+        description: ID del producto que se desea solicitar
+        schema:
+          $type: String
+        required: true
+      responses:
+        "200":
+          description: Producto encontrado
+        "500":
+          description: Fallo de conexión con la base de datos
+    put:
+      summary: Permite modificar un producto de la base de datos por ID
+      tags:
+        - Productos
+      requestBody:
+        description: Objeto JSON que contiene la información del producto
+        required: true
+        content:
+          application/json:
+            schema:    
+              $ref: '#/components/requestBodies/ProductBody'
+      parameters:
+      - name: pid
+        in: path
+        description: ID del producto que se desea solicitar
+        schema:
+          $type: String
+        required: true
+      responses:
+        "200":
+          description: Producto modificado correctamente
+        "500":
+          description: Fallo de conexión con la base de datos
+    delete:
+      summary: Permite eliminar un producto de la base de datos por ID
+      tags:
+        - Productos
+      parameters:
+      - name: pid
+        in: path
+        description: ID del producto que se desea solicitar
+        schema:
+          $type: String
+        required: true
+      responses:
+        "200":
+          description: Producto eliminado correctamente
+        "500":
+          description: Fallo de conexión con la base de datos
+
+
+components:
+  schemas:
+    Products:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: ID autogenerado de Mongo
+        title:
+          type: String
+          description: Nombre del producto
+        description:
+          type: String
+          description: Descripción del producto
+        code:
+          type: String
+          description: Código del producto
+        price:
+          type: Integer
+          description: Precio del producto
+        status:
+          type: Boolean
+          description: Estatus del producto
+        stock:
+          type: Integer
+          description: Stock del producto
+        category:
+          type: String
+          description: Categoría del producto
+        thumbnail:
+          type: String
+          description: Miniatura del producto
+        owner:
+          type: String
+          description: Creador del producto
+      example:
+        _id: ObjectId('64063768465751f9cd5f4ea3')
+        title: 'Adidas Samba'
+        description: 'Adidas 1950'
+        code: 'acg'
+        price: 15000
+        status: true
+        stock: 62
+        category: 'Adidas'
+        thubnail: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/0c6edd3002fc40ec8141aedd00f53ef3_9366/Zapatillas_Samba_Argentina_Azul_HQ7037_01_standard.jpg'
+        owner: 'Admin'
+        
+  requestBodies:
+    ProductBody:
+      type: object
+      properties:
+        title:
+          type: String
+          description: Nombre del producto
+        description:
+          type: String
+          description: Descripción del producto
+        code:
+          type: String
+          description: Código del producto
+        price:
+          type: Integer
+          description: Precio del producto
+        status:
+          type: Boolean
+          description: Estatus del producto
+        stock:
+          type: Integer
+          description: Cantidad del producto
+        category:
+          type: String
+          description: Categoría del producto
+        thumbnail:
+          type: String
+          description: Miniatura del producto
+      example:
+        title: 'Adidas Samba'
+        description: 'Adidas 1950'
+        code: 'acg'
+        price: 15000
+        status: true
+        stock: 62
+        category: 'Adidas'
+        thubnail: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/0c6edd3002fc40ec8141aedd00f53ef3_9366/Zapatillas_Samba_Argentina_Azul_HQ7037_01_standard.jpg'

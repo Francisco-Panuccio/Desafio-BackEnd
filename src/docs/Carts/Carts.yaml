@@ -1,0 +1,197 @@
+paths:
+  /api/carts:
+    get:
+      summary: Devuelve todos los carritos existentes
+      tags:
+        - Carts
+      responses:
+        "200":
+          description: Carritos obtenidos correctamente
+        "500":
+          description: Fallo de conexión con la base de datos
+    post:
+      summary: Permite agregar un carrito a la base de datos
+      tags:
+        - Carts
+      responses:
+        "200":
+          description: Carrito añadido correctamente
+        "500":
+          description: Fallo de conexión con la base de datos
+
+  /api/carts/{cid}:
+    get:
+      summary: Devuelve un carrito por ID
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        description: ID del carrito que se desea solicitar
+        schema:
+          $type: String
+        required: true
+      responses:
+        "200":
+          description: Carrito encontrado
+        "500":
+          description: Fallo de conexión con la base de datos
+    put:
+      summary: Permite modificar y/o añadir productos a un carrito de la base de datos por ID
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        description: ID del carrito que se desea solicitar
+        schema:
+          $type: String
+        required: true
+      requestBody:
+        description: Objeto JSON que contiene la información del producto
+        required: true
+        content:
+          application/json:
+            schema:    
+              $ref: '#/components/requestBodies/CartBody'
+      responses:
+        "200":
+          description: Carrito modificado correctamente
+        "500":
+          description: Fallo de conexión con la base de datos
+    delete:
+      summary: Permite eliminar un carrito de la base de datos por ID
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        description: ID del carrito que se desea solicitar
+        schema:
+          $type: String
+        required: true
+      responses:
+        "200":
+          description: Carrito eliminado correctamente
+        "500":
+          description: Fallo de conexión con la base de datos
+
+  /api/carts/{cid}/products/{pid}:
+    post:
+      summary: Añade un determinado producto a un determinado carrito según sus IDs
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        description: ID del carrito que se desea solicitar
+        schema:
+          $type: String
+        required: true
+      - name: pid
+        in: path
+        description: ID del producto que se desea solicitar
+        schema:
+          $type: String
+        required: true
+      responses:
+        "200":
+          description: Producto añadido al carrito correctamente
+        "500":
+          description: Fallo de conexión con la base de datos
+    put:
+      summary: Modifica la cantidad de un determinado producto en un determinado carrito según sus IDs
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        description: ID del carrito que se desea solicitar
+        schema:
+          $type: String
+        required: true
+      - name: pid
+        in: path
+        description: ID del producto que se desea solicitar
+        schema:
+          $type: String
+        required: true
+      requestBody:
+        description: Objeto JSON que contiene la información del producto
+        required: true
+        content:
+          application/json:
+            schema:    
+              $ref: '#/components/requestBodies/CartQntBody'
+      responses:
+        "200":
+          description: Producto añadido al carrito correctamente
+        "500":
+          description: Fallo de conexión con la base de datos
+    delete:
+      summary: Elimina un determinado producto de un determinado carrito según sus IDs
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        description: ID del carrito que se desea solicitar
+        schema:
+          $type: String
+        required: true
+      - name: pid
+        in: path
+        description: ID del producto que se desea solicitar
+        schema:
+          $type: String
+        required: true
+      responses:
+        "200":
+          description: Producto eliminado del carrito correctamente
+        "500":
+          description: Fallo de conexión con la base de datos
+
+components:
+  schemas:
+    Carts:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: ID autogenerado de Mongo
+        products:
+          type: Array
+          description: Array que contiene todos los productos añadidos con sus respectivas cantidades
+          items:
+            type: object
+            properties:
+              product:
+                type: ObjectId
+              quantity:
+                type: Integer
+      example:
+        _id: ObjectId('6421dce12237961d7782e484')
+        products: [
+          {
+            product: ObjectId('64063768365800f6cd3f4ea2'),
+            quantity: 6
+          }
+        ]
+
+  requestBodies:
+    CartBody:
+      type: object
+      properties:
+        product:
+          type: ObjectId
+          description: ID del producto
+      example:
+        product: '64063768365800f6cd3f4ea2'
+    CartQntBody:
+      type: object
+      properties:
+        quantity:
+          type: Integer
+          description: Cantidad del producto
+      example:
+        quantity: 7

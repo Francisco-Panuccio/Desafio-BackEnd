@@ -16,6 +16,8 @@ import "./persistence/mongoDB/dbConfig.js";
 import "./passport/passportStrategies.js";
 import { addToCartService, endPurchaseService } from "./service/carts.services.js";
 import config from "../env/config.js";
+import swaggerUi from "swagger-ui-express";
+import { swaggerSetup } from "./swaggerSpecs.js";
 
 const app = express();
 const PORT = config.port;
@@ -49,6 +51,8 @@ app.use(cookieParser());
 app.engine("handlebars", handlebars.engine());
 app.set("view engine", "handlebars");
 app.set("views", __dirname + "/views");
+
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSetup));
 
 const infoMessage = [];
 
