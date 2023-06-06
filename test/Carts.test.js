@@ -26,10 +26,6 @@ const productCartMock_2 = {
     thumbnail: "MockTest2",
 }
 
-const productCartMock_3 = {
-    quantity: 7,
-}
-
 describe('Testing de CartsDAO para MongoDB', function(){
     beforeEach(function () {
         this.timeout(10000)
@@ -45,11 +41,11 @@ describe('Testing de CartsDAO para MongoDB', function(){
         expect(response._body).to.have.lengthOf(1)
         expect(response._body[0]._id).to.be.equal(id)
     })
-/*     it('Endpoint POST /api/carts', async function(){
+    it('Endpoint POST /api/carts', async function(){
         const response = await request.post('/api/carts').send()
         expect(response._body).to.have.property('_id')
-    }) */
-/*     it('Endpoint POST PRODUCT /api/carts/:cid/products/:pid', async function(){
+    })
+    it('Endpoint POST PRODUCT /api/carts/:cid/products/:pid', async function(){
         const responsePostCart = await request.post('/api/carts').send()
         const cid = responsePostCart._body._id
         const pid = "64063768365800f6cd3f4ea2"
@@ -57,25 +53,19 @@ describe('Testing de CartsDAO para MongoDB', function(){
         const responseGet = await request.get(`/api/carts/${cid}`)
         expect(responseGet._body[0]._id).to.be.equal(cid)
         expect(responseGet._body[0].products[0].product._id).to.be.equal(pid)
-    }) */
-/*     it('Endpoint PUT QNT /api/carts/:cid/products/:pid', async function(){
+    })
+    it('Endpoint DELETE ALL PRDCS /api/carts/:cid', async function(){
         const responsePostCart = await request.post('/api/carts').send()
         const cid = responsePostCart._body._id
         const pid = "64063768365800f6cd3f4ea2"
+        const pid2 = "640637f9365800f6cd3f4eac"
         const responsePostPrdc = await request.post(`/api/carts/${cid}/products/${pid}`).send(productCartMock_2)
-        const response = await request.put(`/api/carts/${cid}/products/${pid}`).send(productCartMock_3)
-        const responseGet = await request.get(`/api/carts/${cid}`)
-        expect(responseGet._body[0].products[0].quantity).to.be.equal(7)
-    }) */ SOLUCIONAR
-/*     it('Endpoint DELETE CART /api/carts/:cid', async function(){
-        const responsePostCart = await request.post('/api/carts').send()
-        const cid = responsePostCart._body._id
+        const responsePostPrdc2 = await request.post(`/api/carts/${cid}/products/${pid2}`).send(productCartMock_2)
         const responseDelete = await request.delete(`/api/carts/${cid}`)
         const responseGet = await request.get(`/api/carts/${cid}`)
-        console.log(responseGet._body)
-        expect(responseGet._body).to.be.equal(null)
-    }) */ SOLUCIONAR
-/*     it('Endpoint GET PRDC /api/carts/:cid/products/:pid', async function(){
+        expect(responseGet._body[0].products).to.be.an("array").that.is.empty
+    })
+    it('Endpoint DELETE PRDC /api/carts/:cid/products/:pid', async function(){
         const responsePostCart = await request.post('/api/carts').send()
         const cid = responsePostCart._body._id
         const pid = "64063768365800f6cd3f4ea2"
@@ -83,5 +73,5 @@ describe('Testing de CartsDAO para MongoDB', function(){
         const responseDelete = await request.delete(`/api/carts/${cid}/products/${pid}`)
         const responseGet = await request.get(`/api/carts/${cid}`)
         expect(responseGet._body[0].products).to.be.an("array").that.is.empty
-    }) */
+    })
 })
