@@ -21,6 +21,14 @@
     "winston": "^3.8.2"
   },
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "testProducts": "mocha -t 10000 test/Products.test.js",
+    "testCarts": "mocha -t 10000 test/Carts.test.js",
+    "testSessions": "mocha -t 10000 test/Sessions.test.js"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
   }
 }

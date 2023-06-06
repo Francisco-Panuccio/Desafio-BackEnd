@@ -21,7 +21,7 @@ export const getProductByIdController = async (req, res) => {
 export const updateProductController = async (req, res) => {
     const {pid} = req.params;
     const objValue = req.body;
-    const values = Object.values(objValue)
+    const values = Object.values(objValue);
     const updatePrdc = await updateProductService(pid, values[0], values[1]);
     res.json(updatePrdc);
 }

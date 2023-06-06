@@ -51,10 +51,10 @@ export const deleteAllPrdctsController = async (req, res) => {
 export const updatePrdctCartController = async (req, res) => {
     const {cid, pid} = req.params;
     const objValue = req.body;
-    const allIds = await getProductsService()
-    const prdtId = allIds.find(elm => elm.id === pid)
+    const allIds = await getProductsService();
+    const prdtId = allIds.find(elm => elm.id === pid);
     if(prdtId) {
-        const qnt = Object.values(objValue)
+        const qnt = Object.values(objValue);
         const updOnePrdc = await updatePrdctCartService(cid, pid, ...qnt);
         res.json({message:"Producto actualizado exitosamente", updOnePrdc});
     } else {

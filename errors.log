@@ -612,3 +612,102 @@
     '    at model.Query.Query.then (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\mongoose\\lib\\query.js:5012:15)',
   timestamp: '2023-05-23T16:31:04.107Z'
 }
+{
+  messageFormat: undefined,
+  stringValue: '":pid"',
+  kind: 'ObjectId',
+  value: ':pid',
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1648:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1636:15)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast.js:349:32)
+      at model.Query.Query.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\query.js:5343:12),
+  valueType: 'string',
+  level: 'error',
+  message: 'Id no encontrado, Cast to ObjectId failed for value ":pid" (type string) at path "_id" for model "Products"',
+  stack: 'CastError: Cast to ObjectId failed for value ":pid" (type string) at path "_id" for model "Products"\n' +
+    '    at model.Query.exec (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\mongoose\\lib\\query.js:4913:21)\n' +
+    '    at model.Query.Query.then (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\mongoose\\lib\\query.js:5012:15)',
+  timestamp: '2023-06-05T18:24:18.675Z'
+}
+{
+  messageFormat: undefined,
+  stringValue: '"6406378a365800f6cd3f4ea"',
+  kind: 'ObjectId',
+  value: '6406378a365800f6cd3f4ea',
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1648:15)
+      at ObjectId.SchemaType.castForQuery (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1636:15)
+      at ObjectId.SchemaType.castForQueryWrapper (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast.js:349:32)
+      at model.Query.Query.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\query.js:5343:12),
+  valueType: 'string',
+  level: 'error',
+  message: 'Id no encontrado, Cast to ObjectId failed for value "6406378a365800f6cd3f4ea" (type string) at path "_id" for model "Products"',
+  stack: 'CastError: Cast to ObjectId failed for value "6406378a365800f6cd3f4ea" (type string) at path "_id" for model "Products"\n' +
+    '    at model.Query.exec (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\mongoose\\lib\\query.js:4913:21)\n' +
+    '    at model.Query.Query.then (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\mongoose\\lib\\query.js:5012:15)',
+  timestamp: '2023-06-05T18:30:24.231Z'
+}
+{
+  errors: {
+    last_name: ValidatorError: Path `last_name` is required.
+        at validate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaString.SchemaType.doValidate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:2905:18
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      properties: {
+        validator: [Function (anonymous)],
+        message: 'Path `last_name` is required.',
+        type: 'required',
+        path: 'last_name',
+        value: undefined
+      },
+      kind: 'required',
+      path: 'last_name',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    first_name: ValidatorError: Path `first_name` is required.
+        at validate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaString.SchemaType.doValidate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:2905:18
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      properties: {
+        validator: [Function (anonymous)],
+        message: 'Path `first_name` is required.',
+        type: 'required',
+        path: 'first_name',
+        value: undefined
+      },
+      kind: 'required',
+      path: 'first_name',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'Users validation failed',
+  level: 'error',
+  message: 'Error en la creación del usuario Users validation failed: last_name: Path `last_name` is required., first_name: Path `first_name` is required.',
+  stack: 'ValidationError: Users validation failed: last_name: Path `last_name` is required., first_name: Path `first_name` is required.\n' +
+    '    at model.Document.invalidate (C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\mongoose\\lib\\document.js:3125:32)\n' +
+    '    at C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\mongoose\\lib\\document.js:2913:17\n' +
+    '    at C:\\Users\\Francisco\\Desktop\\Diseño Web\\Backend\\Desafio 5\\node_modules\\mongoose\\lib\\schematype.js:1349:9\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:78:11)',
+  timestamp: '2023-06-06T06:32:02.637Z'
+}
