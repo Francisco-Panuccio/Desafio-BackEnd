@@ -92,6 +92,15 @@ export async function changeRole(uid) {
 export async function recoveryForm(userData) {
     return await persistenceUser.recoveryForm(userData);
 }
+export async function fileUploadProfile(uid, data) {
+    return await persistenceUser.fileUploadProfile(uid, data);
+}
+export async function fileUploadProduct(uid, data) {
+    return await persistenceUser.fileUploadProduct(uid, data);
+}
+export async function changeLastConnection(email) {
+    return await persistenceUser.changeLastConnection(email);
+}
 
 
 export async function addMessage(obj) {

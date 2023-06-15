@@ -1,4 +1,4 @@
-import { createUserService, loginUserService, getUserByEmailService, getProfileUserService, getMailService, changeRoleService, recoveryFormService } from "../service/users.services.js";
+import { createUserService, loginUserService, getUserByEmailService, getProfileUserService, getMailService, changeRoleService, recoveryFormService, fileUploadProfileService, fileUploadProductService, changeLastConnectionService } from "../service/users.services.js";
 
 export const createUserController = async (req, res) => {
     const user = req.body;
@@ -36,12 +36,14 @@ export const getUserByEmailController = async (req, res) => {
 }
 
 export const logoutController = async (req, res) => {
+    const email = req.session.email;
+    const lastConnection = await changeLastConnectionService(email);
     req.session.destroy((error) => {
         if(error) {
             console.log(error)
             res.send({status: "Logout Error", body: error})
         } else {
-            console.log("Sesión Eliminada con Éxito")
+            res.send({message: "Sesión Eliminada con Éxito", lastConnection})
         }
     })
 }
@@ -68,4 +70,28 @@ export const recoveryFormController = async (req, res) => {
     const {email, password} = req.body;
     const userFound = await recoveryFormService(req.body);
     res.send(userFound);
+}
+
+export const fileUploadProfileController = async (req, res) => {
+    if(!req.file) {
+        res.send({message: "¡Error! No se pudo cargar la imagen"})
+    } else {
+        const {uid} = req.params;
+        const {data} = req.file;
+        console.log("DATA", req.file)
+        console.log("DOTO", data)
+        const imageProfile = await fileUploadProfileService(uid, data);
+        res.send(imageProfile);
+    }
+}
+
+export const fileUploadProductController = async (req, res) => {
+    if(!req.file) {
+        res.send({message: "¡Error! No se pudo cargar la imagen"})
+    } else {
+        const {uid} = req.params;
+        const {data} = req.file;
+        const imageProduct = await fileUploadProductService(uid, data);
+        res.send(imageProduct);
+    }
 }

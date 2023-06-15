@@ -1,11 +1,8 @@
-html {
-    height: 100%;
-}
-
 body {
     background-image: url("https://wallpaperset.com/w/full/4/9/c/186657.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100%;
 }
 
 #divContainer {
@@ -50,4 +47,63 @@ body {
 
 .divUsers p span {
     color: chartreuse;
+}
+
+.profileTitle, .productTitle {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-top: 0;
+    text-decoration: underline;
+    color: plum;
+}
+
+.divFileProfile, .divFileProduct, .divFile {
+    background-color: black;
+    color: white;
+    width: fit-content;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 2rem 0 0 0;
+    border: white .2rem solid;
+    font-size: 1.2rem;
+}
+
+.divFile {
+    background-color: black;
+    color: white;
+    width: fit-content;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 2rem 0 2rem 0;
+    border: white .2rem solid;
+    font-size: 1.2rem;
+}
+
+#fileProfile, #fileProfileSubmit, #fileProduct, #fileProductSubmit {
+    margin: .4rem;
+}
+
+#formFile {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 1rem 0 1rem;
+}
+
+.fileTitle {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 0;
+    text-decoration: underline;
+    color: chocolate; 
+}
+
+#fileID, #fileDomicilio, #fileCuenta {
+    margin: .5rem 0 1rem 0;
+    border-radius: 1rem;
+}
+
+#fileSubmit {
+    margin: .5rem 0 .5rem 0;
+    width: fit-content;
+    align-self: center;
 }

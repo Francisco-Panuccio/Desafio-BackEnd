@@ -30,7 +30,22 @@ const usersSchema = new mongoose.Schema({
     role: {
         type: String,
         default: "Usuario"
-    }
+    },
+    last_connection: {
+        type: Date,
+        default: new Date()
+    },
+    documents: [
+        {
+            _id: false,
+            name: {
+                type: String
+            },
+            reference: {
+                type: String
+            }
+        }
+    ]
 });
 
 usersSchema.pre("find", function(next) {

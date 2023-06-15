@@ -45,6 +45,7 @@ export default class UserManager {
             if(userOne) {
                 const isPassword = await comparePasswords(password, userOne.password);
                 if(isPassword) {
+                    await usersModel.updateOne({email: userOne.email}, {last_connection: new Date()})
                     const userDTO = new UsersDTO(userOne)
                     return userDTO;
                 } else {
@@ -150,6 +151,34 @@ export default class UserManager {
             }
         } catch (err) {
             logger.error(err)
+        }
+    }
+
+    async fileUploadProfile(uid, data) {
+        try {
+            const user = await usersModel.findById(uid);
+            const data = 
+            console.log(user)
+        } catch (error) {
+            logger.info(error)
+        }
+    }
+
+    async fileUploadProduct(uid, data) {
+        try {
+            const user = await usersModel.findById(uid);
+        } catch (error) {
+            logger.info(error)
+        }
+    }
+
+    async changeLastConnection(email) {
+        try {
+            const user = await usersModel.findOne({email})
+            const newUpd = await usersModel.updateOne({email: user.email}, {last_connection: new Date()})
+            return newUpd;
+        } catch (error) {
+            logger.error(error)
         }
     }
 }
