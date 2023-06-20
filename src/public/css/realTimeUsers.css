@@ -1,0 +1,87 @@
+body {
+    background-image: url("https://wallpaperset.com/w/full/4/9/c/186657.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: underline;
+    color: whitesmoke;
+    font-size: 4rem;
+    margin: 0 0 3rem 0;
+    text-shadow: -6px 3px 2px rgba(0,0,0,0.24);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn {
+    width: 10rem;
+    height: 3rem;
+    text-decoration: none;
+    background-color: black;
+    border-radius: 4rem;
+    color: whitesmoke;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.btn2 {
+    font-size: 1.5rem;
+}
+
+#userList {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.divUserList {
+    align-self: center;
+    background-color: black;
+    border-radius: 2rem;
+    color: white;
+    padding: 1.5rem;
+    border: solid .2rem whitesmoke;
+}
+
+.ulListUser {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ulListUser li {
+    margin: 0 0 1rem 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.1rem;
+}
+
+.spanTitles {
+    color: greenyellow;
+    font-size: 1.2rem;
+    text-decoration: underline;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.divUserList2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1.5rem 0 0 0;
+}
+
+.btnUserRole {
+    background-color: dodgerblue;
+    border-radius: 1rem;
+    font-size: 1rem;
+    padding: .5rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.btnUserDel {
+    background-color: crimson;
+    border-radius: 1rem;
+    font-size: 1rem;
+    padding: .5rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

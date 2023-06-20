@@ -19,9 +19,9 @@ let idCart;
 fetch(`/api/users`)
     .then((resp) => resp.json())
     .then((data) => {
-        rol = (data.role);
-        ownerPremiumEmail = (data.email);
-        idCart = (data.cart)
+        rol = (data.userRole);
+        ownerPremiumEmail = (data.userEmail);
+        idCart = (data.userCart)
 
         setTimeout(() => {
             let div = document.createElement("div");

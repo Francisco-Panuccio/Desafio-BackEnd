@@ -1,7 +1,18 @@
 import { productsModel } from "../../mongoDB/models/products.model.js";
 import CustomError from "../../../errors/CustomError.js";
 import logger from "../../../winston/winston.js";
+import nodemailer from 'nodemailer';
+import config from "../../../../env/config.js";
 import { ErrorsName, ErrorsMessage, ErrorsCause } from "../../../errors/errors.enum.js";
+
+const transport = nodemailer.createTransport({
+    service: 'gmail',
+    port: 587,
+    auth: {
+        user: config.googleEmail,
+        pass: config.googlePassword
+    }
+})
 
 export default class ProductManager {
     async addProduct(obj) {
@@ -50,8 +61,24 @@ export default class ProductManager {
 
     async deleteProduct(id) {
         try {
-            const prdcToDelete = await productsModel.deleteOne({_id:id});
-            return prdcToDelete;
+            const prdctData = await productsModel.findById(id);
+            if(prdctData.owner !== "Admin") {
+                let result = await transport.sendMail({
+                    from: "Sneakers <franciscopanuccio@gmail.com>",
+                    to: prdctData.owner,
+                    subject: 'Producto Premium Eliminado',
+                    html: `
+                        <div>
+                            <p>El producto ${prdctData.title} de ID:${(prdctData._id).toString()}, ha sido eliminado exitosamente.</p>
+                        </div>
+                    `
+                })
+                await productsModel.deleteOne({_id:id});
+                return result;
+            } else {
+                const prdcToDelete = await productsModel.deleteOne({_id:id});
+                return prdcToDelete;
+            }
         } catch {
             CustomError.createCustomError({
                 name: ErrorsName.deleteProductError,

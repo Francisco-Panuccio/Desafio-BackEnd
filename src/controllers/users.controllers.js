@@ -1,4 +1,4 @@
-import { createUserService, loginUserService, getUserByEmailService, getProfileUserService, getMailService, changeRoleService, recoveryFormService, fileUploadProfileService, fileUploadProductService, changeLastConnectionService } from "../service/users.services.js";
+import { createUserService, loginUserService, getUserByEmailService, getProfileUserService, getMailService, changeRoleService, recoveryFormService, changeLastConnectionService, deleteInactiveUsersService, userListService, deleteUserService } from "../service/users.services.js";
 
 export const createUserController = async (req, res) => {
     const user = req.body;
@@ -56,8 +56,8 @@ export const profileUserController = async (req, res) => {
 
 export const getMailController = async (req, res) => {
     const email = req.body;
-    const mailing = await getMailService(email)
-    res.send(mailing)
+    const mailing = await getMailService(email);
+    res.send(mailing);
 }
 
 export const changeRoleController = async (req, res) => {
@@ -72,26 +72,18 @@ export const recoveryFormController = async (req, res) => {
     res.send(userFound);
 }
 
-export const fileUploadProfileController = async (req, res) => {
-    if(!req.file) {
-        res.send({message: "¡Error! No se pudo cargar la imagen"})
-    } else {
-        const {uid} = req.params;
-        const {data} = req.file;
-        console.log("DATA", req.file)
-        console.log("DOTO", data)
-        const imageProfile = await fileUploadProfileService(uid, data);
-        res.send(imageProfile);
-    }
+export const deleteInactiveUsersController = async (req, res) => {
+    const users = await deleteInactiveUsersService();
+    res.json(users)
 }
 
-export const fileUploadProductController = async (req, res) => {
-    if(!req.file) {
-        res.send({message: "¡Error! No se pudo cargar la imagen"})
-    } else {
-        const {uid} = req.params;
-        const {data} = req.file;
-        const imageProduct = await fileUploadProductService(uid, data);
-        res.send(imageProduct);
-    }
+export const userListController = async (req, res) => {
+    const userList = await userListService();
+    res.json(userList);
+}
+
+export const deleteUserController = async (req, res) => {
+    const {uid} = req.params;
+    const user = await deleteUserService(uid);
+    res.json(user);
 }

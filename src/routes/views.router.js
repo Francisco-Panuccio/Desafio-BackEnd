@@ -54,6 +54,12 @@ router.get("/realTimeProducts", validationAdminPremium, (req, res) => {
     })
 })
 
+router.get("/realTimeUsers", validationAdminPremium, (req, res) => {
+    res.render("realTimeUsers", {
+        style: "realTimeUsers.css"
+    })
+})
+
 router.get("/chat", userValidation, onlyUserValidation, (req, res) => {
     res.render("chat", {
         style: "chat.css"

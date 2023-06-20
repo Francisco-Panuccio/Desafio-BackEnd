@@ -34,18 +34,7 @@ const usersSchema = new mongoose.Schema({
     last_connection: {
         type: Date,
         default: new Date()
-    },
-    documents: [
-        {
-            _id: false,
-            name: {
-                type: String
-            },
-            reference: {
-                type: String
-            }
-        }
-    ]
+    }
 });
 
 usersSchema.pre("find", function(next) {

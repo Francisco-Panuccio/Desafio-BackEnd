@@ -1,4 +1,4 @@
-import { createUser, loginUser, getUserByEmail, getProfileUser, getMail, changeRole, recoveryForm, fileUploadProfile, fileUploadProduct, changeLastConnection } from "../persistence/persistence.js";
+import { createUser, loginUser, getUserByEmail, getProfileUser, getMail, changeRole, recoveryForm, changeLastConnection, deleteInactiveUsers, userList, deleteUser } from "../persistence/persistence.js";
 
 export async function createUserService(user) {
     const userC = await createUser(user);
@@ -35,17 +35,22 @@ export async function recoveryFormService(userData) {
     return userFound;
 }
 
-export async function fileUploadProfileService(uid, data) {
-    const imageProfile = await fileUploadProfile(uid, data);
-    return imageProfile;
-}
-
-export async function fileUploadProductService(uid, data) {
-    const imageProduct = await fileUploadProduct(uid, data);
-    return imageProduct;
-}
-
 export async function changeLastConnectionService(email) {
     const user = await changeLastConnection(email);
+    return user;
+}
+
+export async function deleteInactiveUsersService() {
+    const users = await deleteInactiveUsers();
+    return users;
+}
+
+export async function userListService() {
+    const users = await userList();
+    return users;
+}
+
+export async function deleteUserService(uid) {
+    const user = await deleteUser(uid);
     return user;
 }

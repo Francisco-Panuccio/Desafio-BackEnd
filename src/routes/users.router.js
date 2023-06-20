@@ -1,6 +1,6 @@
 import { Router } from "express";
 import passport from "passport";
-import { createUserController, loginUserController, getUserByEmailController, logoutController, profileUserController, getMailController, changeRoleController, recoveryFormController, fileUploadProfileController, fileUploadProductController} from "../controllers/users.controllers.js";
+import { createUserController, loginUserController, getUserByEmailController, logoutController, profileUserController, userListController, getMailController, recoveryFormController, changeRoleController, deleteInactiveUsersController, deleteUserController } from "../controllers/users.controllers.js";
 
 const router = Router();
 
@@ -27,16 +27,16 @@ router.get("/github", passport.authenticate("github"), (req, res) => {
     }
 })
 
+router.get("/userList", userListController)
+
 router.post("/recoveryPassword", getMailController)
 
 router.post("/recoveryForm", recoveryFormController)
 
 router.put("/premium/:uid", changeRoleController)
 
-router.post("/:uid/documents", fileUploadProfileController)
+router.delete("/", deleteInactiveUsersController)
 
-router.post("/:uid/documents/imageProfile", fileUploadProfileController)
-
-router.post("/:uid/documents/imageProducts", fileUploadProductController)
+router.delete("/:uid", deleteUserController)
 
 export default router;

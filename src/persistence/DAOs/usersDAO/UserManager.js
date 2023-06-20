@@ -57,10 +57,25 @@ export default class UserManager {
         } 
     }
 
+    async userList() {
+        try {
+            const users = await usersModel.find({})
+            return users;
+        } catch (error) {
+            logger.error(error)
+        }
+    }
+
     async getUserByEmail(email) {
         try {
-            const users = await usersModel.findOne({ email });
-            return users;
+            if(email === config.adminEmail) {
+                const adminDTO = new AdminDTO(email)
+                return adminDTO;
+            } else {
+                const user = await usersModel.findOne({ email });
+                const userDTO = new UsersDTO(user);
+                return userDTO;
+            }
         } catch (error) {
             logger.info("Id no encontrado", error)
         }
@@ -154,29 +169,45 @@ export default class UserManager {
         }
     }
 
-    async fileUploadProfile(uid, data) {
-        try {
-            const user = await usersModel.findById(uid);
-            const data = 
-            console.log(user)
-        } catch (error) {
-            logger.info(error)
-        }
-    }
-
-    async fileUploadProduct(uid, data) {
-        try {
-            const user = await usersModel.findById(uid);
-        } catch (error) {
-            logger.info(error)
-        }
-    }
-
     async changeLastConnection(email) {
         try {
             const user = await usersModel.findOne({email})
             const newUpd = await usersModel.updateOne({email: user.email}, {last_connection: new Date()})
             return newUpd;
+        } catch (error) {
+            logger.error(error)
+        }
+    }
+
+    async deleteInactiveUsers() {
+        try {
+            const dateNow = new Date();
+            const users = await usersModel.find({})
+            for(const user of users) {
+                if(dateNow.getDate() > (user.last_connection.getDate()+2)) {
+                    let deleteAccount = await transport.sendMail({
+                        from: "Sneakers <franciscopanuccio@gmail.com>",
+                        to: user.email,
+                        subject: 'Cuenta Eliminada',
+                        html: `
+                            <div>
+                                <p>Le informamos que hemos eliminado su cuenta por inactividad.</p>
+                            </div>
+                        `
+                    })
+                    await usersModel.deleteOne({email: user.email})
+                    return deleteAccount;
+                }
+            }
+        } catch (error) {
+            logger.error(error)
+        }
+    }
+
+    async deleteUser(uid) {
+        try {
+            const userDeleted = await usersModel.deleteOne({_id:uid});
+            return userDeleted;
         } catch (error) {
             logger.error(error)
         }

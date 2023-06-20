@@ -4,6 +4,5 @@ export default class UsersDTO {
         this.userEmail = user.email
         this.userRole = user.role
         this.userCart = user.cart
-        this.userId = user._id
     }
 }
