@@ -37,8 +37,8 @@ export async function updateCart(cid, arrayCart) {
 export async function reduceStock(pid) {
     return await persistenceCart.reduceStock(pid);
 }
-export async function incStock(pid) {
-    return await persistenceCart.incStock(pid);
+export async function incStock(pid, qnt) {
+    return await persistenceCart.incStock(pid, qnt);
 }
 export async function endPurchase(email, total) {
     return await persistenceCart.endPurchase(email, total)

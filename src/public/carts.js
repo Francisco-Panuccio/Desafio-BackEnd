@@ -2,6 +2,7 @@ const socketClient = io();
 
 const container = document.getElementById("container");
 const listCart = document.getElementById("listCart");
+const headerHome = document.getElementById("headerHome");
 let idCart;
 let rol;
 let total = 0;
@@ -9,10 +10,41 @@ let total = 0;
 fetch(`/api/users`)
     .then((resp) => resp.json())
     .then((data) => {
-        idCart = (data.cart)
+        idCart = (data.userCart)
 
-        rol = (data.role)
+        rol = (data.userRole)
     });
+
+document.addEventListener("DOMContentLoaded", () => {
+    let div = document.createElement("div");
+    div.innerHTML = `<button class="btn btn2" id="btnHome">Home</button>
+    <button class="btn btn2" id="btnPrdts">Atras</button>`
+    headerHome.appendChild(div);
+
+    const btnHome = document.getElementById("btnHome");
+    const btnPrdts = document.getElementById("btnPrdts");
+
+    btnHome.onclick = () => {
+        btnHome.disabled = true;
+        if(rol === "Premium") {
+            location.href = "/indexPremium"
+        }
+        else if(rol === "Usuario") {
+            location.href = "/index"
+        } else {
+            location.href = "/indexAdmin"
+        }
+    }
+
+    btnPrdts.onclick = () => {
+        btnPrdts.disabled = true;
+        if(rol === "Usuario") {
+            location.href = "/products"
+        } else {
+            location.href = "/realTimeProducts"
+        }
+    }
+})
 
 setTimeout(() => {
     fetch(`/api/carts/${idCart}`)
@@ -27,16 +59,18 @@ setTimeout(() => {
             <p class="titleCart">${prd.product.title}</p>
             <span class="priceCart">$${prd.product.price.toLocaleString()}</span>
             <span class="qntCart">${prd.quantity}</span>
-            <button class="deletePrdcCart" id="${prd.product._id}"></button>`
+            <button class="deletePrdcCart" id="${prd.quantity}${prd.product._id}"></button>`
             listCart.appendChild(div);
         }
 
         const buttons = document.querySelectorAll(".deletePrdcCart");
 
         for(const button of buttons) {
+            const fetchID = (button.id).slice(1)
+            const fetchQnt = (button.id).slice(0,1)
             button.onclick = () => {
                 button.disabled = true;
-                fetch(`/api/carts/stockInc/${button.id}`, {
+                fetch(`/api/carts/stockInc/${fetchID}/${fetchQnt}`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json;charset=UTF-8"
@@ -45,7 +79,7 @@ setTimeout(() => {
                     .then((resp) => resp.json())
                     .then((data) => {})
 
-                fetch(`/api/carts/${idCart}/products/${button.id}`, {
+                fetch(`/api/carts/${idCart}/products/${fetchID}`, {
                     method: "DELETE",
                 })
                     .then((resp) => resp.json())

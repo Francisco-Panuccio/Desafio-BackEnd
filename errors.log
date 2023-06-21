@@ -778,3 +778,626 @@
 { level: 'error', timestamp: '2023-06-16T17:02:29.771Z' }
 { level: 'error', timestamp: '2023-06-16T19:12:39.833Z' }
 { level: 'error', timestamp: '2023-06-16T19:59:10.827Z' }
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "640637a7365800f6cd3f4ea6" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"640637a7365800f6cd3f4ea6"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '640637a7365800f6cd3f4ea6',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-06-21T02:02:26.390Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "640637a7365800f6cd3f4ea6" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"640637a7365800f6cd3f4ea6"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '640637a7365800f6cd3f4ea6',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-06-21T02:02:42.716Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "6406378a365800f6cd3f4ea4" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"6406378a365800f6cd3f4ea4"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '6406378a365800f6cd3f4ea4',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-06-21T02:02:45.346Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "64063768365800f6cd3f4ea2" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"64063768365800f6cd3f4ea2"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '64063768365800f6cd3f4ea2',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    },
+    purchaser: ValidatorError: Path `purchaser` is required.
+        at validate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaString.SchemaType.doValidate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:2905:18
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      properties: {
+        validator: [Function (anonymous)],
+        message: 'Path `purchaser` is required.',
+        type: 'required',
+        path: 'purchaser',
+        value: null
+      },
+      kind: 'required',
+      path: 'purchaser',
+      value: null,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-06-21T17:31:26.488Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "64063768365800f6cd3f4ea2" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"64063768365800f6cd3f4ea2"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '64063768365800f6cd3f4ea2',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    },
+    purchaser: ValidatorError: Path `purchaser` is required.
+        at validate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaString.SchemaType.doValidate (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:2905:18
+        at processTicksAndRejections (node:internal/process/task_queues:78:11) {
+      properties: {
+        validator: [Function (anonymous)],
+        message: 'Path `purchaser` is required.',
+        type: 'required',
+        path: 'purchaser',
+        value: null
+      },
+      kind: 'required',
+      path: 'purchaser',
+      value: null,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-06-21T17:31:39.764Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "6406378a365800f6cd3f4ea4" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"6406378a365800f6cd3f4ea4"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '6406378a365800f6cd3f4ea4',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-06-21T17:33:04.812Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "640637a7365800f6cd3f4ea6" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"640637a7365800f6cd3f4ea6"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '640637a7365800f6cd3f4ea6',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-06-21T17:33:07.045Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "6406378a365800f6cd3f4ea4" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"6406378a365800f6cd3f4ea4"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '6406378a365800f6cd3f4ea4',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-06-21T17:33:09.835Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "64063768365800f6cd3f4ea2" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"64063768365800f6cd3f4ea2"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '64063768365800f6cd3f4ea2',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-06-21T17:33:26.988Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "64063768365800f6cd3f4ea2" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"64063768365800f6cd3f4ea2"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '64063768365800f6cd3f4ea2',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-06-21T17:33:29.552Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "64063768365800f6cd3f4ea2" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"64063768365800f6cd3f4ea2"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '64063768365800f6cd3f4ea2',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-06-21T18:06:33.956Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "64063768365800f6cd3f4ea2" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"64063768365800f6cd3f4ea2"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '64063768365800f6cd3f4ea2',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-06-21T18:06:37.418Z'
+}
+{
+  errors: {
+    amount: CastError: Cast to Number failed for value "64063768365800f6cd3f4ea2" (type string) at path "amount"
+        at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+        at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+        at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+        at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+        at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7
+        at Array.forEach (<anonymous>) {
+      stringValue: '"64063768365800f6cd3f4ea2"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '64063768365800f6cd3f4ea2',
+      path: 'amount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaNumber.SchemaType.applySetters (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1423:22)
+          at model.$set (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:1148:16)
+          at model.Document (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:122:12)
+          at new model (C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:5092:15)
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3197:22
+          at C:\Users\Francisco\Desktop\Diseño Web\Backend\Desafio 5\node_modules\mongoose\lib\model.js:3232:7 {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Tickets validation failed',
+  level: 'error',
+  timestamp: '2023-06-21T18:26:12.436Z'
+}
+{ level: 'error', timestamp: '2023-06-21T18:45:02.624Z' }
+{ level: 'error', timestamp: '2023-06-21T18:46:13.513Z' }

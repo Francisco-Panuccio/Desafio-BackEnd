@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(`/api/users`)
     .then((resp) => resp.json())
     .then((data) => {
-        uid = data._id
+        uid = data.userID
     });
 
     setTimeout(() => {

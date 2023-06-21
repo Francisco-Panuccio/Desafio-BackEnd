@@ -45,8 +45,8 @@ export async function reduceStockService(pid) {
     return cartEnd;
 }
 
-export async function incStockService(pid) {
-    const cartEnd = await incStock(pid);
+export async function incStockService(pid, qnt) {
+    const cartEnd = await incStock(pid, qnt);
     return cartEnd;
 }
 

@@ -6,7 +6,7 @@ let idCart;
 fetch(`/api/users`)
     .then((resp) => resp.json())
     .then((data) => {
-        idCart = (data.cart)
+        idCart = (data.userCart)
     });
 
 setTimeout(() => {

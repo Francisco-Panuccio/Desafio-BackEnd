@@ -76,8 +76,8 @@ export const reduceStockController = async (req, res) => {
 }
 
 export const incStockController = async (req, res) => {
-    const {pid} = req.params;
-    const stock = await incStockService(pid);
+    const {pid, qnt} = req.params;
+    const stock = await incStockService(pid, qnt);
     res.json(stock);
 }
 

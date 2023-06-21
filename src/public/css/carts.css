@@ -13,6 +13,7 @@ h1 {
     color: white;
     margin: 0 0 1rem 0;
     padding-left: 10rem;
+    text-decoration: underline;
 }
 
 #container {
@@ -98,4 +99,20 @@ h1 {
 
 .deletePrdcCart:hover {
     cursor: pointer;
+}
+
+.btn {
+    width: 10rem;
+    height: 3rem;
+    text-decoration: none;
+    background-color: black;
+    border-radius: 4rem;
+    color: whitesmoke;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    margin: .5rem 0 0 1rem;
+}
+
+.btn2 {
+    font-size: 1.5rem;
 }

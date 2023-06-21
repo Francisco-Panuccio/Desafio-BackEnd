@@ -146,11 +146,11 @@ export default class CartManager {
         }
     }
 
-    async incStock(pid) {
+    async incStock(pid, qnt) {
         try {
             const updPrd = productsModel.updateOne(
                 {_id: pid},
-                {$inc: {"stock": 1}}
+                {$inc: {"stock": qnt}}
             )
             return updPrd;
         } catch (error) {

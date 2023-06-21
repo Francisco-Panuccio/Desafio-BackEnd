@@ -10,10 +10,11 @@ body {
 
 h4 {
     font-size: 1.3rem;
-    color: green;
+    color: lightgreen;
     text-decoration: underline;
     margin-bottom: .5rem;
     margin-top: 1rem;
+    font-weight: 1000;
 }
 
 #message {

@@ -21,7 +21,7 @@ router.put("/:cid", updateCartController)
 
 router.put("/stockDec/:pid", reduceStockController)
 
-router.put("/stockInc/:pid", incStockController)
+router.put("/stockInc/:pid/:qnt", incStockController)
 
 router.post("/:cid/purchase", endPurchaseController)
 
