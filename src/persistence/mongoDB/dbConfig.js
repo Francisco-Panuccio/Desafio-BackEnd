@@ -3,6 +3,7 @@ import config from "../../../env/config.js"
 
 const URI = config.mongoUrl
 
+mongoose.set("strictQuery", false);
 mongoose.connect(URI, (error) => {
     if(error) {
         console.log("Error de Conexión a la Base de Datos")
